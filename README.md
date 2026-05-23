@@ -43,7 +43,7 @@ Event konversi terpusat di `src/lib/analytics.ts` via `trackEvent()` di `site.ts
 
 ## Aset
 
-- Logo: `public/logo.svg`, `public/favicon.ico`
+- Logo & favicon: `public/logo.svg`, `src/app/icon.svg` (sama dengan logo)
 - Portfolio: `public/images/portfolio/` (20 file dari `portfolio-image/`)
 
 ## Dokumentasi
