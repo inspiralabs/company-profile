@@ -1,0 +1,43 @@
+# InspiraLabs (PT Nawa Inspira Digital)
+
+> Mitra digitalisasi Indonesia: software, IoT, desain visual, dan pelatihan teknologi.
+
+## About
+
+InspiraLabs provides software development, IoT solutions, visual design, and technology
+workshops. Founded by young Indonesian tech enthusiasts with global-standard engineering
+and an educational approach.
+
+## Services
+
+- Software Development: https://inspiralabs.com/#layanan-software
+- Robotic & IoT: https://inspiralabs.com/#layanan-iot
+- Creative & Branding: https://inspiralabs.com/#layanan-design
+- Coding, Robotics & Design Workshop: https://inspiralabs.com/#layanan-workshop
+
+## Products
+
+- SiJagaAir EWS Banjir: https://inspiralabs.com/#etalase
+- LMS, Smart POS, Sistem Desa: https://inspiralabs.com/#etalase
+
+## Pricing
+
+Structured pricing for AI agents: https://inspiralabs.com/pricing.md
+
+## Contact
+
+- WhatsApp: https://wa.me/6282124533265
+- Email: hello@inspiralabs.com
+- Contact form: https://inspiralabs.com/kontak
+- Survey: https://inspiralabs.com/survey
+
+## Case Studies
+
+- SiJagaAir Desa Bojong Kulur: https://inspiralabs.com/#portofolio
+- Kelas Seni Labschool Cibubur: https://inspiralabs.com/#portofolio
+- Workshop IoT SDIT Depok: https://inspiralabs.com/#portofolio
+
+## Legal
+
+- Privacy: https://inspiralabs.com/privasi
+- Terms: https://inspiralabs.com/syarat

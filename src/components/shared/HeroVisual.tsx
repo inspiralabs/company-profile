@@ -1,0 +1,61 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+import { Code2, Cpu, GraduationCap, Palette } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const HERO_IMAGE = "/images/hero/hero.jpeg";
+
+const fallbackIcons = [
+  { Icon: Code2, label: "Software" },
+  { Icon: Cpu, label: "IoT" },
+  { Icon: Palette, label: "Design" },
+  { Icon: GraduationCap, label: "Workshop" },
+];
+
+type HeroVisualProps = {
+  className?: string;
+};
+
+export default function HeroVisual({ className }: HeroVisualProps) {
+  const [useFallback, setUseFallback] = useState(false);
+
+  return (
+    <div
+      className={cn("relative mx-auto w-full max-w-md", className)}
+      aria-hidden
+    >
+      <div className="rounded-[2rem] bg-black/[0.04] p-2 ring-1 ring-gold-antique/30">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[calc(2rem-0.5rem)] bg-cream shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)]">
+          {!useFallback ? (
+            <Image
+              src={HERO_IMAGE}
+              alt="Ilustrasi kolaborasi digital InspiraLabs"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 90vw, 420px"
+              priority
+              unoptimized
+              onError={() => setUseFallback(true)}
+            />
+          ) : (
+            <div className="flex h-full min-h-[240px] flex-col items-center justify-center gap-4 p-8">
+              <div className="grid grid-cols-2 gap-3">
+                {fallbackIcons.map(({ Icon, label }) => (
+                  <div
+                    key={label}
+                    className="flex flex-col items-center gap-1 rounded-xl border border-[var(--color-border)] bg-surface px-4 py-3"
+                  >
+                    <Icon className="h-6 w-6 text-maroon-vibrant" />
+                    <span className="text-xs font-medium text-maroon-deep">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-maroon-deep: #6e150f;
+  --color-maroon-vibrant: #b92a1c;
+  --color-gold-antique: #d0a139;
+  --color-gold-bright: #fad64a;
+  --color-bg-primary: #fafaf7;
+  --color-bg-cream: #f5efe6;
+  --color-bg-surface: #ffffff;
+  --color-bg-charcoal: #1a1a1a;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #6b6b6b;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #ffffff;
+  --color-border: #e5e0d5;
+  --color-whatsapp: #25d366;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply overflow-x-hidden bg-[var(--color-bg-primary)] font-body text-charcoal antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-antique to-gold-bright bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8 lg:py-24;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 24px rgba(37, 211, 102, 0.65);
+  }
+}
+
+@layer utilities {
+  .motion-safe\:animate-pulse-soft {
+    animation: pulse-soft 2.5s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
