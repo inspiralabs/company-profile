@@ -2,7 +2,7 @@ import { trackConversion, type AnalyticsEvent } from "@/lib/analytics";
 
 export const SITE = {
   name: "InspiraLabs",
-  legalName: "PT Nawa Inspira Digital",
+  legalName: "Nawa Inspira Digital",
   tagline:
     "Empowering Digital Transformation Through Software, IoT, Visual Design & Tech Workshops",
   url: "https://inspiralabs.com",

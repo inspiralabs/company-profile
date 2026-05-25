@@ -39,7 +39,7 @@ const services = [
     description: "UI/UX, logo, brand guidelines, dan aset digital marketing.",
   },
   {
-    serviceType: "Coding, Robotics & Design Workshop",
+    serviceType: "Tech Training & Consulting",
     description:
       "Pelatihan hands-on web, Roblox, IoT, AI, dan desain untuk sekolah dan perusahaan.",
   },
