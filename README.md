@@ -45,6 +45,7 @@ Event konversi terpusat di `src/lib/analytics.ts` via `trackEvent()` di `site.ts
 
 - Logo & favicon: `public/logo.svg`, `src/app/icon.svg` (sama dengan logo)
 - Portfolio: `public/images/portfolio/` (20 file dari `portfolio-image/`)
+- AI image prompts: [`docs/prompts/`](docs/prompts/) (hero visual, products etalase)
 
 ## Dokumentasi
 
