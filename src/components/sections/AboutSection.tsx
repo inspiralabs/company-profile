@@ -19,27 +19,39 @@ const CARD_BG = "/images/founders/card-bg.webp";
 const founders = [
   {
     name: "Unggul Sulaiman",
-    role: "Founder & Lead Tech Engineer",
-    bio: "Nahkoda arsitektur Full-Stack dan rekayasa AI. Pengalaman akademis sebagai Guru, Asisten Lab, dan Dosen Tamu yang menerjemahkan komputasi kompleks menjadi hal yang mudah dipahami.",
+    role: "CEO & Founder of InspiraLabs",
+    subtitle: "Project Management & Business Strategy",
+    bio: "Memimpin arah bisnis dan strategi InspiraLabs. Bertanggung jawab atas perencanaan proyek, hubungan klien, dan pengembangan perusahaan.",
     initials: "US",
     photo: "/images/founders/unggul.webp",
     accent: "border-l-gold-antique",
   },
   {
-    name: "Fahri Priandana",
-    role: "Creative Director & Lead UI/UX Designer",
-    bio: "Konseptor estetika yang memastikan setiap proyek bernapas dan hidup. Menyatukan kekuatan engineering teknis dengan antarmuka artistik berstandar global.",
-    initials: "FP",
-    photo: "/images/founders/fahri.webp",
+    name: "Alif Ayatulloh Ar-Rizqy",
+    role: "CTO & Founder of InspiraLabs",
+    subtitle: "Software Engineer & IoT Specialist",
+    bio: "Memimpin keputusan teknis dan arsitektur sistem. Membangun aplikasi web, mobile, dan IoT yang menjadi produk utama InspiraLabs.",
+    initials: "AA",
+    photo: "/images/founders/alif.webp",
     accent: "border-l-maroon-vibrant",
   },
   {
-    name: "Alif Ayatulloh Ar-Rizqy",
-    role: "Software Engineer & IoT Engineer",
-    bio: "Arsitek perangkat lunak dan sistem IoT yang merancang alur data dari sensor hingga dashboard. Mengubah logika embedded dan backend menjadi solusi yang rapi, terukur, dan siap dipakai tim lapangan.",
-    initials: "AA",
-    photo: "/images/founders/alif.webp",
+    name: "M. H. Haikal",
+    role: "COO of InspiraLabs",
+    subtitle: "Operations & Administration",
+    bio: "Mengelola operasional harian, dokumentasi, dan koordinasi tim. Memastikan setiap proyek berjalan teratur dari kickoff hingga delivery.",
+    initials: "HK",
+    photo: "/images/founders/haikal.webp",
     accent: "border-l-gold-bright",
+  },
+  {
+    name: "Fahri Priandana",
+    role: "Creative Director of InspiraLabs",
+    subtitle: "Visual Design & Branding",
+    bio: "Memimpin arah visual dan branding. Menangani desain logo, UI, dan konten kreatif yang konsisten di seluruh platform.",
+    initials: "FP",
+    photo: "/images/founders/fahri.webp",
+    accent: "border-l-maroon-deep",
   },
 ];
 
@@ -75,6 +87,9 @@ function FounderCard({ founder: f }: { founder: (typeof founders)[number] }) {
             {f.name}
           </h4>
           <p className="text-xs font-medium text-gold-antique">{f.role}</p>
+          <p className="text-[11px] text-[var(--color-text-secondary)]">
+            {f.subtitle}
+          </p>
         </div>
       </div>
       <div className="p-5">
@@ -176,7 +191,7 @@ export default function AboutSection() {
         <h3 className="mt-12 font-display text-2xl font-bold text-maroon-deep">
           Siapa di Balik InspiraLabs?
         </h3>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {founders.map((f) => (
             <FounderCard key={f.name} founder={f} />
           ))}
