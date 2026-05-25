@@ -28,6 +28,7 @@ export default function FAQSection() {
           <Accordion
             type="single"
             collapsible
+            defaultValue="faq-0"
             className="w-full"
           >
             {FAQ_ITEMS.map((faq, i) => (
