@@ -8,10 +8,10 @@ InspiraLabs is an Indonesian software house providing custom software developmen
 
 ## Services
 
-- Software Development (web apps, mobile, dashboards, AI chatbots, CRM): https://inspiralabs.com/#layanan-software
-- Robotic & IoT Solutions (sensors, EWS, smart systems, embedded): https://inspiralabs.com/#layanan-iot
-- Creative & Visual Branding (logo, UI/UX, social media assets): https://inspiralabs.com/#layanan-design
-- Tech Training & Consulting (coding, Roblox, IoT, AI, design workshops): https://inspiralabs.com/#layanan-workshop
+- Software Development (web apps, mobile, dashboards, AI chatbots, CRM): https://inspiralabs.id/#layanan-software
+- Robotic & IoT Solutions (sensors, EWS, smart systems, embedded): https://inspiralabs.id/#layanan-iot
+- Creative & Visual Branding (logo, UI/UX, social media assets): https://inspiralabs.id/#layanan-design
+- Tech Training & Consulting (coding, Roblox, IoT, AI, design workshops): https://inspiralabs.id/#layanan-workshop
 
 ## Products (Ready to Deploy)
 
@@ -21,7 +21,7 @@ InspiraLabs is an Indonesian software house providing custom software developmen
 - Smart POS: point-of-sale with real-time inventory analytics
 - Sistem Manajemen Ekosistem Masjid: mosque community management
 
-All products: https://inspiralabs.com/#etalase
+All products: https://inspiralabs.id/#etalase
 
 ## Pricing
 
@@ -30,7 +30,7 @@ Two models available:
 - SaaS Subscription (Berlangganan): low upfront, monthly/annual, includes updates and support
 
 Enterprise and custom projects: Rp 50 million+
-Details: https://inspiralabs.com/#harga
+Details: https://inspiralabs.id/#harga
 
 ## Target Audience
 
@@ -43,9 +43,9 @@ Details: https://inspiralabs.com/#harga
 ## Contact
 
 - WhatsApp: https://wa.me/6282124533265 (response within 1x24 working hours)
-- Email: hello@inspiralabs.com
-- Contact form: https://inspiralabs.com/kontak
-- Needs assessment survey: https://inspiralabs.com/survey
+- Email: hello@inspiralabs.id
+- Contact form: https://inspiralabs.id/kontak
+- Needs assessment survey: https://inspiralabs.id/survey
 
 ## Case Studies
 
@@ -55,7 +55,7 @@ Details: https://inspiralabs.com/#harga
 - ECC Master Dash operational monitoring for enterprise
 - Kasly personal finance mobile app
 
-Portfolio: https://inspiralabs.com/#portofolio
+Portfolio: https://inspiralabs.id/#portofolio
 
 ## Location
 
@@ -63,5 +63,5 @@ Based in Bogor, West Java, Indonesia. Serving clients nationwide with online con
 
 ## Legal
 
-- Privacy Policy: https://inspiralabs.com/privasi
-- Terms of Service: https://inspiralabs.com/syarat
+- Privacy Policy: https://inspiralabs.id/privasi
+- Terms of Service: https://inspiralabs.id/syarat

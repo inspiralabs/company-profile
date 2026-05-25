@@ -5,8 +5,8 @@ export const SITE = {
   legalName: "Nawa Inspira Digital",
   tagline:
     "Empowering Digital Transformation Through Software, IoT, Visual Design & Tech Workshops",
-  url: "https://inspiralabs.com",
-  email: "hello@inspiralabs.com",
+  url: "https://inspiralabs.id",
+  email: "hello@inspiralabs.id",
   whatsapp: "6282124533265",
   whatsappDisplay: "+62 821-2453-3265",
   hours: "Senin – Jumat: 09.00 – 17.00 WIB",

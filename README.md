@@ -59,7 +59,7 @@ Ringkas:
 
 1. Import repo; **Root Directory** = `company-profile` jika monorepo
 2. Set env dari `.env.example` di dashboard Vercel
-3. Hubungkan domain `inspiralabs.com`; samakan dengan `SITE.url` di `src/lib/site.ts`
+3. Hubungkan domain `inspiralabs.id`; samakan dengan `SITE.url` di `src/lib/site.ts`
 4. `vercel.json` sudah menyertakan header keamanan dasar
 
 Setelah live: submit sitemap di GSC, uji Pixel di Events Manager.

@@ -1,6 +1,6 @@
 # Pricing — InspiraLabs
 
-> Nawa Inspira Digital | hello@inspiralabs.com | https://wa.me/6282124533265
+> Nawa Inspira Digital | hello@inspiralabs.id | https://wa.me/6282124533265
 
 ## Consultation
 
@@ -68,4 +68,4 @@
 | Beli Putus | Instansi, korporat, proyek kustom jangka panjang |
 | Berlangganan SaaS | UMKM, sekolah, produk etalase |
 
-Survey rekomendasi: https://inspiralabs.com/survey
+Survey rekomendasi: https://inspiralabs.id/survey
