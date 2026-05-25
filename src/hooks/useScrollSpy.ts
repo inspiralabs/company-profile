@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 export function useScrollSpy(sectionIds: string[], offset = 100) {
   const [activeId, setActiveId] = useState<string>("");
   const [forcedId, setForcedId] = useState<string>("");
-  const forcedTimer = useRef<ReturnType<typeof setTimeout>>();
+  const forcedTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   // Allow external code to force the active section (e.g., on nav click)
   const forceActive = useCallback((id: string) => {
