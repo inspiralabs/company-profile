@@ -1,11 +1,19 @@
 export const FAQ_ITEMS = [
   {
+    q: "Berapa kisaran investasi yang dibutuhkan?",
+    a: "Kami menawarkan dua model: Beli Putus (investasi awal lebih besar, kepemilikan penuh) dan Berlangganan SaaS (investasi rendah, bayar bulanan/tahunan). Kisaran mulai di bawah Rp 10 juta untuk proyek skala kecil (UMKM), hingga Rp 50 juta+ untuk sistem skala besar (instansi atau perusahaan). Gunakan Survey Kebutuhan kami untuk rekomendasi sesuai budget Anda.",
+  },
+  {
     q: "Apakah InspiraLabs melayani proyek dengan skala kecil?",
-    a: "Tentu. Kami bermula dari semangat inklusi di tingkat komunitas lokal. Berapapun skala proyek Anda, standar kualitas kami tetap sama — tidak ada proyek yang terlalu kecil untuk mendapat perhatian penuh.",
+    a: "Tentu. Kami bermula dari semangat inklusi di tingkat komunitas lokal. Berapapun skala proyek Anda, standar kualitas kami tetap sama. Tidak ada proyek yang \"terlalu kecil\" untuk mendapat perhatian penuh.",
+  },
+  {
+    q: "Apakah InspiraLabs melayani konsultasi atau proyek dengan mahasiswa?",
+    a: "Ya. Kami melayani konsultasi dan proyek bersama mahasiswa maupun pelajar, termasuk diskon spesial untuk kalangan akademik.",
   },
   {
     q: "Berapa lama waktu pengerjaan sebuah sistem atau aplikasi?",
-    a: "Durasi bergantung pada kompleksitas fitur. Dengan metodologi Agile, Anda akan melihat draf dan pembaruan rutin setiap pekan — bukan menunggu berbulan-bulan tanpa kabar.",
+    a: "Durasi bergantung pada kompleksitas fitur. Dengan metodologi Agile kami, Anda akan melihat draf dan pembaruan rutin setiap pekan, bukan menunggu berbulan-bulan tanpa kabar.",
   },
   {
     q: "Apakah ada jaminan perbaikan jika terjadi error?",
@@ -13,23 +21,23 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Bagaimana jika tim internal saya belum mengerti cara menggunakan aplikasinya?",
-    a: "Kami memiliki layanan pendampingan edukatif — melatih staf Anda melalui modul interaktif sampai benar-benar mandiri.",
+    a: "InspiraLabs memiliki layanan pendampingan edukatif. Kami melatih staf Anda melalui modul pelatihan interaktif sampai mereka benar-benar mandiri, bukan sekadar serah terima file dan dokumentasi.",
   },
   {
-    q: "Berapa kisaran investasi yang dibutuhkan?",
-    a: "Kami menawarkan Beli Putus dan Berlangganan SaaS. Kisaran mulai di bawah Rp 10 juta untuk produk etalase, hingga Rp 50 juta+ untuk sistem kustom. Gunakan Survey Kebutuhan untuk rekomendasi sesuai budget Anda.",
+    q: "Saya sudah punya website/produk, tapi ingin memperbaiki atau mengembangkan lebih lanjut?",
+    a: "Bisa. Kami membantu audit, perbaikan, dan pengembangan lanjutan produk digital Anda. Tim kami akan memberikan rekomendasi teknis sesuai kondisi sistem yang sudah ada.",
   },
   {
-    q: "Apakah data kami aman dan tidak dibagikan ke pihak ketiga?",
-    a: "Keamanan data adalah prioritas tinggi. Kami tidak membagikan data klien ke pihak ketiga tanpa persetujuan tertulis.",
-  },
-  {
-    q: "Bisakah saya melihat progress proyek secara real-time?",
-    a: "Ya. Workspace terpadu memungkinkan Anda memantau milestone dan memberikan feedback tanpa menunggu meeting.",
+    q: "Saya ingin membuat logo dan perbaikan feed Instagram?",
+    a: "Ya. Tim kreatif kami menangani branding, logo, hingga revamp konten visual Instagram. Kami akan memberikan showcase hasil kerja sebagai referensi sebelum Anda memutuskan.",
   },
   {
     q: "Apakah InspiraLabs bisa datang ke lokasi kami untuk pelatihan?",
-    a: "Ya. Format In-house Training dirancang untuk datang ke sekolah, kantor, atau instansi Anda dengan kurikulum disesuaikan.",
+    a: "Ya. Format In-house Training kami dirancang untuk datang ke sekolah, kantor, atau instansi Anda dengan kurikulum yang disesuaikan kebutuhan spesifik tim Anda.",
+  },
+  {
+    q: "Apakah data kami aman dan tidak dibagikan ke pihak ketiga?",
+    a: "Keamanan data adalah prioritas tinggi kami. Infrastruktur dirancang dengan standar keamanan terbaik, dan kami tidak pernah membagikan data klien ke pihak ketiga tanpa persetujuan tertulis.",
   },
 ];
 
@@ -38,7 +46,7 @@ export const WORKFLOW_STEPS = [
   { step: 2, title: "Design & Prototyping", desc: "Wireframe, UI/UX, dan validasi konsep" },
   { step: 3, title: "Development", desc: "Pengembangan iteratif dengan update rutin" },
   { step: 4, title: "Deployment & Testing", desc: "Go-live, QA, dan optimasi performa" },
-  { step: 5, title: "Coaching & Handover", desc: "Pelatihan tim hingga mandiri — nilai unik InspiraLabs" },
+  { step: 5, title: "Coaching & Handover", desc: "Pelatihan tim hingga mandiri, nilai unik InspiraLabs" },
 ];
 
 export const VISION =
@@ -76,7 +84,7 @@ export const WORKSHOP_SUBCATEGORIES = [
   { label: "Roblox Game Development", detail: "Game dev dengan Lua/LuaU di Roblox Studio" },
   { label: "IoT & Hardware Programming", detail: "Arduino, ESP32, berbagai sensor, hands-on project" },
   { label: "AI Implementation", detail: "Workshop implementasi AI untuk bisnis & pendidikan" },
-  { label: "Desain Grafis & UI/UX", detail: "Adobe Illustrator, Photoshop, Figma, brand design" },
+  { label: "Desain Grafis", detail: "Adobe Illustrator, Photoshop, brand design" },
 ];
 
 export const PRODUCTS = [
@@ -153,5 +161,5 @@ export const CONTACT_TEASER = {
   ctaWa: "Chat via WhatsApp",
 };
 
-export const SERVICE_CTA_LABEL = "Konsultasi gratis via WhatsApp";
+export const SERVICE_CTA_LABEL = "Hubungi via WhatsApp";
 export const SERVICE_PORTFOLIO_LABEL = "Lihat studi kasus terkait";

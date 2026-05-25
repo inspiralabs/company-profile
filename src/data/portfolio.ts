@@ -99,7 +99,7 @@ export const portfolioCases: PortfolioCase[] = [
       "Implementasi hardware programming sebagai ajang karya siswa",
     ],
     review: {
-      text: "Siswa yang biasanya pasif langsung aktif begitu pegang hardware. Workshop ini buka wawasan mereka soal teknologi masa depan.",
+      text: "Pelatihan untuk para guru ini sangat bermanfaat, mulai dari belajar merakit hingga implementasi. Karya siswa yang dihasilkan juga menarik dan menunjukkan kreativitas mereka.",
       author: "Erda Octarianti, S. Kom.",
       role: "Guru Informatika, SDIT Depok",
     },
