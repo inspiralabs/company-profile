@@ -9,48 +9,38 @@ import SectionWrapper from "@/components/shared/SectionWrapper";
 import { FAQ_ITEMS } from "@/data/copy";
 
 export default function FAQSection() {
-  const half = Math.ceil(FAQ_ITEMS.length / 2);
-  const col1 = FAQ_ITEMS.slice(0, half);
-  const col2 = FAQ_ITEMS.slice(half);
-
   return (
     <SectionWrapper id="faq" variant="cream">
-      <ScrollReveal>
-        <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
-          Pertanyaan yang Sering Diajukan
-        </h2>
-      </ScrollReveal>
-
-      {/* Visible for crawlers + accordion UX */}
-      <div className="sr-only">
-        {FAQ_ITEMS.map((f) => (
-          <div key={f.q}>
-            <h3>{f.q}</h3>
-            <p>{f.a}</p>
+      <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
+        <ScrollReveal>
+          <div className="lg:sticky lg:top-28">
+            <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+              Pertanyaan yang Sering Diajukan
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+              Belum menemukan jawaban yang Anda cari? Hubungi kami langsung via
+              WhatsApp untuk konsultasi lebih lanjut.
+            </p>
           </div>
-        ))}
-      </div>
+        </ScrollReveal>
 
-      <ScrollReveal delay={0.1}>
-        <div className="mt-10 grid gap-8 lg:grid-cols-2">
-          <Accordion type="single" collapsible className="w-full">
-            {col1.map((faq, i) => (
-              <AccordionItem key={faq.q} value={`c1-${i}`}>
-                <AccordionTrigger>{faq.q}</AccordionTrigger>
+        <ScrollReveal delay={0.1}>
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full"
+          >
+            {FAQ_ITEMS.map((faq, i) => (
+              <AccordionItem key={faq.q} value={`faq-${i}`}>
+                <AccordionTrigger className="text-left">
+                  {faq.q}
+                </AccordionTrigger>
                 <AccordionContent>{faq.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
-          <Accordion type="single" collapsible className="w-full">
-            {col2.map((faq, i) => (
-              <AccordionItem key={faq.q} value={`c2-${i}`}>
-                <AccordionTrigger>{faq.q}</AccordionTrigger>
-                <AccordionContent>{faq.a}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </ScrollReveal>
+        </ScrollReveal>
+      </div>
     </SectionWrapper>
   );
 }

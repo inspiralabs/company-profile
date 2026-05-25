@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import {
-  Bot,
+  MessagesSquare,
   ChevronDown,
   Code2,
   Cpu,
@@ -36,7 +36,7 @@ const pillars: {
     portfolioFilter: "software",
     icon: Code2,
     title: "Software Development",
-    desc: "Pembuatan aplikasi berbasis web dan mobile dengan performa tinggi — sistem informasi korporat hingga platform kustom.",
+    desc: "Pembuatan aplikasi berbasis web dan mobile dengan performa tinggi, dari sistem informasi korporat hingga platform kustom.",
     items: ["Custom Web App", "Mobile App", "Dashboard & Sistem", "AI Chatbot", "Otomatisasi & API", "CRM"],
   },
   {
@@ -45,7 +45,7 @@ const pillars: {
     portfolioFilter: "iot",
     icon: Cpu,
     title: "Robotic & IoT Solutions",
-    desc: "Menghubungkan dunia digital dan fisik — sensor pintar, EWS, smart office, embedded system.",
+    desc: "Menghubungkan dunia digital dan fisik: sensor pintar, EWS, smart office, embedded system.",
     items: ["Prototipe IoT", "Robotik & Otomasi", "Smart System", "Embedded Custom"],
   },
   {
@@ -54,7 +54,7 @@ const pillars: {
     portfolioFilter: "design",
     icon: Palette,
     title: "Creative & Visual Branding",
-    desc: "UI/UX intuitif, logo, aset sosmed, company profile — identitas yang memukau.",
+    desc: "UI/UX intuitif, logo, aset sosmed, company profile. Identitas yang memukau.",
     items: ["Branding & Identity", "UI/UX Design", "Digital Marketing Assets", "Company Profile"],
   },
   {
@@ -62,8 +62,8 @@ const pillars: {
     waKey: "workshop",
     portfolioFilter: "pelatihan",
     icon: GraduationCap,
-    title: "Coding, Robotics & Design Workshop",
-    desc: "Pelatihan hands-on — publik, bootcamp, in-house, coaching personal.",
+    title: "Tech Training & Consulting",
+    desc: "Pelatihan hands-on: publik, bootcamp, in-house, coaching personal.",
     items: ["Workshop Publik", "Bootcamp", "In-house Training", "Coaching Personal"],
     featured: true,
     expandable: true,
@@ -177,7 +177,7 @@ export default function ServicesSection() {
             rel="noopener noreferrer"
             onClick={() => trackEvent("cta_whatsapp_click", { location: "services" })}
           >
-            <Bot className="h-4 w-4" />
+            <MessagesSquare className="h-4 w-4" />
             Diskusikan Kebutuhan Anda
           </a>
         </Button>

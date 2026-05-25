@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionWrapper from "@/components/shared/SectionWrapper";
@@ -12,26 +14,77 @@ import {
 } from "@/data/copy";
 import { cn } from "@/lib/utils";
 
+const CARD_BG = "/images/founders/card-bg.webp";
+
 const founders = [
   {
     name: "Unggul Sulaiman",
     role: "Founder & Lead Tech Engineer",
-    bio: "Nahkoda arsitektur Full-Stack dan rekayasa AI. Pengalaman akademis sebagai Guru, Asisten Lab, dan Dosen Tamu — menerjemahkan komputasi kompleks menjadi hal yang mudah dipahami.",
+    bio: "Nahkoda arsitektur Full-Stack dan rekayasa AI. Pengalaman akademis sebagai Guru, Asisten Lab, dan Dosen Tamu yang menerjemahkan komputasi kompleks menjadi hal yang mudah dipahami.",
     initials: "US",
+    photo: "/images/founders/unggul.webp",
+    accent: "border-l-gold-antique",
   },
   {
     name: "Fahri Priandana",
-    role: "Creative Designer",
-    bio: "Konseptor estetika yang bertugas untuk membuat desain grafis dan visualisasi yang menarik.",
+    role: "Creative Director & Lead UI/UX Designer",
+    bio: "Konseptor estetika yang memastikan setiap proyek bernapas dan hidup. Menyatukan kekuatan engineering teknis dengan antarmuka artistik berstandar global.",
     initials: "FP",
+    photo: "/images/founders/fahri.webp",
+    accent: "border-l-maroon-vibrant",
   },
   {
     name: "Alif Ayatulloh Ar-Rizqy",
     role: "Software Engineer & IoT Engineer",
-    bio: "Berpengalaman di bidang IoT dan Seorang Software Engineer yang bertugas untuk mengembangkan aplikasi dan sistem yang berhubungan dengan Internet of Things (IoT).",
+    bio: "Arsitek perangkat lunak dan sistem IoT yang merancang alur data dari sensor hingga dashboard. Mengubah logika embedded dan backend menjadi solusi yang rapi, terukur, dan siap dipakai tim lapangan.",
     initials: "AA",
+    photo: "/images/founders/alif.webp",
+    accent: "border-l-gold-bright",
   },
 ];
+
+function FounderCard({ founder: f }: { founder: (typeof founders)[number] }) {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <Card className={cn("group overflow-hidden border-l-4 p-0", f.accent)}>
+      <div className="relative h-64 overflow-hidden bg-[#f8f6f2] sm:h-72">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-60"
+          style={{ backgroundImage: `url(${CARD_BG})` }}
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          {!imgError ? (
+            <Image
+              src={f.photo}
+              alt={f.name}
+              fill
+              className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+              sizes="(max-width: 768px) 90vw, 300px"
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <div className="flex h-28 w-28 items-center justify-center rounded-2xl border-2 border-gold-antique bg-gradient-brand text-3xl font-bold text-white transition-transform duration-500 group-hover:scale-110">
+              {f.initials}
+            </div>
+          )}
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-5">
+          <h4 className="font-display text-lg font-semibold text-maroon-deep">
+            {f.name}
+          </h4>
+          <p className="text-xs font-medium text-gold-antique">{f.role}</p>
+        </div>
+      </div>
+      <div className="p-5">
+        <p className="text-sm leading-relaxed text-[var(--color-text-secondary)]">
+          {f.bio}
+        </p>
+      </div>
+    </Card>
+  );
+}
 
 export default function AboutSection() {
   return (
@@ -52,7 +105,7 @@ export default function AboutSection() {
           <h3 className="font-display text-xl font-bold text-maroon-deep">Kisah Kami</h3>
           <p className="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
             Kami menyadari bahwa digitalisasi sering dianggap kemewahan eksklusif untuk
-            korporat besar. InspiraLabs lahir untuk mematahkan stigma tersebut — dimulai
+            korporat besar.             InspiraLabs lahir untuk mematahkan stigma tersebut, dimulai
             dari masalah dasar masyarakat: digitalisasi administrasi desa dan sistem
             peringatan dini bencana. Kami percaya solusi paling berdampak adalah yang
             paling mudah diakses bagi kemaslahatan publik.
@@ -125,20 +178,7 @@ export default function AboutSection() {
         </h3>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {founders.map((f) => (
-            <Card key={f.name} className="overflow-hidden p-0">
-              <div className="border-b-4 border-gold-antique bg-cream px-6 py-8 text-center">
-                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-lg border-2 border-gold-antique bg-gradient-brand text-2xl font-bold text-white">
-                  {f.initials}
-                </div>
-              </div>
-              <div className="p-6 text-center">
-                <h4 className="font-display text-lg font-semibold text-maroon-deep">
-                  {f.name}
-                </h4>
-                <p className="text-xs font-medium text-gold-antique">{f.role}</p>
-                <p className="mt-3 text-sm text-[var(--color-text-secondary)]">{f.bio}</p>
-              </div>
-            </Card>
+            <FounderCard key={f.name} founder={f} />
           ))}
         </div>
       </ScrollReveal>

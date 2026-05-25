@@ -6,7 +6,7 @@ import HeroVisual from "@/components/shared/HeroVisual";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SectionWrapper from "@/components/shared/SectionWrapper";
-import { SITE, WA_HERO, trackEvent } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export default function HeroSection() {
   const reduceMotion = useReducedMotion();
@@ -80,16 +80,6 @@ export default function HeroSection() {
               size="lg"
               className="w-full shadow-[0_0_24px_rgba(250,214,74,0.35)] sm:w-auto"
             >
-              <a
-                href={WA_HERO}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("cta_whatsapp_click", { location: "hero" })}
-              >
-                Konsultasikan Ide Anda (Gratis)
-              </a>
-            </Button>
-            <Button asChild variant="secondary" size="lg" className="w-full sm:w-auto">
               <a href="#layanan">
                 Jelajahi Solusi Kami
                 <ArrowDown className="h-4 w-4" />
@@ -103,7 +93,6 @@ export default function HeroSection() {
             transition={{ delay: reduceMotion ? 0 : 0.4 }}
             className="mt-5 text-sm text-[var(--color-text-muted)] sm:mt-6"
           >
-            Tanpa biaya konsultasi awal. Respons dalam 1×24 jam kerja.
           </motion.p>
         </div>
 
