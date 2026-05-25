@@ -2,7 +2,6 @@
 
 import { PortfolioHighlightProvider } from "@/context/PortfolioHighlightContext";
 import AboutSection from "@/components/sections/AboutSection";
-import ContactTeaserSection from "@/components/sections/ContactTeaserSection";
 import CTASection from "@/components/sections/CTASection";
 import FAQSection from "@/components/sections/FAQSection";
 import HeroSection from "@/components/sections/HeroSection";
@@ -28,7 +27,6 @@ export default function LandingPage() {
       <SurveyPromoSection />
       <FAQSection />
       <CTASection />
-      <ContactTeaserSection />
     </PortfolioHighlightProvider>
   );
 }
