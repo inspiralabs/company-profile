@@ -31,7 +31,7 @@ export default function HeroVisual({ className }: HeroVisualProps) {
           {!useFallback ? (
             <Image
               src={HERO_IMAGE}
-              alt="Ilustrasi kolaborasi digital InspiraLabs"
+              alt="Tim InspiraLabs berdiskusi solusi digital"
               fill
               className="object-cover object-center"
               sizes="(max-width: 1024px) 90vw, 420px"
