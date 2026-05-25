@@ -26,7 +26,7 @@ const layananDropdown = [
   { href: "#layanan-software", label: "Software Development" },
   { href: "#layanan-iot", label: "Robotic & IoT" },
   { href: "#layanan-design", label: "Creative & Branding" },
-  { href: "#layanan-workshop", label: "Coding, Robotics & Design Workshop" },
+  { href: "#layanan-workshop", label: "Tech Training & Consulting" },
 ];
 
 const navLinks = [
@@ -91,7 +91,9 @@ export default function Navbar() {
           <div
             className="relative"
             onMouseEnter={() => setLayananOpen(true)}
-            onMouseLeave={() => setLayananOpen(false)}
+            onMouseLeave={() => {
+              setTimeout(() => setLayananOpen(false), 150);
+            }}
           >
             <button
               type="button"
@@ -109,7 +111,12 @@ export default function Navbar() {
               <ChevronDown className={cn("h-4 w-4 transition-transform", layananOpen && "rotate-180")} />
             </button>
             {layananOpen && (
-              <div className="absolute left-0 top-full z-50 mt-2 min-w-[280px] rounded-lg border border-[var(--color-border)] bg-surface py-2 shadow-card-hover">
+              <div
+                className="absolute left-0 top-full z-50 min-w-[280px] rounded-lg border border-[var(--color-border)] bg-surface py-2 shadow-card-hover"
+                onMouseEnter={() => setLayananOpen(true)}
+                onMouseLeave={() => setLayananOpen(false)}
+              >
+                <div className="absolute -top-2 left-0 h-2 w-full" />
                 {layananDropdown.map((item) => (
                   <Link
                     key={item.href}
@@ -132,9 +139,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/survey" className="text-sm font-medium text-charcoal/80 hover:text-maroon-vibrant">
-            Survey
-          </Link>
           <Button asChild size="sm">
             <a
               href={WA_HERO}
@@ -142,7 +146,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               onClick={() => trackEvent("cta_whatsapp_click", { location: "navbar" })}
             >
-              Konsultasi Gratis
+              Hubungi Kami
             </a>
           </Button>
         </nav>
@@ -183,12 +187,9 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/survey" className="block py-2 text-sm font-medium" onClick={() => setOpen(false)}>
-            Survey
-          </Link>
           <Button asChild className="mt-3 w-full">
             <a href={WA_HERO} target="_blank" rel="noopener noreferrer">
-              Konsultasi Gratis
+              Hubungi Kami
             </a>
           </Button>
         </div>

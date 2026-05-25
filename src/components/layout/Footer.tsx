@@ -31,7 +31,7 @@ export default function Footer() {
               </Link>
               <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/80 lg:max-w-none">
                 InspiraLabs adalah kolaborasi anak muda yang mendedikasikan teknologi,
-                desain grafis, dan edukasi bagi kemajuan masyarakat — dari skala komunitas
+                desain grafis, dan edukasi bagi kemajuan masyarakat, dari skala komunitas
                 hingga korporat global.
               </p>
             </div>
@@ -74,8 +74,7 @@ export default function Footer() {
           </div>
 
           <p className="mt-10 w-full border-t border-white/20 pt-8 text-center text-xs text-white/60 sm:mt-12">
-            © {new Date().getFullYear()} {SITE.name}. {SITE.legalName}. Seluruh Hak Cipta
-            Dilindungi Undang-Undang.
+            Copyright &copy; 2026 {SITE.name} - {SITE.legalName}
           </p>
         </div>
       </div>
