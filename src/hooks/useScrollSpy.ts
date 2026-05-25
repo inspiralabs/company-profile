@@ -1,32 +1,73 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-export function useScrollSpy(sectionIds: string[], offset = 120) {
-  const [activeId, setActiveId] = useState<string>(sectionIds[0] ?? "");
+export function useScrollSpy(sectionIds: string[], offset = 100) {
+  const [activeId, setActiveId] = useState<string>("");
+  const [forcedId, setForcedId] = useState<string>("");
+  const forcedTimer = useRef<ReturnType<typeof setTimeout>>();
 
-  useEffect(() => {
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+  // Allow external code to force the active section (e.g., on nav click)
+  const forceActive = useCallback((id: string) => {
+    setForcedId(id);
+    // Clear forced state after scroll animation settles
+    if (forcedTimer.current) clearTimeout(forcedTimer.current);
+    forcedTimer.current = setTimeout(() => setForcedId(""), 800);
+  }, []);
 
-    if (elements.length === 0) return;
+  const computeActive = useCallback(() => {
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const scrollY = window.scrollY;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]?.target.id) {
-          setActiveId(visible[0].target.id);
+    // At the bottom of the page, activate the last found section
+    if (scrollY + windowHeight >= docHeight - 30) {
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        if (document.getElementById(sectionIds[i])) {
+          setActiveId(sectionIds[i]);
+          return;
         }
-      },
-      { rootMargin: `-${offset}px 0px -60% 0px`, threshold: [0, 0.25, 0.5] }
-    );
+      }
+    }
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    // Walk through sections in order. Pick the last one whose top has scrolled
+    // past the offset line (top of viewport + offset pixels).
+    let current = "";
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const top = el.getBoundingClientRect().top;
+      if (top <= offset) {
+        current = id;
+      }
+    }
+
+    if (current) {
+      setActiveId(current);
+    } else {
+      const first = sectionIds.find((id) => document.getElementById(id));
+      if (first) setActiveId(first);
+    }
   }, [sectionIds, offset]);
 
-  return activeId;
+  useEffect(() => {
+    computeActive();
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          computeActive();
+          ticking = false;
+        });
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [computeActive]);
+
+  // Return forced ID if set, otherwise computed scroll-based ID
+  return { activeId: forcedId || activeId, forceActive };
 }

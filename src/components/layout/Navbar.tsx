@@ -15,12 +15,15 @@ const SECTION_IDS = [
   "nilai",
   "kemitraan",
   "layanan",
+  "layanan-software",
+  "layanan-iot",
+  "layanan-design",
+  "layanan-workshop",
   "etalase",
   "harga",
   "tentang",
   "portofolio",
   "faq",
-  "kontak",
 ];
 
 const layananDropdown = [
@@ -43,10 +46,9 @@ export default function Navbar() {
   const [layananOpen, setLayananOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const scrollSpyId = useScrollSpy(SECTION_IDS);
+  const { activeId: scrollSpyId, forceActive } = useScrollSpy(SECTION_IDS);
 
   const isHomePage = pathname === "/";
-  const activeId = isHomePage ? scrollSpyId : "";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -54,18 +56,27 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const linkClass = (sectionId?: string, href?: string) => {
-    const isActive = isHomePage
-      ? sectionId && activeId === sectionId
-      : href && !href.startsWith("/#") && pathname === href;
+  const handleNavClick = (sectionId?: string) => {
+    if (sectionId) forceActive(sectionId);
+  };
 
-    return cn(
+  const isLinkActive = (sectionId?: string, href?: string) => {
+    if (isHomePage) {
+      return sectionId ? scrollSpyId === sectionId : false;
+    }
+    if (href && !href.startsWith("/#")) {
+      return pathname === href;
+    }
+    return false;
+  };
+
+  const linkClass = (sectionId?: string, href?: string) =>
+    cn(
       "text-sm font-medium transition-colors",
-      isActive
+      isLinkActive(sectionId, href)
         ? "text-maroon-vibrant underline decoration-gold-antique decoration-2 underline-offset-8"
         : "text-charcoal/80 hover:text-maroon-vibrant"
     );
-  };
 
   return (
     <header
@@ -93,7 +104,12 @@ export default function Navbar() {
 
         <nav className="hidden items-center gap-5 lg:flex">
           {navLinks.slice(0, 1).map((link) => (
-            <Link key={link.href} href={link.href} className={linkClass(link.sectionId, link.href)}>
+            <Link
+              key={link.href}
+              href={link.href}
+              className={linkClass(link.sectionId, link.href)}
+              onClick={() => handleNavClick(link.sectionId)}
+            >
               {link.label}
             </Link>
           ))}
@@ -109,10 +125,11 @@ export default function Navbar() {
               type="button"
               className={cn(
                 "flex items-center gap-1 text-sm font-medium",
-                activeId === "layanan" ||
-                  ["layanan-software", "layanan-iot", "layanan-design", "layanan-workshop"].includes(
-                    activeId
-                  )
+                isHomePage &&
+                  (scrollSpyId === "layanan" ||
+                    ["layanan-software", "layanan-iot", "layanan-design", "layanan-workshop"].includes(
+                      scrollSpyId
+                    ))
                   ? "text-maroon-vibrant underline decoration-gold-antique decoration-2 underline-offset-8"
                   : "text-charcoal/80 hover:text-maroon-vibrant"
               )}
@@ -145,6 +162,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={linkClass(link.sectionId, link.href)}
+              onClick={() => handleNavClick(link.sectionId)}
             >
               {link.label}
             </Link>
@@ -173,7 +191,7 @@ export default function Navbar() {
 
       {open && (
         <div className="max-h-[80vh] overflow-y-auto border-t border-[var(--color-border)] bg-surface px-4 py-4 lg:hidden">
-          <Link href="/#home" className="block py-2 text-sm font-medium" onClick={() => setOpen(false)}>
+          <Link href="/#home" className="block py-2 text-sm font-medium" onClick={() => { handleNavClick("home"); setOpen(false); }}>
             Home
           </Link>
           <p className="py-2 text-xs font-semibold uppercase text-[var(--color-text-muted)]">Layanan</p>
@@ -182,7 +200,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               className="block py-2 pl-3 text-sm"
-              onClick={() => setOpen(false)}
+              onClick={() => { handleNavClick("layanan"); setOpen(false); }}
             >
               {item.label}
             </Link>
@@ -192,7 +210,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className="block py-2 text-sm font-medium"
-              onClick={() => setOpen(false)}
+              onClick={() => { handleNavClick(link.sectionId); setOpen(false); }}
             >
               {link.label}
             </Link>
