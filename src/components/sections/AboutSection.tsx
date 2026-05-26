@@ -137,35 +137,33 @@ export default function AboutSection() {
         <h3 className="mt-12 font-display text-xl font-bold text-maroon-deep">
           How We Work
         </h3>
-        <ol className="mt-6 flex flex-col gap-6 lg:flex-row lg:gap-0">
+        <ol className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
           {WORKFLOW_STEPS.map((s, i) => (
-            <li
-              key={s.step}
-              className={cn(
-                "relative flex gap-4 px-0 lg:flex-1 lg:flex-col lg:px-3",
-                s.step === 5 && "rounded-lg bg-gold-bright/15 p-4 ring-1 ring-gold-antique/40 lg:p-3"
-              )}
-            >
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-maroon-deep text-sm font-bold text-white">
+            <li key={s.step} className="relative flex items-start gap-4 lg:flex-col lg:items-center lg:text-center">
+              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-maroon-deep text-sm font-bold text-white shadow-md">
                 {s.step}
               </div>
-              <div className="min-w-0">
+              {i < WORKFLOW_STEPS.length - 1 && (
+                <span
+                  className="absolute left-5 top-10 h-full w-0.5 bg-gold-antique/40 sm:hidden"
+                  aria-hidden
+                />
+              )}
+              {i < WORKFLOW_STEPS.length - 1 && (
+                <span
+                  className="absolute left-[calc(50%+20px)] top-5 hidden h-0.5 w-[calc(100%-40px)] bg-gold-antique/40 lg:block"
+                  aria-hidden
+                />
+              )}
+              <div
+                className={cn(
+                  "min-w-0 lg:mt-4 lg:px-2",
+                  s.step === 5 && "rounded-lg bg-gold-bright/15 px-3 pb-3 pt-2 ring-1 ring-gold-antique/40 lg:mt-2"
+                )}
+              >
                 <p className="text-sm font-semibold text-maroon-deep">{s.title}</p>
                 <p className="mt-1 text-xs text-[var(--color-text-secondary)]">{s.desc}</p>
               </div>
-              {i < WORKFLOW_STEPS.length - 1 && (
-                <span
-                  className="absolute -bottom-3 left-4 h-6 w-0.5 bg-gold-antique/40 lg:hidden"
-                  aria-hidden
-                />
-              )}
-              {i < WORKFLOW_STEPS.length - 1 && (
-                <span
-                  className="absolute right-0 top-4 hidden h-0.5 bg-gold-antique/40 lg:block"
-                  style={{ left: "50%", width: "100%" }}
-                  aria-hidden
-                />
-              )}
             </li>
           ))}
         </ol>
