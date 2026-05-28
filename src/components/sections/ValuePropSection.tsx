@@ -23,13 +23,13 @@ const values: { icon: LucideIcon; title: string; desc: string; featured?: boolea
     featured: true,
   },
   { icon: GitBranch, title: "Metodologi Adaptif", desc: "Kolaboratif dengan umpan balik berkelanjutan di setiap fase proyek." },
-  { icon: Users, title: "Kolaborasi Real-Time", desc: "Workspace terpadu — komunikasi Anda dan tim pengembang selalu sinkron." },
-  { icon: Layers, title: "One-Stop Digital Solution", desc: "Software, IoT, desain visual, dan pelatihan — semua di satu atap." },
+  { icon: Users, title: "Kolaborasi Real-Time", desc: "Workspace terpadu. Komunikasi Anda dan tim pengembang selalu sinkron." },
+  { icon: Layers, title: "One-Stop Digital Solution", desc: "Software, IoT, desain visual, dan pelatihan. Semua di satu atap." },
   { icon: Sparkles, title: "Berorientasi Dampak", desc: "Setiap fitur punya alasan bisnis yang jelas, bukan sekadar teknologi." },
   { icon: MessageSquare, title: "Komunikasi Humanis", desc: "Kerumitan IT diterjemahkan ke bahasa yang mudah dipahami siapa saja." },
   { icon: Shield, title: "Keamanan Data Prioritas", desc: "Infrastruktur dengan standar keamanan dan privasi data terbaik." },
-  { icon: Heart, title: "Dukungan Berkelanjutan", desc: "Kemitraan tidak berakhir saat serah terima — termasuk pelatihan tim." },
-  { icon: Globe2, title: "Kualitas Skala Global", desc: "Standar industri internasional, berapapun skala proyek Anda." },
+  { icon: Heart, title: "Dukungan Berkelanjutan", desc: "Kemitraan tidak berakhir saat serah terima, termasuk pelatihan tim." },
+  { icon: Globe2, title: "Kualitas Skala Global", desc: "Sebesar apapun skala proyek Anda, kami selalu memberikan kualitas skala global." },
 ];
 
 export default function ValuePropSection() {
@@ -44,7 +44,7 @@ export default function ValuePropSection() {
         </h2>
         <p className="mt-4 max-w-2xl text-[var(--color-text-secondary)]">
           Kami tidak sekadar membangun aplikasi. Kami membangun kepercayaan melalui
-          sistem kerja yang transparan, terukur, dan berdampak nyata — dari komunitas
+          sistem kerja yang transparan, terukur, dan berdampak nyata. Mulai dari komunitas
           lokal hingga standar global.
         </p>
       </ScrollReveal>

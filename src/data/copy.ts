@@ -55,7 +55,7 @@ export const VISION =
 export const MISSIONS = [
   "Membangun infrastruktur perangkat lunak yang andal, aman, dan memecahkan tantangan riil klien",
   "Merancang solusi IoT untuk digitalisasi tata kelola lingkungan hidup",
-  "Memaksimalkan identitas merek klien melalui karya visual dan UI/UX berkelas dunia",
+  "Memaksimalkan identitas merek klien melalui karya visual berkelas",
   "Melahirkan talenta digital unggul lewat kurikulum pelatihan yang fleksibel",
   "Berperan aktif sebagai katalisator pendidikan digital di institusi akademik maupun publik",
   "Mendampingi pemangku kebijakan pemerintah dalam mengakselerasi fasilitas publik elektronik",
@@ -69,14 +69,14 @@ export const GOAL =
 
 export const STRENGTHS = [
   { title: "Pemahaman Masalah Dasar", desc: "Memahami masalah masyarakat sebelum merancang arsitektur sistem" },
-  { title: "Fasilitator Edukasi Andal", desc: "Public speaking & transfer ilmu — bukan sekadar delivery" },
-  { title: "Keahlian Tim Setara Global", desc: "Developer & desainer berstandar industri internasional" },
-  { title: "Integrasi Lintas Disiplin", desc: "Software + IoT + UI/UX dalam satu atap" },
+  { title: "Fasilitator Edukasi Andal", desc: "Public speaking & transfer ilmu. Bukan sekadar delivery" },
+  { title: "Keahlian Tim Setara Global", desc: "Developer & desainer yang memiliki keahlian dan pengalaman di bidangnya" },
+  { title: "Integrasi Lintas Disiplin", desc: "Software, IoT dan Desain Visual dalam satu atap" },
   { title: "Fleksibilitas Tanpa Kompromi", desc: "Proyek sekecil apapun, kualitas kontrol tingkat atas" },
-  { title: "Desain Berorientasi Pengguna", desc: "UI/UX dari sudut pandang kemudahan end-user" },
-  { title: "Kemitraan Publik & Swasta", desc: "Sinergi dengan lembaga publik untuk Smart Village" },
+  { title: "Desain Berorientasi Pengguna", desc: "Desain Visual dari sudut pandang kemudahan end-user" },
+  { title: "Kemitraan Publik & Swasta", desc: "Sinergi dengan lembaga publik untuk Smart Village dan swasta untuk membangun produk yang berkualitas" },
   { title: "Kurikulum Terstruktur", desc: "Modul pelatihan akademis, ramah pemula hingga profesional" },
-  { title: "Kepastian ROI", desc: "Investasi berbalik menjadi efisiensi operasional terukur" },
+  { title: "Kepastian ROI", desc: "Investasi berbalik menjadi efisiensi operasional terukur dan hasil produk yang membanggakan" },
 ];
 
 export const WORKSHOP_SUBCATEGORIES = [
