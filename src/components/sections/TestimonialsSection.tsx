@@ -16,6 +16,20 @@ import {
 } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
+function getPortfolioGridClass(
+  filter: PortfolioCategory,
+  itemCount: number
+): string {
+  if (filter !== "all") {
+    if (itemCount === 1) {
+      return "mt-8 grid max-w-xl grid-cols-1 gap-4 sm:gap-5";
+    }
+    return "mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3";
+  }
+
+  return "mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3";
+}
+
 function getCardLayoutClass(item: PortfolioCase, items: PortfolioCase[]): string {
   if (item.featured) {
     return "sm:col-span-2 lg:col-span-2";
@@ -234,9 +248,12 @@ export default function TestimonialsSection() {
         ))}
       </div>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+      <div key={filter} className={getPortfolioGridClass(filter, filtered.length)}>
         {filtered.map((item) => (
-          <ScrollReveal key={item.id} className={getCardLayoutClass(item, filtered)}>
+          <ScrollReveal
+            key={item.id}
+            className={filter === "all" ? getCardLayoutClass(item, filtered) : undefined}
+          >
             <CaseCard
               item={item}
               imageIndex={getImageIndex(item.id)}
