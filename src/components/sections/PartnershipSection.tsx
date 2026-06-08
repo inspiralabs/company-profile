@@ -87,35 +87,6 @@ export default function PartnershipSection() {
             </blockquote>
           </div>
         </div>
-
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <span className="text-sm font-medium text-[var(--color-text-muted)]">
-            Mitra & proyek:
-          </span>
-          {trustPartners.map((p) => {
-            const isActive =
-              activePartnerId === p.id || highlightCaseId === p.caseId;
-            return (
-              <button
-                key={p.id}
-                type="button"
-                onClick={() => handlePartnerClick(p.id, p.caseId)}
-                aria-pressed={isActive}
-                className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]",
-                  isActive
-                    ? "bg-gold-bright text-maroon-deep shadow-sm"
-                    : "border border-[var(--color-border)] bg-surface text-[var(--color-text-muted)] hover:border-gold-antique hover:text-charcoal"
-                )}
-              >
-                {p.name}
-              </button>
-            );
-          })}
-          <span className="w-full text-xs text-[var(--color-text-muted)] sm:w-auto">
-            Klik untuk melihat studi kasus di portofolio
-          </span>
-        </div>
       </ScrollReveal>
     </SectionWrapper>
   );
