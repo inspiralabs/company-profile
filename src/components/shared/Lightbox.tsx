@@ -12,6 +12,8 @@ export type LightboxProps = {
   alt: string;
   startIndex: number;
   onClose: () => void;
+  onIndexChange?: (index: number) => void;
+  zIndexClass?: string;
 };
 
 const controlBtn =
@@ -22,6 +24,8 @@ export default function Lightbox({
   alt,
   startIndex,
   onClose,
+  onIndexChange,
+  zIndexClass = "z-[110]",
 }: LightboxProps) {
   const [idx, setIdx] = useState(startIndex);
 
@@ -33,9 +37,17 @@ export default function Lightbox({
     setIdx((i) => (i + 1) % images.length);
   }, [images.length]);
 
+  const goTo = useCallback((index: number) => {
+    setIdx(index);
+  }, []);
+
   useEffect(() => {
     setIdx(startIndex);
   }, [startIndex]);
+
+  useEffect(() => {
+    onIndexChange?.(idx);
+  }, [idx, onIndexChange]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -55,7 +67,10 @@ export default function Lightbox({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-3 sm:p-6"
+      className={cn(
+        "fixed inset-0 flex items-center justify-center bg-black/75 p-3 sm:p-6",
+        zIndexClass
+      )}
       onClick={onClose}
       role="dialog"
       aria-modal
@@ -166,7 +181,7 @@ export default function Lightbox({
                 <button
                   key={i}
                   type="button"
-                  onClick={() => setIdx(i)}
+                  onClick={() => goTo(i)}
                   className={cn(
                     "h-2 rounded-full transition-all",
                     i === idx

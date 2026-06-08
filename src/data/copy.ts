@@ -87,64 +87,7 @@ export const WORKSHOP_SUBCATEGORIES = [
   { label: "Desain Grafis", detail: "Adobe Illustrator, Photoshop, brand design" },
 ];
 
-export const PRODUCTS = [
-  {
-    id: "sijagaair",
-    name: "SiJagaAir — EWS Banjir Terintegrasi IoT",
-    desc: "Monitor tinggi muka air real-time, notifikasi otomatis ke WhatsApp saat melewati batas aman.",
-    badge: "Siap Pakai",
-    extraBadge: "Studi Kasus Tersedia",
-    tags: ["Hardware & IoT", "Khusus Pemerintahan"],
-    featured: true,
-    image: "/images/products/sijagaair.jpeg",
-    link: "#portofolio",
-  },
-  {
-    id: "desa",
-    name: "Sistem Informasi Desa Terpadu",
-    desc: "Platform tata kelola birokrasi — dari surat keterangan hingga laporan keuangan desa.",
-    badge: "Siap Pakai",
-    tags: ["Khusus Pemerintahan", "ROI Cepat"],
-    featured: false,
-    image: "/images/products/Sistem_Informasi_Desa_Terpadu.jpeg",
-  },
-  {
-    id: "lms",
-    name: "LMS (Learning Management System)",
-    desc: "Platform e-learning untuk sekolah, bimbel, dan lembaga pelatihan.",
-    badge: "Siap Pakai",
-    tags: ["Khusus Pendidikan"],
-    featured: false,
-    image: "/images/products/LMS.jpeg",
-  },
-  {
-    id: "masjid",
-    name: "Sistem Manajemen Ekosistem Masjid",
-    desc: "Digitalisasi jamaah, keuangan, dan transparansi program ziswaf.",
-    badge: "Siap Pakai",
-    tags: ["Khusus Komunitas"],
-    featured: false,
-    image: "/images/products/Sistem_Manajemen_Ekosistem_Masjid.jpeg",
-  },
-  {
-    id: "pos",
-    name: "Smart POS / Sistem Kasir",
-    desc: "Pencatatan transaksi real-time dengan analitik inventaris untuk UMKM.",
-    badge: "Siap Pakai",
-    tags: ["Khusus UMKM", "ROI Cepat"],
-    featured: false,
-    image: "/images/products/smart_POS.jpeg",
-  },
-  {
-    id: "pelatihan",
-    name: "Paket Pelatihan Eksekutif Tech & Design",
-    desc: "Program upgrade skill — coding, Roblox, IoT hands-on.",
-    badge: "Siap Pakai",
-    tags: ["Workshop", "Khusus Pendidikan"],
-    featured: false,
-    image: "/images/products/workshop-hardware-1.jpg",
-  },
-];
+export { PRODUCTS } from "@/data/products";
 
 export const SURVEY_PROMO = {
   eyebrow: "Belum yakin kebutuhan Anda?",
