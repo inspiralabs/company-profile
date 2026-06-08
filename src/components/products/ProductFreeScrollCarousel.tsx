@@ -98,9 +98,10 @@ export default function ProductFreeScrollCarousel({
                 src={product.image}
                 alt={product.name}
                 fill
+                quality={85}
+                loading="lazy"
                 className="pointer-events-none object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 72vw, 300px"
-                unoptimized
                 draggable={false}
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent p-4 pt-16">
