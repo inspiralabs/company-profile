@@ -32,7 +32,7 @@ export default function Footer() {
               <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/80 lg:max-w-none">
                 InspiraLabs adalah kolaborasi anak muda yang mendedikasikan teknologi,
                 desain grafis, dan edukasi bagi kemajuan masyarakat, dari skala komunitas
-                hingga korporat global.
+                hingga enterprise.
               </p>
             </div>
 
