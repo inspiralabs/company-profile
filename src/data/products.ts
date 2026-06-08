@@ -29,7 +29,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "desa",
-    name: "Sistem Informasi Desa Terpadu",
+    name: "SIGAP DESA — Sistem Informasi Desa Terpadu",
     desc: "Platform tata kelola birokrasi — dari surat keterangan hingga laporan keuangan desa.",
     description:
       "Platform digital untuk mengelola administrasi desa secara terpadu: pelayanan surat, data warga, keuangan APBDes, dan transparansi informasi publik — dirancang mudah dipakai perangkat desa.",
