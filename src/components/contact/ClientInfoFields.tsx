@@ -89,8 +89,9 @@ export default function ClientInfoFields({
               key="detail-textarea"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              exit={{ opacity: 0, height: 0, pointerEvents: "none" }}
               transition={{ duration: 0.25 }}
+              className="overflow-hidden"
             >
               <label htmlFor={`${prefix}profil`} className="text-sm font-medium">
                 {detailLabel}
@@ -109,9 +110,9 @@ export default function ClientInfoFields({
               key={`detail-${value.tipeKlien}`}
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              exit={{ opacity: 0, height: 0, pointerEvents: "none" }}
               transition={{ duration: 0.25 }}
-              className="space-y-4"
+              className="space-y-4 overflow-hidden"
             >
               <div>
                 <label htmlFor={`${prefix}detail`} className="text-sm font-medium">
@@ -146,7 +147,8 @@ export default function ClientInfoFields({
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
+                    exit={{ opacity: 0, height: 0, pointerEvents: "none" }}
+                    className="overflow-hidden"
                   >
                     <label
                       htmlFor={`${prefix}detail-lain`}

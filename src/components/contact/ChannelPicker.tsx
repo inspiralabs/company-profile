@@ -26,9 +26,10 @@ export default function ChannelPicker({
   const useCopyPanel = Boolean(emailDraft);
   const emailReady = canSendViaEmail(client);
 
-  const handleWhatsApp = () => {
+  const whatsappHref = waLink(whatsappMessage);
+
+  const handleWhatsAppClick = () => {
     trackEvent("contact_channel_whatsapp", { source });
-    window.open(waLink(whatsappMessage), "_blank");
   };
 
   const handleEmail = () => {
@@ -43,20 +44,26 @@ export default function ChannelPicker({
   };
 
   return (
-    <div className="space-y-3 rounded-xl border border-gold-antique/30 bg-cream/50 p-5">
+    <div className="relative z-10 space-y-3 rounded-xl border border-gold-antique/30 bg-cream/50 p-5">
       <p className="text-sm font-medium text-maroon-deep">
         Pilih cara menghubungi kami:
       </p>
       <div className="flex flex-col gap-3 sm:flex-row">
         <Button
-          type="button"
+          asChild
           variant="whatsapp"
           size="lg"
           className="flex-1"
-          onClick={handleWhatsApp}
         >
-          <MessageCircle className="h-4 w-4" />
-          Kirim via WhatsApp
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleWhatsAppClick}
+          >
+            <MessageCircle className="h-4 w-4" />
+            Kirim via WhatsApp
+          </a>
         </Button>
         <Button
           type="button"

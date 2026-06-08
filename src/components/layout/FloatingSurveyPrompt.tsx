@@ -21,7 +21,7 @@ export default function FloatingSurveyPrompt() {
 
   useEffect(() => {
     if (!mounted) return;
-    if (pathname?.startsWith("/survey")) return;
+    if (pathname?.startsWith("/survey") || pathname?.startsWith("/kontak")) return;
     try {
       if (localStorage.getItem(STORAGE_KEY) === "1") return;
     } catch {

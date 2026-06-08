@@ -1,10 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 import { trackEvent } from "@/lib/site";
 
 export default function FloatingWhatsApp() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/kontak")) return null;
+
   return (
     <Link
       href="/kontak"
