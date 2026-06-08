@@ -97,12 +97,12 @@ export default function PricingSection() {
 
       <ScrollReveal delay={0.15}>
         <p className="mt-10 text-center text-sm text-[var(--color-text-secondary)]">
-          Belum yakin model mana yang cocok?{" "}
+          Belum yakin model mana yang cocok untuk Anda?{" "}
           <Link
             href="/survey"
             className="font-semibold text-maroon-vibrant underline hover:text-maroon-deep"
           >
-            Coba Survey Kebutuhan kami
+            Mulai Survey Kebutuhan
           </Link>
         </p>
       </ScrollReveal>
