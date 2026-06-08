@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import ChannelPicker from "@/components/contact/ChannelPicker";
 import ClientInfoFields from "@/components/contact/ClientInfoFields";
+import MotionSelect from "@/components/ui/motion-select";
 import {
   buildContactEmailDraft,
   buildContactWAMessage,
@@ -45,10 +46,10 @@ export default function ContactForm() {
   const emailDraft = buildContactEmailDraft(form);
 
   return (
-    <div className="mx-auto max-w-xl space-y-4">
+    <div className="mx-auto w-full max-w-3xl space-y-4">
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 rounded-xl border border-[var(--color-border)] bg-surface p-6 shadow-card"
+        className="space-y-4 rounded-xl border border-[var(--color-border)] bg-surface p-6 shadow-card sm:p-8"
       >
         <ClientInfoFields
           value={form}
@@ -60,19 +61,15 @@ export default function ContactForm() {
           <label htmlFor="tujuan" className="text-sm font-medium">
             Tujuan *
           </label>
-          <select
+          <MotionSelect
             id="tujuan"
+            name="tujuan"
             required
-            className={contactInputClass}
-            value={form.tujuan}
-            onChange={(e) => setForm({ ...form, tujuan: e.target.value })}
-          >
-            {tujuanOptions.map((o) => (
-              <option key={o} value={o}>
-                {o}
-              </option>
-            ))}
-          </select>
+            value={form.tujuan ?? tujuanOptions[0]}
+            onChange={(tujuan) => setForm({ ...form, tujuan })}
+            options={tujuanOptions.map((o) => ({ value: o, label: o }))}
+            placeholder="Pilih tujuan"
+          />
         </div>
 
         <div>

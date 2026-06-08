@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import FormSection from "@/components/contact/FormSection";
+import MotionSelect from "@/components/ui/motion-select";
 import {
   contactInputClass,
   DETAIL_LAINNYA,
@@ -68,19 +69,17 @@ export default function ClientInfoFields({
           <label htmlFor={`${prefix}tipe`} className="text-sm font-medium">
             Tipe *
           </label>
-          <select
+          <MotionSelect
             id={`${prefix}tipe`}
             required
-            className={contactInputClass}
             value={value.tipeKlien}
-            onChange={(e) => handleTipeChange(e.target.value as TipeKlien)}
-          >
-            {TIPE_KLIEN_OPTIONS.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
-          </select>
+            onChange={(v) => handleTipeChange(v as TipeKlien)}
+            options={TIPE_KLIEN_OPTIONS.map((o) => ({
+              value: o.value,
+              label: o.label,
+            }))}
+            placeholder="Pilih tipe"
+          />
         </div>
 
         <AnimatePresence mode="wait">
@@ -118,28 +117,26 @@ export default function ClientInfoFields({
                 <label htmlFor={`${prefix}detail`} className="text-sm font-medium">
                   {detailLabel}
                 </label>
-                <select
+                <MotionSelect
                   id={`${prefix}detail`}
-                  className={contactInputClass}
                   value={value.detailTipe ?? ""}
-                  onChange={(e) =>
+                  onChange={(v) =>
                     onChange({
                       ...value,
-                      detailTipe: e.target.value,
+                      detailTipe: v,
                       detailTipeLainnya:
-                        e.target.value === DETAIL_LAINNYA
-                          ? value.detailTipeLainnya
-                          : "",
+                        v === DETAIL_LAINNYA ? value.detailTipeLainnya : "",
                     })
                   }
-                >
-                  <option value="">— pilih jika ingin —</option>
-                  {detailOptions.map((o) => (
-                    <option key={o.value} value={o.value}>
-                      {o.label}
-                    </option>
-                  ))}
-                </select>
+                  placeholder="— Pilih Opsi —"
+                  options={[
+                    { value: "", label: "— Pilih Opsi —" },
+                    ...detailOptions.map((o) => ({
+                      value: o.value,
+                      label: o.label,
+                    })),
+                  ]}
+                />
               </div>
 
               <AnimatePresence>

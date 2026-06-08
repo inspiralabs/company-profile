@@ -16,10 +16,8 @@ export default function KontakPage() {
         <h1 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
           Hubungi Kami
         </h1>
-        <p className="mt-4 max-w-xl text-[var(--color-text-secondary)]">
-          Ceritakan kebutuhan Anda. Setelah mengisi form, pilih kirim via WhatsApp
-          atau salin detail email untuk dikirim lewat Gmail. Tim kami akan merespons
-          dalam 1×24 jam kerja.
+        <p className="mt-4 max-w-3xl text-[var(--color-text-secondary)]">
+          Ceritakan kebutuhan Anda. Lalu pilih kirim via WhatsApp atau email. Tim kami akan merespons dalam 1x24 jam kerja.
         </p>
         <div className="mt-10">
           <ContactForm />
