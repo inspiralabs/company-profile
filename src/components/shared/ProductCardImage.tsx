@@ -42,9 +42,10 @@ export default function ProductCardImage({
           src={image}
           alt={name}
           fill
+          quality={85}
+          loading="lazy"
           className="object-cover"
           sizes="(max-width: 1024px) 85vw, 340px"
-          unoptimized
           onError={() => setFailed(true)}
         />
       </div>
