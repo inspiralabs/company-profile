@@ -5,10 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { cn } from "@/lib/utils";
-import { SITE, trackEvent } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 const SECTION_IDS = [
   "home",
@@ -167,14 +166,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button asChild size="sm">
-            <Link
-              href="/kontak"
-              onClick={() => trackEvent("cta_whatsapp_click", { location: "navbar" })}
-            >
-              Hubungi Kami
-            </Link>
-          </Button>
         </nav>
 
         <button
@@ -213,11 +204,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button asChild className="mt-3 w-full">
-            <Link href="/kontak" onClick={() => setOpen(false)}>
-              Hubungi Kami
-            </Link>
-          </Button>
         </div>
       )}
     </header>
