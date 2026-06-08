@@ -22,6 +22,7 @@ export interface ClientReview {
   text: string;
   author: string;
   role?: string;
+  company?: string;
 }
 
 export interface PortfolioFeature {
@@ -44,6 +45,8 @@ export interface PortfolioCase {
   features?: PortfolioFeature[];
   location?: string;
   descPoints?: string[];
+  website?: string;
+  tags: string[];
   review: ClientReview;
 }
 
@@ -65,6 +68,8 @@ export const portfolioCases: PortfolioCase[] = [
     category: "iot",
     contentType: "case-study",
     featured: true,
+    website: "https://sijagaair.redcode.my.id/public",
+    tags: ["IoT", "Pemerintahan", "Studi Kasus"],
     problem:
       "Desa membutuhkan peringatan dini banjir yang cepat dan mudah diakses warga.",
     solution:
@@ -93,6 +98,7 @@ export const portfolioCases: PortfolioCase[] = [
     ],
     category: "pelatihan",
     contentType: "workshop",
+    tags: ["Pelatihan", "IoT", "Pendidikan"],
     location: "Salah satu sekolah SDIT di Kota Depok",
     descPoints: [
       "Mengajarkan pengenalan hardware dan IoT kepada guru dan siswa",
@@ -118,6 +124,7 @@ export const portfolioCases: PortfolioCase[] = [
     ],
     category: "software",
     contentType: "case-study",
+    tags: ["Software", "Komunitas", "Studi Kasus"],
     problem:
       "Setiap bulan warga membayar IPL (iuran pengelolaan lingkungan) lalu mengirim bukti transfer ke grup WhatsApp. Humas Gang harus merekap manual siapa yang sudah bayar, melaporkan ke Ketua RT, sekaligus mencatat uang masuk dan keluar kas gang—prosesnya lambat, rawan terlewat, dan tidak transparan bagi warga.",
     solution:
@@ -141,6 +148,7 @@ export const portfolioCases: PortfolioCase[] = [
     images: [img("kelas-seni-1.png"), img("kelas-seni-2.png"), img("kelas-seni-3.png")],
     category: "software",
     contentType: "case-study",
+    tags: ["Software", "Pendidikan", "Studi Kasus"],
     problem:
       "Penilaian karya seni siswa masih dilakukan secara manual — guru kewalahan rekap.",
     solution:
@@ -163,6 +171,7 @@ export const portfolioCases: PortfolioCase[] = [
     images: [img("kasly-1.png"), img("kasly-2.png")],
     category: "software",
     contentType: "features",
+    tags: ["Software", "FinTech"],
     features: [
       {
         label: "Payday Budgeting",
@@ -191,6 +200,7 @@ export const portfolioCases: PortfolioCase[] = [
     images: [img("ecc-master-dash-1.png"), img("ecc-master-dash-2.png")],
     category: "software",
     contentType: "features",
+    tags: ["Software", "Enterprise", "Dashboard"],
     features: [
       { label: "Monitoring", desc: "Monitor kinerja sistem dan infrastruktur secara real-time." },
       { label: "SLA Management", desc: "Setel dan tracking SLA untuk setiap layanan." },
@@ -215,6 +225,7 @@ export const portfolioCases: PortfolioCase[] = [
     ],
     category: "design",
     contentType: "case-study",
+    tags: ["Software", "Studi Kasus"],
     problem: "Undangan fisik mahal dan sulit di-update untuk tamu jarak jauh.",
     solution:
       "Undangan digital interaktif dengan RSVP, peta lokasi, dan galeri foto.",
