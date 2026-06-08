@@ -4,7 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionWrapper from "@/components/shared/SectionWrapper";
-import { SITE, WA_CTA, trackEvent } from "@/lib/site";
+import Link from "next/link";
+import { trackEvent } from "@/lib/site";
 
 export default function CTASection() {
   return (
@@ -38,17 +39,15 @@ export default function CTASection() {
                   size="lg"
                   className="group w-full bg-gold-bright text-maroon-deep hover:bg-gold-bright/90 sm:w-auto"
                 >
-                  <a
-                    href={WA_CTA}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/kontak"
                     onClick={() => trackEvent("cta_whatsapp_click", { location: "final_cta" })}
                   >
-                    Mulai Diskusi via WhatsApp
+                    Hubungi Kami
                     <span className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-maroon-deep/10 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5">
                       <ArrowRight className="h-4 w-4" />
                     </span>
-                  </a>
+                  </Link>
                 </Button>
                 <Button
                   asChild
@@ -56,9 +55,7 @@ export default function CTASection() {
                   size="lg"
                   className="w-full border-white/30 text-white hover:bg-white/10 sm:w-auto"
                 >
-                  <a href={`mailto:${SITE.email}?subject=Konsultasi%20Proyek%20InspiraLabs`}>
-                    Kirim Email Proyek Anda
-                  </a>
+                  <Link href="/kontak">Kirim Pesan / Email</Link>
                 </Button>
               </div>
 

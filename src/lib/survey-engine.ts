@@ -43,6 +43,11 @@ export function getRecommendations(
     scores.set("pos", (scores.get("pos") ?? 0) + 1);
     scores.set("website", (scores.get("website") ?? 0) + 1);
   }
+  if (q1.includes("pemerintah")) {
+    scores.set("iot", (scores.get("iot") ?? 0) + 2);
+    scores.set("dashboard", (scores.get("dashboard") ?? 0) + 1);
+    scores.set("website", (scores.get("website") ?? 0) + 1);
+  }
   if (q1.includes("komunitas") || q1.includes("perusahaan")) {
     scores.set("iot", (scores.get("iot") ?? 0) + 1);
   }
@@ -84,6 +89,7 @@ export function getProfileTitle(responses: SurveyResponses): string {
   return profileTitles.default;
 }
 
+/** @deprecated Use buildSurveyWAMessage from @/lib/contact */
 export function buildSurveyWA(
   responses: SurveyResponses,
   recommendations: RecommendedSolution[]

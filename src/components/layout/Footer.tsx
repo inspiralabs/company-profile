@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SITE, WA_HERO } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 const quickLinks = [
   { href: "/#layanan", label: "Layanan" },
@@ -45,14 +45,9 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href={WA_HERO}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-gold-bright"
-                  >
+                  <Link href="/kontak" className="hover:text-gold-bright">
                     WhatsApp: {SITE.whatsappDisplay}
-                  </a>
+                  </Link>
                 </li>
                 <li>{SITE.hours}</li>
                 <li className="text-white/60">Konsultasi online fleksibel via appointment</li>

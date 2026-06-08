@@ -20,7 +20,7 @@ export const PRIVACY_SECTIONS: LegalSection[] = [
     title: "2. Data yang Kami Kumpulkan",
     paragraphs: ["Kami dapat mengumpulkan data berikut ketika Anda berinteraksi dengan website atau layanan kami:"],
     list: [
-      "Identitas dan kontak: nama, email, nomor WhatsApp, institusi/perusahaan.",
+      "Identitas dan kontak: nama, nomor WhatsApp, tipe organisasi, sub-klasifikasi tipe (jenis instansi, bidang usaha, jenjang pendidikan, dll. — jika diisi), institusi/perusahaan (jika diisi), jabatan/posisi (jika diisi), kota (jika diisi), email (jika diisi).",
       "Isian formulir kontak dan survey kebutuhan digital.",
       "Detail kebutuhan proyek yang Anda sampaikan secara sukarela.",
       "Data teknis: alamat IP, jenis perangkat, log akses, dan cookie (jika analytics diaktifkan).",

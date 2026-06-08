@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionWrapper from "@/components/shared/SectionWrapper";
 import { CONTACT_TEASER } from "@/data/copy";
-import { WA_HERO } from "@/lib/site";
 
 export default function ContactTeaserSection() {
   return (
@@ -20,10 +19,10 @@ export default function ContactTeaserSection() {
               <Link href="/kontak">{CONTACT_TEASER.ctaForm}</Link>
             </Button>
             <Button asChild variant="secondary" size="lg">
-              <a href={WA_HERO} target="_blank" rel="noopener noreferrer">
+              <Link href="/kontak">
                 <MessageCircle className="h-4 w-4" />
                 {CONTACT_TEASER.ctaWa}
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

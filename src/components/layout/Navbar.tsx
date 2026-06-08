@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { cn } from "@/lib/utils";
-import { SITE, WA_HERO, trackEvent } from "@/lib/site";
+import { SITE, trackEvent } from "@/lib/site";
 
 const SECTION_IDS = [
   "home",
@@ -168,14 +168,12 @@ export default function Navbar() {
             </Link>
           ))}
           <Button asChild size="sm">
-            <a
-              href={WA_HERO}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/kontak"
               onClick={() => trackEvent("cta_whatsapp_click", { location: "navbar" })}
             >
               Hubungi Kami
-            </a>
+            </Link>
           </Button>
         </nav>
 
@@ -216,9 +214,9 @@ export default function Navbar() {
             </Link>
           ))}
           <Button asChild className="mt-3 w-full">
-            <a href={WA_HERO} target="_blank" rel="noopener noreferrer">
+            <Link href="/kontak" onClick={() => setOpen(false)}>
               Hubungi Kami
-            </a>
+            </Link>
           </Button>
         </div>
       )}

@@ -6,6 +6,7 @@ import {
   Globe,
   GraduationCap,
   HeartHandshake,
+  Landmark,
   Layers,
   MessageCircle,
   Smartphone,
@@ -46,6 +47,13 @@ export const surveyQuestions: SurveyQuestion[] = [
         boosts: ["website", "crm", "otomatisasi", "pos"],
       },
       {
+        id: "pemerintah",
+        label: "Pemerintah / Instansi Publik",
+        description: "Desa, pemda, kementerian, BUMN/BUMD",
+        icon: Landmark,
+        boosts: ["dashboard", "iot", "website", "otomatisasi", "pelatihan"],
+      },
+      {
         id: "pendidikan",
         label: "Sekolah / Lembaga Pendidikan",
         description: "SD, SMP, SMA, universitas, bimbel, kursus",
@@ -54,8 +62,8 @@ export const surveyQuestions: SurveyQuestion[] = [
       },
       {
         id: "perusahaan",
-        label: "Perusahaan / Instansi",
-        description: "Korporat, BUMN, atau instansi pemerintah/swasta",
+        label: "Perusahaan Swasta",
+        description: "Korporat, startup, dan bisnis berskala menengah-besar",
         icon: Building2,
         boosts: ["dashboard", "otomatisasi", "mobile", "iot", "pelatihan"],
       },
@@ -495,9 +503,10 @@ export const solutionCatalog: Record<SolutionId, RecommendedSolution> = {
 };
 
 export const profileTitles: Record<string, string> = {
+  pemerintah: "Solusi Digital untuk Pemerintah & Instansi Publik Anda",
   umkm: "Solusi Digital untuk Mengembangkan Usaha Anda",
   pendidikan: "Transformasi Digital untuk Lembaga Pendidikan Anda",
-  perusahaan: "Solusi Enterprise untuk Instansi & Perusahaan Anda",
+  perusahaan: "Solusi Enterprise untuk Perusahaan Anda",
   perorangan: "Wujudkan Proyek Digital Anda dengan Mitra Terpercaya",
   komunitas: "Teknologi yang Memberdayakan Komunitas & Yayasan Anda",
   default: "Rekomendasi Solusi Digital untuk Anda",

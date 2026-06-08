@@ -4,41 +4,51 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import ChannelPicker from "@/components/contact/ChannelPicker";
+import ClientInfoFields from "@/components/contact/ClientInfoFields";
 import { surveyQuestions } from "@/data/survey-questions";
 import {
-  buildSurveyWA,
+  buildSurveyEmailDraft,
+  buildSurveyWAMessage,
+  EMPTY_CLIENT_INFO,
+  isClientInfoValid,
+  type ClientInfo,
+} from "@/lib/contact";
+import {
   getProfileTitle,
   getRecommendations,
   type SurveyResponses,
 } from "@/lib/survey-engine";
 import { cn } from "@/lib/utils";
-import { waLink, trackEvent } from "@/lib/site";
+import { trackEvent } from "@/lib/site";
+
+type Phase = "client" | "questions" | "done";
 
 export default function SurveyWizard() {
+  const [phase, setPhase] = useState<Phase>("client");
+  const [clientInfo, setClientInfo] = useState<ClientInfo>(EMPTY_CLIENT_INFO);
   const [step, setStep] = useState(0);
   const [responses, setResponses] = useState<SurveyResponses>({});
   const [selected, setSelected] = useState<string[]>([]);
   const [custom, setCustom] = useState("");
-  const [done, setDone] = useState(false);
 
   const question = surveyQuestions[step];
   const progress = ((step + 1) / surveyQuestions.length) * 100;
 
-  const canProceed =
-    selected.length > 0 || custom.trim().length > 0;
+  const canProceed = selected.length > 0 || custom.trim().length > 0;
 
   const recommendations = useMemo(
-    () => (done ? getRecommendations(responses) : []),
-    [done, responses]
+    () => (phase === "done" ? getRecommendations(responses) : []),
+    [phase, responses]
   );
 
   const profileTitle = useMemo(
-    () => (done ? getProfileTitle(responses) : ""),
-    [done, responses]
+    () => (phase === "done" ? getProfileTitle(responses) : ""),
+    [phase, responses]
   );
 
   const customNotes = useMemo(() => {
-    if (!done) return [];
+    if (phase !== "done") return [];
     return surveyQuestions
       .map((q) => {
         const c = responses[q.id]?.custom?.trim();
@@ -46,7 +56,12 @@ export default function SurveyWizard() {
         return { title: q.title, text: c };
       })
       .filter(Boolean) as { title: string; text: string }[];
-  }, [done, responses]);
+  }, [phase, responses]);
+
+  const startSurvey = () => {
+    if (!isClientInfoValid(clientInfo)) return;
+    setPhase("questions");
+  };
 
   const saveAndNext = () => {
     const nextResponses: SurveyResponses = {
@@ -65,13 +80,16 @@ export default function SurveyWizard() {
       setSelected(prev?.selected ?? []);
       setCustom(prev?.custom ?? "");
     } else {
-      setDone(true);
+      setPhase("done");
       trackEvent("survey_complete");
     }
   };
 
   const goBack = () => {
-    if (step === 0) return;
+    if (step === 0) {
+      setPhase("client");
+      return;
+    }
     const prevQ = surveyQuestions[step - 1];
     const prev = responses[prevQ.id];
     setStep(step - 1);
@@ -90,15 +108,61 @@ export default function SurveyWizard() {
   };
 
   const reset = () => {
+    setPhase("client");
+    setClientInfo(EMPTY_CLIENT_INFO);
     setStep(0);
     setResponses({});
     setSelected([]);
     setCustom("");
-    setDone(false);
   };
 
-  if (done) {
-    const wa = buildSurveyWA(responses, recommendations);
+  if (phase === "client") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="space-y-6"
+      >
+        <div>
+          <h2 className="font-display text-2xl font-bold text-maroon-deep sm:text-3xl">
+            Data Diri
+          </h2>
+          <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
+            Isi informasi dasar Anda sebelum memulai survey kebutuhan.
+          </p>
+        </div>
+
+        <div className="rounded-xl border border-[var(--color-border)] bg-surface p-6 shadow-card">
+          <ClientInfoFields
+            value={clientInfo}
+            onChange={setClientInfo}
+            idPrefix="survey"
+          />
+          <Button
+            type="button"
+            className="mt-6 w-full"
+            disabled={!isClientInfoValid(clientInfo)}
+            onClick={startSurvey}
+          >
+            Mulai Survey →
+          </Button>
+        </div>
+      </motion.div>
+    );
+  }
+
+  if (phase === "done") {
+    const waMessage = buildSurveyWAMessage(
+      clientInfo,
+      responses,
+      recommendations
+    );
+    const emailDraft = buildSurveyEmailDraft(
+      clientInfo,
+      responses,
+      recommendations
+    );
+
     return (
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -120,7 +184,8 @@ export default function SurveyWizard() {
             <ul className="mt-3 space-y-3 text-sm text-[var(--color-text-secondary)]">
               {customNotes.map((n) => (
                 <li key={n.title}>
-                  <strong className="text-maroon-deep">{n.title}:</strong> {n.text}
+                  <strong className="text-maroon-deep">{n.title}:</strong>{" "}
+                  {n.text}
                 </li>
               ))}
             </ul>
@@ -143,11 +208,12 @@ export default function SurveyWizard() {
           ))}
         </div>
 
-        <Button asChild variant="whatsapp" size="lg" className="w-full">
-          <a href={waLink(wa)} target="_blank" rel="noopener noreferrer">
-            Chat WhatsApp — Konsultasi Gratis
-          </a>
-        </Button>
+        <ChannelPicker
+          client={clientInfo}
+          whatsappMessage={waMessage}
+          emailDraft={emailDraft}
+          source="survey"
+        />
         <button
           type="button"
           onClick={reset}
@@ -217,13 +283,17 @@ export default function SurveyWizard() {
                   <span
                     className={cn(
                       "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg",
-                      active ? "bg-gold-bright text-maroon-deep" : "bg-maroon-deep/5 text-maroon-vibrant"
+                      active
+                        ? "bg-gold-bright text-maroon-deep"
+                        : "bg-maroon-deep/5 text-maroon-vibrant"
                     )}
                   >
                     <Icon className="h-5 w-5" />
                   </span>
                   <span>
-                    <span className="font-semibold text-charcoal">{opt.label}</span>
+                    <span className="font-semibold text-charcoal">
+                      {opt.label}
+                    </span>
                     <span className="mt-1 block text-sm text-[var(--color-text-secondary)]">
                       {opt.description}
                     </span>
@@ -244,18 +314,18 @@ export default function SurveyWizard() {
           />
 
           <div className="mt-8 flex gap-4">
-            {step > 0 && (
-              <Button type="button" variant="secondary" onClick={goBack}>
-                ← Kembali
-              </Button>
-            )}
+            <Button type="button" variant="secondary" onClick={goBack}>
+              ← Kembali
+            </Button>
             <Button
               type="button"
               disabled={!canProceed}
               onClick={saveAndNext}
               className="flex-1"
             >
-              {step < surveyQuestions.length - 1 ? "Lanjut →" : "Lihat Rekomendasi"}
+              {step < surveyQuestions.length - 1
+                ? "Lanjut →"
+                : "Lihat Rekomendasi"}
             </Button>
           </div>
         </motion.div>

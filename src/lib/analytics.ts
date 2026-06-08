@@ -1,7 +1,9 @@
 export type AnalyticsEvent =
   | "cta_whatsapp_click"
   | "survey_complete"
-  | "contact_form_submit";
+  | "contact_form_submit"
+  | "contact_channel_whatsapp"
+  | "contact_channel_email";
 
 type EventParams = Record<string, string>;
 

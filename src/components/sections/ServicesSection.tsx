@@ -17,11 +17,11 @@ import SectionWrapper from "@/components/shared/SectionWrapper";
 import { WORKSHOP_SUBCATEGORIES } from "@/data/copy";
 import { cn } from "@/lib/utils";
 import { SERVICE_CTA_LABEL, SERVICE_PORTFOLIO_LABEL } from "@/data/copy";
-import { WA_SERVICE_PILLARS, WA_SERVICES, trackEvent } from "@/lib/site";
+import Link from "next/link";
+import { trackEvent } from "@/lib/site";
 
 const pillars: {
   id: string;
-  waKey: keyof typeof WA_SERVICE_PILLARS;
   portfolioFilter?: string;
   icon: LucideIcon;
   title: string;
@@ -32,7 +32,6 @@ const pillars: {
 }[] = [
   {
     id: "layanan-software",
-    waKey: "software",
     portfolioFilter: "software",
     icon: Code2,
     title: "Software Development",
@@ -41,7 +40,6 @@ const pillars: {
   },
   {
     id: "layanan-iot",
-    waKey: "iot",
     portfolioFilter: "iot",
     icon: Cpu,
     title: "Robotic & IoT Solutions",
@@ -50,7 +48,6 @@ const pillars: {
   },
   {
     id: "layanan-design",
-    waKey: "design",
     portfolioFilter: "design",
     icon: Palette,
     title: "Creative & Visual Branding",
@@ -59,7 +56,6 @@ const pillars: {
   },
   {
     id: "layanan-workshop",
-    waKey: "workshop",
     portfolioFilter: "pelatihan",
     icon: GraduationCap,
     title: "Tech Training & Consulting",
@@ -141,20 +137,18 @@ export default function ServicesSection() {
               )}
 
               <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                <a
-                  href={WA_SERVICE_PILLARS[p.waKey]}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/kontak"
                   onClick={() =>
                     trackEvent("cta_whatsapp_click", {
                       location: "services",
-                      pillar: p.waKey,
+                      pillar: p.id,
                     })
                   }
                   className="text-sm font-medium text-maroon-vibrant hover:underline"
                 >
                   {SERVICE_CTA_LABEL} →
-                </a>
+                </Link>
                 {p.portfolioFilter && (
                   <a
                     href={`#portofolio`}
@@ -171,15 +165,13 @@ export default function ServicesSection() {
 
       <div className="mt-10 text-center">
         <Button asChild>
-          <a
-            href={WA_SERVICES}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/kontak"
             onClick={() => trackEvent("cta_whatsapp_click", { location: "services" })}
           >
             <MessagesSquare className="h-4 w-4" />
             Diskusikan Kebutuhan Anda
-          </a>
+          </Link>
         </Button>
       </div>
     </SectionWrapper>
