@@ -25,7 +25,7 @@ export const PRODUCTS: Product[] = [
     featured: true,
     image: "/images/products/sijagaair.jpeg",
     link: "#portofolio",
-    website: "https://sijagaair.redcode.my.id/public",
+    website: "https://sijagaair.inspiralabs.id/public",
   },
   {
     id: "desa",
@@ -37,7 +37,7 @@ export const PRODUCTS: Product[] = [
     tags: ["Khusus Pemerintahan", "ROI Cepat"],
     featured: false,
     image: "/images/products/Sistem_Informasi_Desa_Terpadu.jpeg",
-    website: "https://sigap-desa-app.vercel.app/",
+    website: "https://sigapdesa.inspiralabs.id",
   },
   {
     id: "lms",
@@ -49,7 +49,7 @@ export const PRODUCTS: Product[] = [
     tags: ["Khusus Pendidikan"],
     featured: false,
     image: "/images/products/LMS.jpeg",
-    website: "https://allboom-app.netlify.app/",
+    website: "https://allboom.inspiralabs.id",
   },
   {
     id: "masjid",
