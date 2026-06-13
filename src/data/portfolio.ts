@@ -68,7 +68,7 @@ export const portfolioCases: PortfolioCase[] = [
     category: "iot",
     contentType: "case-study",
     featured: true,
-    website: "https://sijagaair.redcode.my.id/public",
+    website: "https://sijagaair.inspiralabs.id/public",
     tags: ["IoT", "Pemerintahan", "Studi Kasus"],
     problem:
       "Desa membutuhkan peringatan dini banjir yang cepat dan mudah diakses warga.",
