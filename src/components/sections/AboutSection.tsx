@@ -46,7 +46,7 @@ const founders = [
   },
   {
     name: "Fahri Priandana",
-    role: "Creative Director of InspiraLabs",
+    role: "CDO of InspiraLabs",
     subtitle: "Visual Design & Branding",
     bio: "Memimpin arah visual dan branding. Menangani desain logo, UI, dan konten kreatif yang konsisten di seluruh platform.",
     initials: "FP",
