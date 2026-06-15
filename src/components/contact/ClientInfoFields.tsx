@@ -48,6 +48,21 @@ export default function ClientInfoFields({
     });
   };
 
+  const handleWhatsAppChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let input = e.target.value.replace(/\D/g, ""); // Remove non-digits
+    
+    // If starts with 0, replace with 62
+    if (input.startsWith("0")) {
+      input = "62" + input.substring(1);
+    }
+    // If doesn't start with 62, add it
+    else if (input.length > 0 && !input.startsWith("62")) {
+      input = "62" + input;
+    }
+    
+    set("whatsapp", input);
+  };
+
   return (
     <div className="space-y-8">
       <FormSection title="Identitas Anda">
@@ -219,15 +234,23 @@ export default function ClientInfoFields({
             <label htmlFor={`${prefix}wa`} className="text-sm font-medium">
               Nomor WhatsApp *
             </label>
-            <input
-              id={`${prefix}wa`}
-              required
-              type="tel"
-              className={contactInputClass}
-              placeholder="08xx xxxx xxxx"
-              value={value.whatsapp}
-              onChange={(e) => set("whatsapp", e.target.value)}
-            />
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-[var(--color-text-secondary)]">
+                +62
+              </span>
+              <input
+                id={`${prefix}wa`}
+                required
+                type="tel"
+                className={`${contactInputClass} pl-12`}
+                placeholder="8xx xxxx xxxx"
+                value={value.whatsapp.startsWith("62") ? value.whatsapp.substring(2) : value.whatsapp}
+                onChange={handleWhatsAppChange}
+              />
+            </div>
+            <p className="mt-1 text-xs text-[var(--color-text-muted)]">
+              Format otomatis ke +62. Contoh: ketik 089... atau 89...
+            </p>
           </div>
           <div>
             <label htmlFor={`${prefix}email`} className="text-sm font-medium">

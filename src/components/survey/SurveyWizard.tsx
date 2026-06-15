@@ -213,6 +213,8 @@ export default function SurveyWizard() {
           whatsappMessage={waMessage}
           emailDraft={emailDraft}
           source="survey"
+          surveyResponses={responses}
+          surveyRecommendations={recommendations}
         />
         <button
           type="button"

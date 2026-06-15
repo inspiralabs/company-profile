@@ -32,3 +32,6 @@ next-env.d.ts
 
 # prompt
 docs/*
+
+# google sheets credentials
+google-sheets-api.json

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import EmailCopyPanel from "@/components/contact/EmailCopyPanel";
 import { canSendViaEmail, type ClientInfo, type EmailDraft } from "@/lib/contact";
 import { waLink, trackEvent } from "@/lib/site";
+import type { RecommendedSolution } from "@/data/survey-questions";
 
 type ChannelPickerProps = {
   client: ClientInfo;
@@ -13,7 +14,43 @@ type ChannelPickerProps = {
   source: "kontak" | "survey";
   emailDraft?: EmailDraft;
   mailtoLink?: string;
+  surveyResponses?: Record<number, { selected: string[]; custom?: string }>;
+  surveyRecommendations?: RecommendedSolution[];
+  contactPayload?: { tujuan?: string; pesan?: string };
 };
+
+function submitToSheets(
+  source: "kontak" | "survey",
+  client: ClientInfo,
+  extra: {
+    surveyResponses?: Record<number, { selected: string[]; custom?: string }>;
+    surveyRecommendations?: RecommendedSolution[];
+    contactPayload?: { tujuan?: string; pesan?: string };
+  }
+) {
+  if (source === "survey" && extra.surveyResponses) {
+    fetch("/api/submit-survey", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        clientInfo: client,
+        responses: extra.surveyResponses,
+        recommendations:
+          extra.surveyRecommendations?.map((r) => r.name) ?? [],
+      }),
+    }).catch(console.error);
+  } else if (source === "kontak") {
+    fetch("/api/submit-contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...client,
+        tujuan: extra.contactPayload?.tujuan,
+        pesan: extra.contactPayload?.pesan,
+      }),
+    }).catch(console.error);
+  }
+}
 
 export default function ChannelPicker({
   client,
@@ -21,6 +58,9 @@ export default function ChannelPicker({
   source,
   emailDraft,
   mailtoLink,
+  surveyResponses,
+  surveyRecommendations,
+  contactPayload,
 }: ChannelPickerProps) {
   const [showEmailPanel, setShowEmailPanel] = useState(false);
   const useCopyPanel = Boolean(emailDraft);
@@ -30,16 +70,31 @@ export default function ChannelPicker({
 
   const handleWhatsAppClick = () => {
     trackEvent("contact_channel_whatsapp", { source });
+    submitToSheets(source, client, {
+      surveyResponses,
+      surveyRecommendations,
+      contactPayload,
+    });
   };
 
   const handleEmail = () => {
     if (useCopyPanel && emailDraft) {
       trackEvent("contact_channel_email", { source });
+      submitToSheets(source, client, {
+        surveyResponses,
+        surveyRecommendations,
+        contactPayload,
+      });
       setShowEmailPanel((v) => !v);
       return;
     }
     if (!emailReady || !mailtoLink) return;
     trackEvent("contact_channel_email", { source });
+    submitToSheets(source, client, {
+      surveyResponses,
+      surveyRecommendations,
+      contactPayload,
+    });
     window.location.href = mailtoLink;
   };
 

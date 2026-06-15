@@ -101,6 +101,7 @@ export default function ContactForm() {
             whatsappMessage={waMessage}
             emailDraft={emailDraft}
             source="kontak"
+            contactPayload={{ tujuan: form.tujuan, pesan: form.pesan }}
           />
         </div>
       )}
