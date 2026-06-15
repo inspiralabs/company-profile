@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import ChannelPicker from "@/components/contact/ChannelPicker";
 import ClientInfoFields from "@/components/contact/ClientInfoFields";
 import MotionSelect from "@/components/ui/motion-select";
+import Turnstile from "@/components/ui/Turnstile";
 import {
   buildContactEmailDraft,
   buildContactWAMessage,
@@ -29,10 +30,30 @@ export default function ContactForm() {
     pesan: "",
   });
   const [showChannels, setShowChannels] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
+  const [turnstileVerified, setTurnstileVerified] = useState(false);
+  const [turnstileError, setTurnstileError] = useState(false);
   const channelRef = useRef<HTMLDivElement>(null);
+
+  const handleTurnstileSuccess = (token: string) => {
+    setTurnstileToken(token);
+    setTurnstileVerified(true);
+    setTurnstileError(false);
+  };
+
+  const handleTurnstileError = () => {
+    setTurnstileToken("");
+    setTurnstileVerified(false);
+    setTurnstileError(true);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!turnstileVerified) {
+      return;
+    }
+    
     trackEvent("contact_form_submit");
     setShowChannels(true);
   };
@@ -87,14 +108,47 @@ export default function ContactForm() {
           />
         </div>
 
-        {!showChannels && (
-          <Button type="submit" className="w-full">
-            Lanjutkan
-          </Button>
-        )}
+        <div className="space-y-4">
+          <div>
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY || ""}
+              onSuccess={handleTurnstileSuccess}
+              onError={handleTurnstileError}
+              onExpire={handleTurnstileError}
+            />
+            {turnstileVerified && (
+              <div className="mt-2 flex items-center gap-2 text-sm text-green-600">
+                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                Verifikasi keamanan berhasil
+              </div>
+            )}
+            {turnstileError && (
+              <div className="mt-2 text-sm text-red-600">
+                Verifikasi gagal. Silakan refresh halaman.
+              </div>
+            )}
+            {!turnstileVerified && !turnstileError && (
+              <div className="mt-2 text-sm text-[var(--color-text-muted)]">
+                Memverifikasi keamanan...
+              </div>
+            )}
+          </div>
+          
+          {!showChannels && (
+            <Button 
+              type="submit" 
+              className="w-full"
+              disabled={!turnstileVerified}
+            >
+              Lanjutkan
+            </Button>
+          )}
+        </div>
       </form>
 
-      {showChannels && (
+      {showChannels && turnstileVerified && (
         <div ref={channelRef}>
           <ChannelPicker
             client={form}
@@ -102,6 +156,7 @@ export default function ContactForm() {
             emailDraft={emailDraft}
             source="kontak"
             contactPayload={{ tujuan: form.tujuan, pesan: form.pesan }}
+            turnstileToken={turnstileToken}
           />
         </div>
       )}

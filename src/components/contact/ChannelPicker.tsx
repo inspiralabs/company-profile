@@ -17,6 +17,7 @@ type ChannelPickerProps = {
   surveyResponses?: Record<number, { selected: string[]; custom?: string }>;
   surveyRecommendations?: RecommendedSolution[];
   contactPayload?: { tujuan?: string; pesan?: string };
+  turnstileToken?: string;
 };
 
 function submitToSheets(
@@ -26,6 +27,7 @@ function submitToSheets(
     surveyResponses?: Record<number, { selected: string[]; custom?: string }>;
     surveyRecommendations?: RecommendedSolution[];
     contactPayload?: { tujuan?: string; pesan?: string };
+    turnstileToken?: string;
   }
 ) {
   if (source === "survey" && extra.surveyResponses) {
@@ -37,6 +39,7 @@ function submitToSheets(
         responses: extra.surveyResponses,
         recommendations:
           extra.surveyRecommendations?.map((r) => r.name) ?? [],
+        turnstileToken: extra.turnstileToken,
       }),
     }).catch(console.error);
   } else if (source === "kontak") {
@@ -47,6 +50,7 @@ function submitToSheets(
         ...client,
         tujuan: extra.contactPayload?.tujuan,
         pesan: extra.contactPayload?.pesan,
+        turnstileToken: extra.turnstileToken,
       }),
     }).catch(console.error);
   }
@@ -61,10 +65,12 @@ export default function ChannelPicker({
   surveyResponses,
   surveyRecommendations,
   contactPayload,
+  turnstileToken,
 }: ChannelPickerProps) {
   const [showEmailPanel, setShowEmailPanel] = useState(false);
   const useCopyPanel = Boolean(emailDraft);
   const emailReady = canSendViaEmail(client);
+  const isVerified = Boolean(turnstileToken);
 
   const whatsappHref = waLink(whatsappMessage);
 
@@ -74,6 +80,7 @@ export default function ChannelPicker({
       surveyResponses,
       surveyRecommendations,
       contactPayload,
+      turnstileToken,
     });
   };
 
@@ -84,6 +91,7 @@ export default function ChannelPicker({
         surveyResponses,
         surveyRecommendations,
         contactPayload,
+        turnstileToken,
       });
       setShowEmailPanel((v) => !v);
       return;
@@ -94,38 +102,53 @@ export default function ChannelPicker({
       surveyResponses,
       surveyRecommendations,
       contactPayload,
+      turnstileToken,
     });
     window.location.href = mailtoLink;
   };
 
   return (
     <div className="relative z-10 space-y-3 rounded-xl border border-gold-antique/30 bg-cream/50 p-5">
+      {!isVerified && (
+        <div className="mb-3 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
+          <p className="font-medium">⚠️ Verifikasi keamanan diperlukan</p>
+          <p className="mt-1 text-xs">Silakan selesaikan verifikasi di atas untuk melanjutkan.</p>
+        </div>
+      )}
       <p className="text-sm font-medium text-maroon-deep">
         Pilih cara menghubungi kami:
       </p>
       <div className="flex flex-col gap-3 sm:flex-row">
         <Button
-          asChild
+          asChild={isVerified}
           variant="whatsapp"
           size="lg"
           className="flex-1"
+          disabled={!isVerified}
         >
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleWhatsAppClick}
-          >
-            <MessageCircle className="h-4 w-4" />
-            Kirim via WhatsApp
-          </a>
+          {isVerified ? (
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleWhatsAppClick}
+            >
+              <MessageCircle className="h-4 w-4" />
+              Kirim via WhatsApp
+            </a>
+          ) : (
+            <>
+              <MessageCircle className="h-4 w-4" />
+              Kirim via WhatsApp
+            </>
+          )}
         </Button>
         <Button
           type="button"
           variant={showEmailPanel ? "primary" : "secondary"}
           size="lg"
           className="flex-1"
-          disabled={!useCopyPanel && !emailReady}
+          disabled={!isVerified || (!useCopyPanel && !emailReady)}
           onClick={handleEmail}
         >
           <Mail className="h-4 w-4" />

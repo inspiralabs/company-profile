@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ChannelPicker from "@/components/contact/ChannelPicker";
 import ClientInfoFields from "@/components/contact/ClientInfoFields";
+import Turnstile from "@/components/ui/Turnstile";
 import { surveyQuestions } from "@/data/survey-questions";
 import {
   buildSurveyEmailDraft,
@@ -31,6 +32,9 @@ export default function SurveyWizard() {
   const [responses, setResponses] = useState<SurveyResponses>({});
   const [selected, setSelected] = useState<string[]>([]);
   const [custom, setCustom] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
+  const [turnstileVerified, setTurnstileVerified] = useState(false);
+  const [turnstileError, setTurnstileError] = useState(false);
 
   const question = surveyQuestions[step];
   const progress = ((step + 1) / surveyQuestions.length) * 100;
@@ -58,8 +62,21 @@ export default function SurveyWizard() {
       .filter(Boolean) as { title: string; text: string }[];
   }, [phase, responses]);
 
+  const handleTurnstileSuccess = (token: string) => {
+    setTurnstileToken(token);
+    setTurnstileVerified(true);
+    setTurnstileError(false);
+  };
+
+  const handleTurnstileError = () => {
+    setTurnstileToken("");
+    setTurnstileVerified(false);
+    setTurnstileError(true);
+  };
+
   const startSurvey = () => {
     if (!isClientInfoValid(clientInfo)) return;
+    if (!turnstileVerified) return;
     setPhase("questions");
   };
 
@@ -138,14 +155,42 @@ export default function SurveyWizard() {
             onChange={setClientInfo}
             idPrefix="survey"
           />
-          <Button
-            type="button"
-            className="mt-6 w-full"
-            disabled={!isClientInfoValid(clientInfo)}
-            onClick={startSurvey}
-          >
-            Mulai Survey →
-          </Button>
+          <div className="mt-6 space-y-4">
+            <div>
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY || ""}
+                onSuccess={handleTurnstileSuccess}
+                onError={handleTurnstileError}
+                onExpire={handleTurnstileError}
+              />
+              {turnstileVerified && (
+                <div className="mt-2 flex items-center gap-2 text-sm text-green-600">
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Verifikasi keamanan berhasil
+                </div>
+              )}
+              {turnstileError && (
+                <div className="mt-2 text-sm text-red-600">
+                  Verifikasi gagal. Silakan refresh halaman.
+                </div>
+              )}
+              {!turnstileVerified && !turnstileError && (
+                <div className="mt-2 text-sm text-[var(--color-text-muted)]">
+                  Memverifikasi keamanan...
+                </div>
+              )}
+            </div>
+            <Button
+              type="button"
+              className="w-full"
+              disabled={!isClientInfoValid(clientInfo) || !turnstileVerified}
+              onClick={startSurvey}
+            >
+              Mulai Survey →
+            </Button>
+          </div>
         </div>
       </motion.div>
     );
@@ -215,6 +260,7 @@ export default function SurveyWizard() {
           source="survey"
           surveyResponses={responses}
           surveyRecommendations={recommendations}
+          turnstileToken={turnstileToken}
         />
         <button
           type="button"

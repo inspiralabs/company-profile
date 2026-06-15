@@ -7,10 +7,28 @@ import {
 } from "@/lib/google-sheets";
 import type { ContactPayload } from "@/lib/contact";
 import { getTipeKlienLabel, formatDetailTipeLine } from "@/lib/contact";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 
 export async function POST(request: Request) {
   try {
-    const body: ContactPayload = await request.json();
+    const body: ContactPayload & { turnstileToken?: string } = await request.json();
+
+    // Verify Turnstile token
+    if (!body.turnstileToken) {
+      return NextResponse.json(
+        { success: false, error: "Token verifikasi tidak ditemukan" },
+        { status: 400 }
+      );
+    }
+
+    const isValidToken = await verifyTurnstileToken(body.turnstileToken);
+    
+    if (!isValidToken) {
+      return NextResponse.json(
+        { success: false, error: "Verifikasi keamanan gagal. Silakan coba lagi." },
+        { status: 400 }
+      );
+    }
 
     await ensureHeaders(CONTACT_SHEET, CONTACT_HEADERS);
 

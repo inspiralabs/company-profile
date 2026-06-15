@@ -8,11 +8,13 @@ import {
 import { surveyQuestions } from "@/data/survey-questions";
 import type { ClientInfo } from "@/lib/contact";
 import { getTipeKlienLabel, formatDetailTipeLine } from "@/lib/contact";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 
 type SurveyPayload = {
   clientInfo: ClientInfo;
   responses: Record<number, { selected: string[]; custom?: string }>;
   recommendations: string[];
+  turnstileToken?: string;
 };
 
 function resolveAnswerLabels(
@@ -32,7 +34,24 @@ function resolveAnswerLabels(
 export async function POST(request: Request) {
   try {
     const body: SurveyPayload = await request.json();
-    const { clientInfo, responses, recommendations } = body;
+    const { clientInfo, responses, recommendations, turnstileToken } = body;
+
+    // Verify Turnstile token
+    if (!turnstileToken) {
+      return NextResponse.json(
+        { success: false, error: "Token verifikasi tidak ditemukan" },
+        { status: 400 }
+      );
+    }
+
+    const isValidToken = await verifyTurnstileToken(turnstileToken);
+    
+    if (!isValidToken) {
+      return NextResponse.json(
+        { success: false, error: "Verifikasi keamanan gagal. Silakan coba lagi." },
+        { status: 400 }
+      );
+    }
 
     await ensureHeaders(SURVEY_SHEET, SURVEY_HEADERS);
 
