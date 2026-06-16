@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef, useCallback } from "react";
+import { ShieldCheck, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ChannelPicker from "@/components/contact/ChannelPicker";
@@ -24,6 +25,7 @@ import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/site";
 
 type Phase = "client" | "questions" | "done";
+type SecurityStatus = "idle" | "checking" | "allowed" | "blocked";
 
 export default function SurveyWizard() {
   const [phase, setPhase] = useState<Phase>("client");
@@ -35,6 +37,13 @@ export default function SurveyWizard() {
   const [turnstileToken, setTurnstileToken] = useState<string>("");
   const [turnstileVerified, setTurnstileVerified] = useState(false);
   const [turnstileError, setTurnstileError] = useState(false);
+  const [honeypot, setHoneypot] = useState<string>(""); // Honeypot field
+
+  // --- Security pre-check state (mirip Turnstile) ---
+  const [securityStatus, setSecurityStatus] = useState<SecurityStatus>("idle");
+  const [securityError, setSecurityError] = useState<string | null>(null);
+  const [securityRetry, setSecurityRetry] = useState(0);
+  const hasChecked = useRef(false);
 
   const question = surveyQuestions[step];
   const progress = ((step + 1) / surveyQuestions.length) * 100;
@@ -74,10 +83,66 @@ export default function SurveyWizard() {
     setTurnstileError(true);
   };
 
+  // Pre-check keamanan — dipanggil sekali saat user mulai mengisi form
+  const runPreCheck = useCallback(async () => {
+    if (hasChecked.current) return;
+    hasChecked.current = true;
+    setSecurityStatus("checking");
+
+    try {
+      const res = await fetch("/api/check-limit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ source: "survey", website: honeypot }),
+      });
+      const data = await res.json();
+
+      if (!res.ok || !data.allowed) {
+        const seconds = data.retryAfter ?? 60;
+        setSecurityError(data.error ?? "Terlalu banyak permintaan.");
+        setSecurityRetry(seconds);
+        setSecurityStatus("blocked");
+      } else {
+        setSecurityStatus("allowed");
+      }
+    } catch {
+      // Jika network error, tetap izinkan agar UX tidak rusak
+      setSecurityStatus("allowed");
+    }
+  }, [honeypot]);
+
+  // Countdown timer untuk security pre-check blocked state
+  useEffect(() => {
+    if (securityRetry <= 0 || securityStatus !== "blocked") return;
+    const timer = setInterval(() => {
+      setSecurityRetry((prev) => {
+        if (prev <= 1) {
+          // Reset agar bisa dicoba lagi
+          hasChecked.current = false;
+          setSecurityStatus("idle");
+          setSecurityError(null);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [securityRetry, securityStatus]);
+
   const startSurvey = () => {
     if (!isClientInfoValid(clientInfo)) return;
     if (!turnstileVerified) return;
+    if (securityStatus === "checking" || securityStatus === "blocked") return;
     setPhase("questions");
+  };
+
+  // Handler untuk ClientInfoFields — trigger pre-check saat user pertama kali mengetik
+  const handleClientInfoChange = (info: ClientInfo) => {
+    setClientInfo(info);
+    // Trigger pre-check saat field pertama diisi (nama tidak kosong)
+    if (info.nama.trim().length > 0 && securityStatus === "idle") {
+      runPreCheck();
+    }
   };
 
   const saveAndNext = () => {
@@ -150,9 +215,21 @@ export default function SurveyWizard() {
         </div>
 
         <div className="rounded-xl border border-[var(--color-border)] bg-surface p-6 shadow-card">
+          {/* Honeypot field - hidden from users, only bots will fill this */}
+          <input
+            type="text"
+            name="website"
+            id="website_url_field_survey"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            style={{ display: "none" }}
+            tabIndex={-1}
+            autoComplete="new-password"
+            aria-hidden="true"
+          />
           <ClientInfoFields
             value={clientInfo}
-            onChange={setClientInfo}
+            onChange={handleClientInfoChange}
             idPrefix="survey"
           />
           <div className="mt-6 space-y-4">
@@ -182,13 +259,91 @@ export default function SurveyWizard() {
                 </div>
               )}
             </div>
+
+            {/* Security pre-check status — mirip Turnstile, muncul saat user mulai mengisi */}
+            {securityStatus !== "idle" && (
+              <div
+                className="flex items-center gap-2 rounded-lg border px-3 py-2 text-sm transition-all duration-300"
+                style={{
+                  borderColor:
+                    securityStatus === "checking"
+                      ? "var(--color-border)"
+                      : securityStatus === "allowed"
+                      ? "#86efac"
+                      : "#fca5a5",
+                  backgroundColor:
+                    securityStatus === "checking"
+                      ? "transparent"
+                      : securityStatus === "allowed"
+                      ? "#f0fdf4"
+                      : "#fef2f2",
+                }}
+              >
+                {securityStatus === "checking" && (
+                  <>
+                    <svg
+                      className="h-4 w-4 animate-spin text-[var(--color-text-muted)]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                      />
+                    </svg>
+                    <span className="text-[var(--color-text-muted)]">
+                      Memeriksa keamanan...
+                    </span>
+                  </>
+                )}
+                {securityStatus === "allowed" && (
+                  <>
+                    <ShieldCheck className="h-4 w-4 text-green-600" />
+                    <span className="text-green-700">Keamanan terverifikasi</span>
+                  </>
+                )}
+                {securityStatus === "blocked" && (
+                  <>
+                    <ShieldAlert className="h-4 w-4 text-red-500" />
+                    <span className="text-red-700">
+                      {securityError}
+                      {securityRetry > 0 && (
+                        <span className="ml-1 font-semibold">
+                          (Coba lagi dalam {securityRetry} detik)
+                        </span>
+                      )}
+                    </span>
+                  </>
+                )}
+              </div>
+            )}
+
             <Button
               type="button"
               className="w-full"
-              disabled={!isClientInfoValid(clientInfo) || !turnstileVerified}
+              disabled={
+                !isClientInfoValid(clientInfo) ||
+                !turnstileVerified ||
+                securityStatus === "checking" ||
+                securityStatus === "blocked"
+              }
               onClick={startSurvey}
             >
-              Mulai Survey →
+              {securityStatus === "checking"
+                ? "Memeriksa keamanan..."
+                : securityStatus === "blocked"
+                ? `Tunggu ${securityRetry}s`
+                : "Mulai Survey →"}
             </Button>
           </div>
         </div>
@@ -260,6 +415,7 @@ export default function SurveyWizard() {
           source="survey"
           surveyResponses={responses}
           surveyRecommendations={recommendations}
+          contactPayload={{ website: honeypot }}
           turnstileToken={turnstileToken}
         />
         <button

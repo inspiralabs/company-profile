@@ -33,6 +33,7 @@ export default function ContactForm() {
   const [turnstileToken, setTurnstileToken] = useState<string>("");
   const [turnstileVerified, setTurnstileVerified] = useState(false);
   const [turnstileError, setTurnstileError] = useState(false);
+  const [honeypot, setHoneypot] = useState<string>(""); // Honeypot field
   const channelRef = useRef<HTMLDivElement>(null);
 
   const handleTurnstileSuccess = (token: string) => {
@@ -72,6 +73,18 @@ export default function ContactForm() {
         onSubmit={handleSubmit}
         className="space-y-4 rounded-xl border border-[var(--color-border)] bg-surface p-6 shadow-card sm:p-8"
       >
+        {/* Honeypot field - hidden from users, only bots will fill this */}
+        <input
+          type="text"
+          name="website"
+          id="website_url_field"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          style={{ display: "none" }}
+          tabIndex={-1}
+          autoComplete="new-password"
+          aria-hidden="true"
+        />
         <ClientInfoFields
           value={form}
           onChange={(client) => setForm({ ...form, ...client })}
@@ -155,7 +168,7 @@ export default function ContactForm() {
             whatsappMessage={waMessage}
             emailDraft={emailDraft}
             source="kontak"
-            contactPayload={{ tujuan: form.tujuan, pesan: form.pesan }}
+            contactPayload={{ tujuan: form.tujuan, pesan: form.pesan, website: honeypot }}
             turnstileToken={turnstileToken}
           />
         </div>

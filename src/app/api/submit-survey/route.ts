@@ -9,12 +9,14 @@ import { surveyQuestions } from "@/data/survey-questions";
 import type { ClientInfo } from "@/lib/contact";
 import { getTipeKlienLabel, formatDetailTipeLine } from "@/lib/contact";
 import { verifyTurnstileToken } from "@/lib/turnstile";
+import { checkRateLimit, getClientIP } from "@/lib/rate-limit";
 
 type SurveyPayload = {
   clientInfo: ClientInfo;
   responses: Record<number, { selected: string[]; custom?: string }>;
   recommendations: string[];
   turnstileToken?: string;
+  website?: string; // Honeypot field
 };
 
 function resolveAnswerLabels(
@@ -34,9 +36,38 @@ function resolveAnswerLabels(
 export async function POST(request: Request) {
   try {
     const body: SurveyPayload = await request.json();
-    const { clientInfo, responses, recommendations, turnstileToken } = body;
+    const { clientInfo, responses, recommendations, turnstileToken, website } = body;
 
-    // Verify Turnstile token
+    // Tier 3: Honeypot check (must be empty)
+    if (website) {
+      console.log("Honeypot triggered - bot detected");
+      // Return fake success to not alert the bot
+      return NextResponse.json({ success: true });
+    }
+
+    // Tier 2: Rate limiting (3 requests per minute per IP - survey takes longer)
+    const clientIP = getClientIP(request);
+    const rateLimitResult = checkRateLimit(clientIP, {
+      maxRequests: 3,
+      windowMs: 60000, // 1 minute
+    });
+
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: `Terlalu banyak permintaan. Silakan coba lagi dalam ${rateLimitResult.retryAfter} detik.` 
+        },
+        { 
+          status: 429,
+          headers: {
+            "Retry-After": rateLimitResult.retryAfter?.toString() || "60",
+          },
+        }
+      );
+    }
+
+    // Tier 1: Verify Turnstile token
     if (!turnstileToken) {
       return NextResponse.json(
         { success: false, error: "Token verifikasi tidak ditemukan" },
@@ -52,6 +83,8 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+
+    console.log(`Survey submission from IP: ${clientIP}, remaining: ${rateLimitResult.remaining}`);
 
     await ensureHeaders(SURVEY_SHEET, SURVEY_HEADERS);
 

@@ -8,12 +8,45 @@ import {
 import type { ContactPayload } from "@/lib/contact";
 import { getTipeKlienLabel, formatDetailTipeLine } from "@/lib/contact";
 import { verifyTurnstileToken } from "@/lib/turnstile";
+import { checkRateLimit, getClientIP } from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
   try {
-    const body: ContactPayload & { turnstileToken?: string } = await request.json();
+    const body: ContactPayload & { 
+      turnstileToken?: string;
+      website?: string; // Honeypot field
+    } = await request.json();
 
-    // Verify Turnstile token
+    // Tier 3: Honeypot check (must be empty)
+    if (body.website) {
+      console.log("Honeypot triggered - bot detected");
+      // Return fake success to not alert the bot
+      return NextResponse.json({ success: true });
+    }
+
+    // Tier 2: Rate limiting (3 requests per minute per IP)
+    const clientIP = getClientIP(request);
+    const rateLimitResult = checkRateLimit(clientIP, {
+      maxRequests: 3,
+      windowMs: 60000, // 1 minute
+    });
+
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: `Terlalu banyak permintaan. Silakan coba lagi dalam ${rateLimitResult.retryAfter} detik.` 
+        },
+        { 
+          status: 429,
+          headers: {
+            "Retry-After": rateLimitResult.retryAfter?.toString() || "60",
+          },
+        }
+      );
+    }
+
+    // Tier 1: Verify Turnstile token
     if (!body.turnstileToken) {
       return NextResponse.json(
         { success: false, error: "Token verifikasi tidak ditemukan" },
@@ -29,6 +62,8 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+
+    console.log(`Contact submission from IP: ${clientIP}, remaining: ${rateLimitResult.remaining}`);
 
     await ensureHeaders(CONTACT_SHEET, CONTACT_HEADERS);
 
