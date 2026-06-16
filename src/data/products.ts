@@ -28,6 +28,18 @@ export const PRODUCTS: Product[] = [
     website: "https://sijagaair.inspiralabs.id/public",
   },
   {
+    id: "erp",
+    name: "Amanah — Platform Manajemen Guru Digital",
+    desc: "Platform manajemen guru dan sekolah terpadu untuk institusi pendidikan modern dan berasrama.",
+    description:
+      "AMANAH (Aplikasi Manajemen Anak & Sekolah) adalah platform ekosistem digital sekolah terpadu yang hadir sebagai solusi total untuk menjembatani komunikasi, transparansi, dan pemantauan perkembangan anak secara real-time. Dirancang khusus untuk institusi pendidikan modern dan berasrama.",
+    badge: "Siap Pakai",
+    tags: ["Khusus Pendidikan"],
+    featured: true,
+    image: "/images/products/amanah.jpeg",
+    website: "https://amanah.inspiralabs.id",
+  },
+  {
     id: "desa",
     name: "SIGAP DESA — Sistem Informasi Desa Terpadu",
     desc: "Platform tata kelola birokrasi — dari surat keterangan hingga laporan keuangan desa.",

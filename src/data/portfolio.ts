@@ -86,6 +86,35 @@ export const portfolioCases: PortfolioCase[] = [
     },
   },
   {
+    id: "amanah",
+    name: "Amanah — Platform Manajemen Guru Digital",
+    subtitle: "Sekolah Quran Asy Syahid, Ciangsana, Bogor",
+    icon: Droplets,
+    images: [
+      img("amanah-1.png"),
+      img("amanah-2.png"),
+      img("amanah-3.png"),
+    ],
+    category: "software",
+    contentType: "case-study",
+    featured: true,
+    website: "https://amanah.inspiralabs.id",
+    tags: ["Software", "Pendidikan", "Studi Kasus"],
+    problem:
+      "Sekolah membutuhkan platform digital untuk Guru, Musyrif, dan orang tua. Tujuannya untuk memudahkan manajemen tugas, komunikasi, dan pemantauan perkembangan siswa secara real-time.",
+    solution:
+      "AMANAH (Aplikasi Manajemen Anak & Sekolah) adalah platform ekosistem digital sekolah terpadu yang hadir sebagai solusi total untuk menjembatani komunikasi, transparansi, dan pemantauan perkembangan anak secara real-time. Dirancang khusus untuk institusi pendidikan modern dan berasrama.",
+    results: [
+      "Platform manajemen guru dan sekolah terpadu",
+      "Memudahkan komunikasi dan pemantauan perkembangan siswa",
+    ],
+    review: {
+      text: "AMANAH memudahkan komunikasi antara guru, musyrif, dan orang tua. Kami bisa memantau perkembangan siswa secara real-time, sehingga bisa lebih cepat tanggap jika ada kebutuhan khusus.",
+      author: "Chayyi Abdul Wahid, S.Sos.",
+      role: "Guru PKN dan Sejarah | Musyrif Kepesantrenan",
+    },
+  },
+  {
     id: "workshop-iot",
     name: "Instruktur Workshop Hardware dan IoT",
     subtitle: "SDIT Kota Depok",
