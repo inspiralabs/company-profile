@@ -41,15 +41,15 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "desa",
-    name: "SIGAP DESA — Sistem Informasi Desa Terpadu",
-    desc: "Platform tata kelola birokrasi — dari surat keterangan hingga laporan keuangan desa.",
+    name: "Teras Desa — Sistem Informasi Desa Terpadu",
+    desc: "Platform tata kelola birokrasi — dari proses administrasi hingga informasi publik.",
     description:
       "Platform digital untuk mengelola administrasi desa secara terpadu: pelayanan surat, data warga, keuangan APBDes, dan transparansi informasi publik — dirancang mudah dipakai perangkat desa.",
     badge: "Siap Pakai",
     tags: ["Khusus Pemerintahan", "ROI Cepat"],
     featured: false,
     image: "/images/products/Sistem_Informasi_Desa_Terpadu.jpeg",
-    website: "https://sigapdesa.inspiralabs.id",
+    website: "https://terasdesa.inspiralabs.id",
   },
   {
     id: "lms",
