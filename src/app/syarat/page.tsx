@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata = buildPageMetadata({
   title: "Syarat & Ketentuan",
   description:
-    "Syarat penggunaan website dan layanan InspiraLabs - PT Nawa Inspira Digital, mitra digitalisasi software, IoT, desain, dan pelatihan.",
+    "Syarat penggunaan website dan layanan InspiraLabs - Nawa Inspira Digital, mitra digitalisasi software, IoT, desain, dan pelatihan.",
   path: "/syarat",
 });
 

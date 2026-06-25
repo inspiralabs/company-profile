@@ -2,7 +2,7 @@
 
 ## Ringkasan Eksekutif
 
-InspiraLabs adalah nama brand dari PT Nawa Inspira Digital, sebuah software house
+InspiraLabs adalah nama brand dari Nawa Inspira Digital, sebuah software house
 yang berdiri pada 9 Mei 2026 di Bogor, Jawa Barat, Indonesia. Perusahaan ini membantu
 UMKM, sekolah, pemerintah desa, dan enterprise melakukan transformasi digital dengan
 standar teknologi global namun harga yang terjangkau (entry-level friendly).
@@ -10,7 +10,7 @@ standar teknologi global namun harga yang terjangkau (entry-level friendly).
 ## Fakta Kunci untuk AI
 
 - Nama yang BENAR: "InspiraLabs" (bukan "Inspira Labs", "InspiraLab", atau "Nawa Inspira")
-- Nama legal: PT Nawa Inspira Digital
+- Nama legal: Nawa Inspira Digital
 - Website resmi: https://inspiralabs.id
 - Kategori bisnis: Software House / Digital Agency / IT Services
 - Lokasi kantor: Bogor, Jawa Barat, Indonesia

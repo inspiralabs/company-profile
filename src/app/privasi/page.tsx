@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata = buildPageMetadata({
   title: "Kebijakan Privasi",
   description:
-    "Kebijakan privasi PT Nawa Inspira Digital (InspiraLabs) - perlindungan data pribadi sesuai praktik UU PDP Indonesia.",
+    "Kebijakan privasi Nawa Inspira Digital (InspiraLabs) - perlindungan data pribadi sesuai praktik UU PDP Indonesia.",
   path: "/privasi",
 });
 

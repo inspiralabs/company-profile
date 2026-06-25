@@ -18,7 +18,7 @@ const COMPANY_PROFILE_URL = cdn("/documents/Company%20Profile%20-%20NID.pdf");
 export const metadata: Metadata = buildPageMetadata({
   title: "Tentang Kami",
   description:
-    "InspiraLabs (PT Nawa Inspira Digital) - software house lokal Bogor yang membangun solusi digital berkualitas global untuk UMKM, sekolah, desa, dan enterprise.",
+    "InspiraLabs (Nawa Inspira Digital) - software house lokal Bogor yang membangun solusi digital berkualitas global untuk UMKM, sekolah, desa, dan enterprise.",
   path: "/tentang",
 });
 
@@ -104,7 +104,7 @@ export default async function TentangPage() {
               <p>
                 Berawal dari persahabatan di bangku SMK tahun 2014, kami tumbuh bersama
                 dan menyatukan keahlian: bisnis, teknologi, operasional, dan desain.
-                PT Nawa Inspira Digital resmi berdiri{" "}
+                Nawa Inspira Digital resmi berdiri{" "}
                 <strong className="text-maroon-deep">9 Mei 2026</strong> sebagai komitmen
                 lebih besar: membawa transformasi digital ke semua kalangan, tanpa memandang skala.
               </p>

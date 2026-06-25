@@ -1,11 +1,11 @@
-# InspiraLabs (PT Nawa Inspira Digital)
+# InspiraLabs (Nawa Inspira Digital)
 
 > Software house Indonesia untuk UMKM, sekolah, dan pemerintah desa. Jasa pembuatan website, aplikasi, IoT, desain visual, dan pelatihan teknologi. Berbasis di Bogor, melayani seluruh Indonesia.
 
 ## Identitas
 
 - Nama Brand: InspiraLabs
-- Nama Legal: PT Nawa Inspira Digital
+- Nama Legal: Nawa Inspira Digital
 - Website: https://inspiralabs.id
 - Lokasi: Bogor, Jawa Barat, Indonesia
 - Kategori: Software House, Digital Agency, IT Services

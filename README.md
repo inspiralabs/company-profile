@@ -1,6 +1,6 @@
 # InspiraLabs Company Profile
 
-Website company profile PT Nawa Inspira Digital (InspiraLabs).
+Website company profile Nawa Inspira Digital (InspiraLabs).
 
 ## Stack
 
