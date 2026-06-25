@@ -55,7 +55,7 @@ export default function CTASection() {
                   size="lg"
                   className="w-full border-white/30 text-white hover:bg-white/10 sm:w-auto"
                 >
-                  <Link href="/kontak">Kirim Pesan / Email</Link>
+                  <Link href="/survey">Ceritakan Kebutuhan Anda</Link>
                 </Button>
               </div>
 

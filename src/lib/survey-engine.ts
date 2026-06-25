@@ -89,38 +89,3 @@ export function getProfileTitle(responses: SurveyResponses): string {
   return profileTitles.default;
 }
 
-/** @deprecated Use buildSurveyWAMessage from @/lib/contact */
-export function buildSurveyWA(
-  responses: SurveyResponses,
-  recommendations: RecommendedSolution[]
-): string {
-  const lines: string[] = [
-    "Halo Tim InspiraLabs,",
-    "",
-    "Saya baru menyelesaikan Survey Kebutuhan. Berikut ringkasan jawaban saya:",
-    "",
-  ];
-
-  for (const q of surveyQuestions) {
-    const r = responses[q.id];
-    if (!r) continue;
-    const labels = r.selected
-      .map((id) => q.options.find((o) => o.id === id)?.label)
-      .filter(Boolean)
-      .join(", ");
-    let line = `${q.title}: ${labels || "-"}`;
-    if (r.custom?.trim()) {
-      line += ` (Catatan: ${r.custom.trim()})`;
-    }
-    lines.push(line);
-  }
-
-  lines.push(
-    "",
-    `Rekomendasi: ${recommendations.map((r) => r.name).join(", ")}`,
-    "",
-    "Mohon informasi lebih lanjut. Terima kasih."
-  );
-
-  return lines.join("\n");
-}

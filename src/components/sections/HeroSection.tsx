@@ -3,10 +3,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import HeroVisual from "@/components/shared/HeroVisual";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SectionWrapper from "@/components/shared/SectionWrapper";
-import { SITE } from "@/lib/site";
+import TypewriterText from "@/components/ui/TypewriterText";
 
 export default function HeroSection() {
   const reduceMotion = useReducedMotion();
@@ -27,18 +26,6 @@ export default function HeroSection() {
       <div className="relative grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <Badge
-              variant="default"
-              className="mb-5 max-w-full text-left text-[11px] leading-snug sm:mb-6 sm:text-sm"
-            >
-              {SITE.tagline}
-            </Badge>
-          </motion.div>
-
-          <motion.div
             className="mb-6 lg:hidden"
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -51,10 +38,9 @@ export default function HeroSection() {
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.1 }}
-            className="font-display text-3xl font-bold leading-tight text-balance text-maroon-deep sm:text-4xl lg:text-5xl xl:text-[3.5rem]"
+            className="font-display text-3xl font-bold leading-tight text-maroon-deep sm:text-4xl lg:text-5xl xl:text-[3.5rem]"
           >
-            Mitra Solusi{" "}
-            <span className="text-gradient-gold">Digital</span> Anda
+            <TypewriterText />
           </motion.h1>
 
           <motion.p
@@ -63,10 +49,11 @@ export default function HeroSection() {
             transition={{ delay: reduceMotion ? 0 : 0.2 }}
             className="mt-5 max-w-xl text-base leading-relaxed text-[var(--color-text-secondary)] sm:mt-6 sm:text-lg"
           >
-            Mitra digitalisasi untuk UMKM yang ingin naik kelas, institusi pendidikan
-            yang ingin berinovasi, dan perusahaan yang membutuhkan otomatisasi. Kami
-            membantu Anda bertransformasi melalui rekayasa perangkat lunak, inovasi
-            IoT, desain visual, dan pelatihan teknologi yang memberdayakan.
+            Kami merancang, membangun, dan mendampingi solusi digital mulai dari aplikasi dan sistem IoT 
+            hingga desain brand dan pelatihan serta konsultasi teknologi, 
+            untuk mempercepat pertumbuhan bisnis Anda dan memastikan setiap investasi memberikan 
+            dampak nyata jangka panjang. Selama ini, kami telah dipercaya oleh UMKM, institusi pendidikan, 
+            pemerintah desa, dan perusahaan untuk mewujudkan transformasi digital yang berkelanjutan.
           </motion.p>
 
           <motion.div
@@ -80,20 +67,13 @@ export default function HeroSection() {
               size="lg"
               className="w-full shadow-[0_0_24px_rgba(250,214,74,0.35)] sm:w-auto"
             >
-              <a href="#layanan">
+              <a href="/layanan">
                 Jelajahi Solusi Kami
                 <ArrowDown className="h-4 w-4" />
               </a>
             </Button>
           </motion.div>
 
-          <motion.p
-            initial={reduceMotion ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: reduceMotion ? 0 : 0.4 }}
-            className="mt-5 text-sm text-[var(--color-text-muted)] sm:mt-6"
-          >
-          </motion.p>
         </div>
 
         <motion.div

@@ -4,8 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { Code2, Cpu, GraduationCap, Palette } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { cdn } from "@/lib/cdn";
 
-const HERO_IMAGE = "/images/hero/hero.jpeg";
+const HERO_IMAGE = cdn("/images/hero/hero.jpeg");
 
 const fallbackIcons = [
   { Icon: Code2, label: "Software" },

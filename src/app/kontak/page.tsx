@@ -33,7 +33,7 @@ export default function KontakPage() {
             <strong className="text-maroon-deep">WhatsApp:</strong> {SITE.whatsappDisplay}
           </p>
           <p className="mt-2">
-            <strong className="text-maroon-deep">Jam operasional:</strong> {SITE.hours}
+            <strong className="text-maroon-deep">Jam operasional:</strong> {SITE.hours.weekday.open} - {SITE.hours.weekday.close} WIB (Senin - Jumat)
           </p>
         </div>
       </div>

@@ -50,7 +50,8 @@ export interface PortfolioCase {
   review: ClientReview;
 }
 
-const img = (file: string) => `/images/portfolio/${file}`;
+import { cdn } from "@/lib/cdn";
+const img = (file: string) => cdn(`/images/portfolio/${file}`);
 
 export const portfolioCases: PortfolioCase[] = [
   {
@@ -252,7 +253,7 @@ export const portfolioCases: PortfolioCase[] = [
       img("wedding-invite-3.png"),
       img("wedding-invite-4.png"),
     ],
-    category: "design",
+    category: "software",
     contentType: "case-study",
     tags: ["Software", "Studi Kasus"],
     problem: "Undangan fisik mahal dan sulit di-update untuk tamu jarak jauh.",

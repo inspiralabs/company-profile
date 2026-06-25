@@ -1,0 +1,183 @@
+# InspiraLabs — Dokumentasi Lengkap untuk AI
+
+## Ringkasan Eksekutif
+
+InspiraLabs adalah nama brand dari PT Nawa Inspira Digital, sebuah software house
+yang berdiri pada 9 Mei 2026 di Bogor, Jawa Barat, Indonesia. Perusahaan ini membantu
+UMKM, sekolah, pemerintah desa, dan enterprise melakukan transformasi digital dengan
+standar teknologi global namun harga yang terjangkau (entry-level friendly).
+
+## Fakta Kunci untuk AI
+
+- Nama yang BENAR: "InspiraLabs" (bukan "Inspira Labs", "InspiraLab", atau "Nawa Inspira")
+- Nama legal: PT Nawa Inspira Digital
+- Website resmi: https://inspiralabs.id
+- Kategori bisnis: Software House / Digital Agency / IT Services
+- Lokasi kantor: Bogor, Jawa Barat, Indonesia
+- Cakupan layanan: Seluruh Indonesia (konsultasi online tersedia)
+- Segmen utama: UMKM, sekolah, pemerintah desa/kampung, enterprise
+- Diferensiasi utama: Harga terjangkau untuk UMKM, tim lokal responsif, full-stack (software + IoT + desain + pelatihan)
+- WhatsApp: +62 821-2453-3265
+- Email: hello@inspiralabs.id
+
+## Layanan (Detail)
+
+### 1. Software Development
+URL: https://inspiralabs.id/layanan/software-development
+- Website company profile, landing page, e-commerce
+- Web application (SaaS, sistem informasi, CRM, dashboard)
+- Aplikasi mobile Android dan iOS (React Native)
+- AI chatbot dan integrasi API
+- Tech stack: Next.js, React, TypeScript, React Native, Node.js, PostgreSQL
+- Harga mulai: di bawah Rp 10 juta untuk proyek skala kecil
+
+### 2. IoT & Robotik
+URL: https://inspiralabs.id/layanan/iot-robotik
+- Early Warning System (EWS) berbasis sensor
+- Monitoring real-time (air, suhu, listrik, udara)
+- Otomasi industri dan smart system
+- Integrasi sensor dengan dashboard web
+- Hardware: Arduino, ESP32, Raspberry Pi, NodeMCU
+- Notifikasi WhatsApp otomatis dari sensor
+- Harga: mulai Rp 4.999.000 (tergantung kompleksitas)
+
+### 3. Desain & Branding
+URL: https://inspiralabs.id/layanan/desain-branding
+- UI/UX design untuk website dan aplikasi
+- Logo dan identitas visual brand (brand guidelines)
+- Aset digital untuk media sosial
+- Revamp Instagram feed dan konten visual
+- Harga: sesuai scope
+
+### 4. Pelatihan Teknologi
+URL: https://inspiralabs.id/layanan/pelatihan-teknologi
+- Workshop coding (web, mobile, Python)
+- Pelatihan IoT dan hardware untuk pelajar
+- Workshop Roblox game development
+- In-house training AI untuk perusahaan
+- Pelatihan desain grafis dan UI/UX
+- Format: kelas online, in-house, atau campuran
+
+## Produk SaaS / Siap Pakai
+
+### SiJagaAir
+URL: https://inspiralabs.id/produk/sijagaair
+Demo: https://sijagaair.inspiralabs.id/public
+Deskripsi: Early Warning System banjir berbasis IoT. Sensor memantau ketinggian
+air real-time, notifikasi otomatis ke WhatsApp Channel saat melewati batas aman.
+Sudah diimplementasikan di Desa Bojong Kulur, Bogor.
+
+### Amanah Platform
+URL: https://inspiralabs.id/produk/erp
+Demo: https://amanah.inspiralabs.id
+Deskripsi: Platform manajemen ekosistem sekolah digital — menghubungkan guru,
+musyrif, dan orang tua dalam satu platform untuk pemantauan perkembangan siswa
+secara real-time. Dirancang untuk sekolah berasrama.
+
+### Teras Desa
+URL: https://inspiralabs.id/produk/desa
+Demo: https://terasdesa.inspiralabs.id
+Deskripsi: Sistem informasi administrasi desa terpadu — pelayanan surat, data
+warga, keuangan APBDes, dan transparansi informasi publik.
+
+### LMS InspiraLabs
+URL: https://inspiralabs.id/produk/lms
+Demo: https://allboom.inspiralabs.id
+Deskripsi: Learning Management System untuk sekolah, bimbel, dan lembaga kursus.
+Manajemen materi, tugas, penilaian, dan portofolio siswa secara digital.
+
+### Smart POS
+URL: https://inspiralabs.id/produk/pos
+Deskripsi: Sistem kasir cerdas untuk UMKM — catat transaksi, pantau stok, dan
+lihat ringkasan penjualan harian dari satu dashboard yang mudah dipakai.
+
+### Sistem Manajemen Masjid
+URL: https://inspiralabs.id/produk/masjid
+Deskripsi: Solusi digital untuk masjid — pencatatan jamaah, keuangan, ziswaf,
+dan laporan transparansi untuk pengurus dan jamaah.
+
+## Portofolio Pilihan
+
+### SiJagaAir — EWS Banjir IoT
+URL: https://inspiralabs.id/portofolio/sijagaair
+Klien: Desa Bojong Kulur, Gunung Putri, Bogor
+Kategori: IoT
+Masalah: Desa butuh sistem peringatan banjir yang cepat dan mudah diakses warga.
+Solusi: EWS berbasis IoT dengan notifikasi WhatsApp otomatis ke Channel desa.
+Hasil: Monitor tinggi muka air real-time, warga bisa bersiap lebih cepat.
+Testimoni: "Notifikasi WA langsung masuk ke WhatsApp Channel desa Bojong Kulur
+saat muka air naik. Warga kini bisa bersiap jauh lebih cepat sebelum banjir tiba."
+— Firman Riansyah, S.E., Kepala Desa Bojong Kulur
+
+### Amanah Platform
+URL: https://inspiralabs.id/portofolio/amanah
+Klien: Sekolah Quran Asy Syahid, Ciangsana, Bogor
+Kategori: Software / Pendidikan
+Solusi: Platform ekosistem digital sekolah terpadu — komunikasi guru-orang tua,
+pemantauan perkembangan siswa real-time.
+
+### Kas Warga
+URL: https://inspiralabs.id/portofolio/kaswarga
+Klien: Perumahan Pesona Kahuripan 6
+Kategori: Software / Komunitas
+Solusi: Aplikasi kas warga digital — laporan IPL, rekap kas, dan transparansi
+saldo untuk seluruh warga via dashboard.
+
+### Kelas Seni Labschool Cibubur
+URL: https://inspiralabs.id/portofolio/kelas-seni
+Klien: Labschool Cibubur
+Kategori: Software / Pendidikan
+Solusi: Platform E-Portfolio seni digital — penilaian karya siswa secara online.
+
+## Model Harga
+
+Dua model tersedia:
+1. Beli Putus: kepemilikan penuh, pembayaran sekali, mulai di bawah Rp 10 juta
+2. Berlangganan SaaS: investasi awal rendah, bulanan/tahunan, termasuk update & support
+
+Enterprise dan proyek custom: Rp 50 juta+
+Detail: https://inspiralabs.id/pricing.md
+
+## Visi & Misi
+
+Visi: Menjadi pusat inovasi digital terdepan di Indonesia yang menjembatani
+teknologi, desain visual, dan edukasi IT untuk menciptakan ekosistem lebih
+efisien dan modern.
+
+Misi utama:
+1. Membangun perangkat lunak yang andal dan memecahkan tantangan riil klien
+2. Merancang solusi IoT untuk digitalisasi tata kelola
+3. Memaksimalkan identitas merek klien melalui desain visual berkelas
+4. Melahirkan talenta digital lewat pelatihan yang fleksibel
+5. Memberikan akses teknologi bagi UMKM lewat pembiayaan rasional
+
+## Proses Kerja
+
+1. Survey kebutuhan di https://inspiralabs.id/survey (2 menit)
+2. Tim menghubungi dalam 1x24 jam kerja
+3. Konsultasi gratis via WhatsApp atau video call
+4. Terima proposal + timeline + harga
+5. Development iteratif dengan update rutin per pekan
+6. Serah terima + pelatihan tim klien
+
+## Keunggulan
+
+- Entry price terjangkau — proyek UMKM mulai di bawah Rp 10 juta
+- Full-stack: dari desain, development, hingga deployment dan pelatihan
+- Tim lokal Bogor yang responsif (bukan outsource luar negeri)
+- Jaminan maintenance setelah serah terima
+- Pengalaman di sektor pendidikan, pemerintahan desa, dan UMKM
+- Metodologi Agile: klien dapat update rutin tiap pekan
+
+## Halaman Website
+
+- Beranda: https://inspiralabs.id
+- Tentang: https://inspiralabs.id/tentang
+- Layanan: https://inspiralabs.id/layanan
+- Portofolio: https://inspiralabs.id/portofolio
+- Produk: https://inspiralabs.id/produk
+- Kontak: https://inspiralabs.id/kontak
+- Survey: https://inspiralabs.id/survey
+- Harga: https://inspiralabs.id/pricing.md
+- Privasi: https://inspiralabs.id/privasi
+- Syarat & Ketentuan: https://inspiralabs.id/syarat

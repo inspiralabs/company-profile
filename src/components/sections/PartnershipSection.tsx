@@ -14,9 +14,11 @@ const trustPartners = [
   { id: "sdit-depok", name: "SDIT Depok", caseId: "workshop-iot" },
 ] as const;
 
+import { cdn } from "@/lib/cdn";
+
 /** Rasio asli `public/images/portfolio/sijagaair-1.png` (1627×778 px) */
 const SIJAGAAIR_HIGHLIGHT_IMAGE = {
-  src: "/images/portfolio/sijagaair-1.png",
+  src: cdn("/images/portfolio/sijagaair-1.png"),
   width: 1627,
   height: 778,
 } as const;

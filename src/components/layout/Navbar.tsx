@@ -26,17 +26,17 @@ const SECTION_IDS = [
 ];
 
 const layananDropdown = [
-  { href: "/#layanan-software", label: "Software Development" },
-  { href: "/#layanan-iot", label: "Robotic & IoT" },
-  { href: "/#layanan-design", label: "Creative & Branding" },
-  { href: "/#layanan-workshop", label: "Tech Training & Consulting" },
+  { href: "/layanan/software-development", label: "Software Development" },
+  { href: "/layanan/iot-robotik", label: "IoT & Robotik" },
+  { href: "/layanan/desain-branding", label: "Desain & Branding" },
+  { href: "/layanan/pelatihan-teknologi", label: "Pelatihan Teknologi" },
 ];
 
 const navLinks = [
-  { href: "/#home", label: "Home", sectionId: "home" },
-  { href: "/#etalase", label: "Produk", sectionId: "etalase" },
-  { href: "/#tentang", label: "Tentang", sectionId: "tentang" },
-  { href: "/#portofolio", label: "Portofolio", sectionId: "portofolio" },
+  { href: "/", label: "Home", sectionId: "home" },
+  { href: "/produk", label: "Produk", sectionId: "produk" },
+  { href: "/tentang", label: "Tentang", sectionId: "tentang" },
+  { href: "/portofolio", label: "Portofolio", sectionId: "portofolio" },
   { href: "/kontak", label: "Kontak", sectionId: "kontak" },
 ];
 
@@ -60,12 +60,9 @@ export default function Navbar() {
   };
 
   const isLinkActive = (sectionId?: string, href?: string) => {
-    if (isHomePage) {
-      return sectionId ? scrollSpyId === sectionId : false;
-    }
-    if (href && !href.startsWith("/#")) {
-      return pathname === href;
-    }
+    if (isHomePage && sectionId === "home") return scrollSpyId === "home";
+    if (href && href !== "/") return pathname.startsWith(href);
+    if (href === "/") return isHomePage;
     return false;
   };
 
@@ -87,7 +84,7 @@ export default function Navbar() {
       )}
     >
       <div className="mx-auto flex h-full max-w-content items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/#home" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.svg"
             alt={SITE.name}
@@ -124,11 +121,7 @@ export default function Navbar() {
               type="button"
               className={cn(
                 "flex items-center gap-1 text-sm font-medium",
-                isHomePage &&
-                  (scrollSpyId === "layanan" ||
-                    ["layanan-software", "layanan-iot", "layanan-design", "layanan-workshop"].includes(
-                      scrollSpyId
-                    ))
+                pathname.startsWith("/layanan")
                   ? "text-maroon-vibrant underline decoration-gold-antique decoration-2 underline-offset-8"
                   : "text-charcoal/80 hover:text-maroon-vibrant"
               )}
@@ -168,6 +161,13 @@ export default function Navbar() {
           ))}
         </nav>
 
+        <Link
+          href="/survey"
+          className="hidden rounded-full bg-maroon-deep px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-maroon-vibrant lg:inline-flex"
+        >
+          Mulai Survei
+        </Link>
+
         <button
           type="button"
           className="lg:hidden"
@@ -180,7 +180,7 @@ export default function Navbar() {
 
       {open && (
         <div className="max-h-[80vh] overflow-y-auto border-t border-[var(--color-border)] bg-surface px-4 py-4 lg:hidden">
-          <Link href="/#home" className="block py-2 text-sm font-medium" onClick={() => { handleNavClick("home"); setOpen(false); }}>
+          <Link href="/" className="block py-2 text-sm font-medium" onClick={() => { handleNavClick("home"); setOpen(false); }}>
             Home
           </Link>
           <p className="py-2 text-xs font-semibold uppercase text-[var(--color-text-muted)]">Layanan</p>
@@ -204,6 +204,15 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <div className="mt-3 border-t border-[var(--color-border)] pt-3">
+            <Link
+              href="/survey"
+              className="block rounded-full bg-maroon-deep px-4 py-2.5 text-center text-sm font-semibold text-white"
+              onClick={() => setOpen(false)}
+            >
+              Mulai Survei
+            </Link>
+          </div>
         </div>
       )}
     </header>

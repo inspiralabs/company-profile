@@ -1,7 +1,7 @@
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MetaPixel from "@/components/analytics/MetaPixel";
 import FloatingSurveyPrompt from "@/components/layout/FloatingSurveyPrompt";
-import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
+import FloatingMenu from "@/components/ui/FloatingMenu";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import StructuredData from "@/components/shared/StructuredData";
@@ -33,7 +33,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FloatingSurveyPrompt />
-        <FloatingWhatsApp />
+        <FloatingMenu />
       </body>
     </html>
   );

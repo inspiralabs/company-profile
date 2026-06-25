@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 
     // Tier 3: Honeypot check (must be empty)
     if (body.website) {
-      console.log("Honeypot triggered - bot detected");
+      console.warn("Honeypot triggered - bot detected");
       // Return fake success to not alert the bot
       return NextResponse.json({ success: true });
     }
@@ -63,7 +63,7 @@ export async function POST(request: Request) {
       );
     }
 
-    console.log(`Contact submission from IP: ${clientIP}, remaining: ${rateLimitResult.remaining}`);
+    console.info(`Contact submission from IP: ${clientIP}, remaining: ${rateLimitResult.remaining}`);
 
     await ensureHeaders(CONTACT_SHEET, CONTACT_HEADERS);
 

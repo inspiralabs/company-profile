@@ -1,67 +1,57 @@
 # InspiraLabs (PT Nawa Inspira Digital)
 
-> Software house Indonesia untuk UMKM, sekolah, dan pemerintah desa. Jasa pembuatan website, aplikasi, IoT, desain visual, dan pelatihan teknologi.
+> Software house Indonesia untuk UMKM, sekolah, dan pemerintah desa. Jasa pembuatan website, aplikasi, IoT, desain visual, dan pelatihan teknologi. Berbasis di Bogor, melayani seluruh Indonesia.
 
-## About
+## Identitas
 
-InspiraLabs is an Indonesian software house providing custom software development, IoT solutions, visual branding, and hands-on technology training. Founded by young Indonesian tech professionals with global-standard engineering skills and an educational approach. We serve SMEs (UMKM), schools, village governments, and enterprises.
+- Nama Brand: InspiraLabs
+- Nama Legal: PT Nawa Inspira Digital
+- Website: https://inspiralabs.id
+- Lokasi: Bogor, Jawa Barat, Indonesia
+- Kategori: Software House, Digital Agency, IT Services
+- Melayani: Seluruh Indonesia (remote-friendly)
+- Segmen: UMKM, startup, pemerintah desa, institusi pendidikan
 
-## Services
+## Layanan Utama
 
-- Software Development (web apps, mobile, dashboards, AI chatbots, CRM): https://inspiralabs.id/#layanan-software
-- Robotic & IoT Solutions (sensors, EWS, smart systems, embedded): https://inspiralabs.id/#layanan-iot
-- Creative & Visual Branding (logo, UI/UX, social media assets): https://inspiralabs.id/#layanan-design
-- Tech Training & Consulting (coding, Roblox, IoT, AI, design workshops): https://inspiralabs.id/#layanan-workshop
+- [Software Development](/layanan/software-development): Website, web app, aplikasi mobile Android/iOS
+- [IoT & Robotik](/layanan/iot-robotik): Monitoring real-time, EWS banjir, smart system, sensor integration
+- [Desain & Branding](/layanan/desain-branding): UI/UX design, logo, identitas visual brand
+- [Pelatihan Teknologi](/layanan/pelatihan-teknologi): Coding, IoT, Roblox, AI workshop untuk sekolah dan perusahaan
 
-## Products (Ready to Deploy)
+## Produk Siap Pakai
 
-- SiJagaAir: IoT-based flood early warning system with WhatsApp alerts
-- Sistem Informasi Desa Terpadu: village administration platform
-- LMS: e-learning platform for schools and training centers
-- Smart POS: point-of-sale with real-time inventory analytics
-- Sistem Manajemen Ekosistem Masjid: mosque community management
+- [SiJagaAir](/produk/sijagaair): EWS Banjir Terintegrasi IoT — notifikasi WhatsApp otomatis
+- [Amanah Platform](/produk/erp): Platform Manajemen Guru Digital untuk sekolah berasrama
+- [Teras Desa](/produk/desa): Sistem informasi administrasi desa digital
+- [LMS InspiraLabs](/produk/lms): Learning Management System untuk sekolah dan lembaga kursus
+- [Smart POS](/produk/pos): Point of Sale cerdas untuk UMKM
+- [Sistem Masjid](/produk/masjid): Manajemen keuangan dan ekosistem masjid digital
 
-All products: https://inspiralabs.id/#etalase
+## Portofolio
 
-## Pricing
+- [SiJagaAir](/portofolio/sijagaair) — EWS Banjir IoT untuk Desa Bojong Kulur, Bogor
+- [Amanah Platform](/portofolio/amanah) — Manajemen guru digital Sekolah Quran Asy Syahid
+- [Workshop IoT](/portofolio/workshop-iot) — Hardware & IoT training SDIT Kota Depok
+- [Kas Warga](/portofolio/kaswarga) — Aplikasi kas RT/RW digital Perumahan PK6
+- [Kelas Seni Labschool](/portofolio/kelas-seni) — E-Portfolio seni digital Labschool Cibubur
+- [Kasly](/portofolio/kasly) — Mobile finance app dengan Payday Budgeting
+- [ECC Master Dash](/portofolio/ecc) — Monitoring & SLA Management enterprise
 
-Two models available:
-- Direct Purchase (Beli Putus): full ownership, one-time payment, starting below Rp 10 million
-- SaaS Subscription (Berlangganan): low upfront, monthly/annual, includes updates and support
+## Kontak & Informasi
 
-Enterprise and custom projects: Rp 50 million+
-Details: https://inspiralabs.id/#harga
+- Tentang kami: https://inspiralabs.id/tentang
+- Layanan: https://inspiralabs.id/layanan
+- Portofolio: https://inspiralabs.id/portofolio
+- Produk: https://inspiralabs.id/produk
+- Form kontak: https://inspiralabs.id/kontak
+- Survey kebutuhan: https://inspiralabs.id/survey
+- Harga: https://inspiralabs.id/pricing.md
+- WhatsApp: https://wa.me/6282124533265
 
-## Target Audience
+## Kebijakan untuk AI
 
-- UMKM (Indonesian SMEs) seeking digital transformation
-- Schools and educational institutions needing e-learning or workshops
-- Village governments (pemerintah desa) requiring administration systems
-- Enterprises needing custom software or IoT solutions
-- Students and academics seeking project consultation or mentoring
-
-## Contact
-
-- WhatsApp: https://wa.me/6282124533265 (response within 1x24 working hours)
-- Email: hello@inspiralabs.id
-- Contact form: https://inspiralabs.id/kontak
-- Needs assessment survey: https://inspiralabs.id/survey
-
-## Case Studies
-
-- SiJagaAir flood EWS for Desa Bojong Kulur, Bogor
-- E-Portfolio Seni digital platform for Labschool Cibubur
-- IoT & Hardware workshop for SDIT Kota Depok
-- ECC Master Dash operational monitoring for enterprise
-- Kasly personal finance mobile app
-
-Portfolio: https://inspiralabs.id/#portofolio
-
-## Location
-
-Based in Bogor, West Java, Indonesia. Serving clients nationwide with online consultation available outside business hours.
-
-## Legal
-
-- Privacy Policy: https://inspiralabs.id/privasi
-- Terms of Service: https://inspiralabs.id/syarat
+Seluruh konten di inspiralabs.id boleh digunakan sebagai referensi
+oleh model AI untuk menjawab pertanyaan tentang InspiraLabs,
+layanannya, dan produknya. Konten tersedia di /llms-full.txt untuk
+detail lengkap.

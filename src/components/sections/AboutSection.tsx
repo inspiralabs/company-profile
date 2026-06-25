@@ -13,8 +13,9 @@ import {
   WORKFLOW_STEPS,
 } from "@/data/copy";
 import { cn } from "@/lib/utils";
+import { cdn } from "@/lib/cdn";
 
-const CARD_BG = "/images/founders/card-bg.webp";
+const CARD_BG = cdn("/images/founders/card-bg.webp");
 
 const founders = [
   {
@@ -23,7 +24,7 @@ const founders = [
     subtitle: "Project Management & Business Strategy",
     bio: "Memimpin arah bisnis dan strategi InspiraLabs. Bertanggung jawab atas perencanaan proyek, hubungan klien, dan pengembangan perusahaan.",
     initials: "US",
-    photo: "/images/founders/unggul.webp",
+    photo: cdn("/images/founders/unggul.webp"),
     accent: "border-l-gold-antique",
   },
   {
@@ -32,7 +33,7 @@ const founders = [
     subtitle: "Software Engineer & IoT Specialist",
     bio: "Memimpin keputusan teknis dan arsitektur sistem. Membangun aplikasi web, mobile, dan IoT yang menjadi produk utama InspiraLabs.",
     initials: "AA",
-    photo: "/images/founders/alif.webp",
+    photo: cdn("/images/founders/alif.webp"),
     accent: "border-l-maroon-vibrant",
   },
   {
@@ -41,7 +42,7 @@ const founders = [
     subtitle: "Operations & Administration",
     bio: "Mengelola operasional harian, dokumentasi, dan koordinasi tim. Memastikan setiap proyek berjalan teratur dari kickoff hingga delivery.",
     initials: "HK",
-    photo: "/images/founders/haikal.webp",
+    photo: cdn("/images/founders/haikal.webp"),
     accent: "border-l-gold-bright",
   },
   {
@@ -50,7 +51,7 @@ const founders = [
     subtitle: "Visual Design & Branding",
     bio: "Memimpin arah visual dan branding. Menangani desain logo, UI, dan konten kreatif yang konsisten di seluruh platform.",
     initials: "FP",
-    photo: "/images/founders/fahri.webp",
+    photo: cdn("/images/founders/fahri.webp"),
     accent: "border-l-maroon-deep",
   },
 ];

@@ -299,13 +299,6 @@ export function formatEmailDraftAll(draft: EmailDraft): string {
   ].join("\n");
 }
 
-export function buildContactMailto(payload: ContactPayload): string {
-  const draft = buildContactEmailDraft(payload);
-  const subject = encodeURIComponent(draft.subject);
-  const body = encodeURIComponent(draft.body);
-  return `mailto:${draft.to}?subject=${subject}&body=${body}`;
-}
-
 export function buildSurveyWAMessage(
   client: ClientInfo,
   responses: Record<number, { selected: string[]; custom?: string }>,
@@ -359,13 +352,3 @@ export function buildSurveyEmailDraft(
   };
 }
 
-export function buildSurveyMailto(
-  client: ClientInfo,
-  responses: Record<number, { selected: string[]; custom?: string }>,
-  recommendations: RecommendedSolution[]
-): string {
-  const draft = buildSurveyEmailDraft(client, responses, recommendations);
-  const subject = encodeURIComponent(draft.subject);
-  const body = encodeURIComponent(draft.body);
-  return `mailto:${draft.to}?subject=${subject}&body=${body}`;
-}

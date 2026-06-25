@@ -1,3 +1,5 @@
+import { cdn } from "@/lib/cdn";
+
 export type Product = {
   id: string;
   name: string;
@@ -23,7 +25,7 @@ export const PRODUCTS: Product[] = [
     extraBadge: "Studi Kasus Tersedia",
     tags: ["Hardware & IoT", "Khusus Pemerintahan"],
     featured: true,
-    image: "/images/products/sijagaair.jpeg",
+    image: cdn("/images/products/sijagaair.jpeg"),
     link: "#portofolio",
     website: "https://sijagaair.inspiralabs.id/public",
   },
@@ -36,7 +38,7 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Khusus Pendidikan"],
     featured: true,
-    image: "/images/products/amanah.jpeg",
+    image: cdn("/images/products/amanah.jpeg"),
     website: "https://amanah.inspiralabs.id",
   },
   {
@@ -48,7 +50,7 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Khusus Pemerintahan", "ROI Cepat"],
     featured: false,
-    image: "/images/products/Sistem_Informasi_Desa_Terpadu.jpeg",
+    image: cdn("/images/products/Sistem_Informasi_Desa_Terpadu.jpeg"),
     website: "https://terasdesa.inspiralabs.id",
   },
   {
@@ -60,7 +62,7 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Khusus Pendidikan"],
     featured: false,
-    image: "/images/products/LMS.jpeg",
+    image: cdn("/images/products/LMS.jpeg"),
     website: "https://allboom.inspiralabs.id",
   },
   {
@@ -72,7 +74,7 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Khusus Komunitas"],
     featured: false,
-    image: "/images/products/Sistem_Manajemen_Ekosistem_Masjid.jpeg",
+    image: cdn("/images/products/Sistem_Manajemen_Ekosistem_Masjid.jpeg"),
   },
   {
     id: "pos",
@@ -83,7 +85,7 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Khusus UMKM", "ROI Cepat"],
     featured: false,
-    image: "/images/products/smart_POS.jpeg",
+    image: cdn("/images/products/smart_POS.jpeg"),
   },
   {
     id: "pelatihan",
@@ -94,6 +96,6 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Workshop", "Khusus Pendidikan"],
     featured: false,
-    image: "/images/products/workshop-hardware-1.jpg",
+    image: cdn("/images/products/workshop-hardware-1.jpg"),
   },
 ];

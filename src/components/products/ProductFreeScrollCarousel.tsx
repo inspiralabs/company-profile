@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import ProductDetailModal from "@/components/products/ProductDetailModal";
 import type { Product } from "@/data/products";
@@ -120,6 +121,16 @@ export default function ProductFreeScrollCarousel({
       <p className="mt-3 text-center text-xs text-[var(--color-text-muted)]">
         Geser untuk melihat produk lainnya
       </p>
+      
+      {/* Product Page */}
+      <div className="mt-8 flex justify-center">
+        <Link
+          href="/produk"
+          className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-6 py-2.5 text-sm font-semibold text-maroon-deep transition-all hover:border-maroon-deep hover:bg-maroon-deep hover:text-white"
+        >
+          Lihat Semua Produk →
+        </Link>
+      </div>
 
       <ProductDetailModal product={selected} onClose={() => setSelected(null)} />
     </>

@@ -1,30 +1,24 @@
 "use client";
 
 import { PortfolioHighlightProvider } from "@/context/PortfolioHighlightContext";
-import AboutSection from "@/components/sections/AboutSection";
 import CTASection from "@/components/sections/CTASection";
-import FAQSection from "@/components/sections/FAQSection";
 import HeroSection from "@/components/sections/HeroSection";
 import PartnershipSection from "@/components/sections/PartnershipSection";
-import PricingSection from "@/components/sections/PricingSection";
 import ProductsSection from "@/components/sections/ProductsSection";
+import PortfolioPreviewSection from "@/components/sections/PortfolioPreviewSection";
 import ServicesSection from "@/components/sections/ServicesSection";
-import SurveyPromoSection from "@/components/sections/SurveyPromoSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import ValuePropSection from "@/components/sections/ValuePropSection";
+import FAQSection from "@/components/sections/FAQSection";
 
 export default function LandingPage() {
   return (
     <PortfolioHighlightProvider>
       <HeroSection />
-      <ValuePropSection />
-      <PartnershipSection />
       <ServicesSection />
+      <PartnershipSection />
       <ProductsSection />
-      <PricingSection />
-      <AboutSection />
+      <PortfolioPreviewSection />
       <TestimonialsSection />
-      <SurveyPromoSection />
       <FAQSection />
       <CTASection />
     </PortfolioHighlightProvider>

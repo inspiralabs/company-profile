@@ -81,7 +81,7 @@ export function articleSchemas() {
       description: c.subtitle ?? c.problem,
       author: { "@type": "Organization", name: SITE.name },
       publisher: { "@type": "Organization", name: SITE.name },
-      image: `${SITE.url}${c.images[0]}`,
+      image: c.images[0],
       datePublished: "2025-01-01",
     }));
 }
@@ -119,11 +119,6 @@ export function webSiteSchema() {
     "@type": "WebSite",
     name: SITE.name,
     url: SITE.url,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE.url}/survey`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
