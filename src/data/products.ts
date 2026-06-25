@@ -81,6 +81,7 @@ export const PRODUCTS: Product[] = [
     tags: ["Khusus UMKM", "ROI Cepat"],
     featured: false,
     image: cdn("/images/products/smart_POS.jpeg"),
+    website: "https://inspirapos.biz.id",
   },
   {
     id: "lms",

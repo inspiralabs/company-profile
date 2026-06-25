@@ -1,8 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 import type { Product } from "@/data/products";
 import { PRODUCTS, getProductModelSection } from "@/data/products";
 import ProductListItem from "@/components/produk/ProductListItem";
+
+function productWebsiteLabel(url: string): string {
+  try {
+    const parsed = new URL(url);
+    const path = parsed.pathname === "/" ? "" : parsed.pathname;
+    return `${parsed.hostname.replace(/^www\./, "")}${path}`;
+  } catch {
+    return url;
+  }
+}
 
 const ctaPrimaryClass =
   "inline-flex min-h-11 items-center rounded-full bg-maroon-deep px-8 py-2.5 font-semibold text-white transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2";
@@ -60,6 +71,20 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
                 {product.description}
               </p>
 
+              {product.website && (
+                <p className="mt-3">
+                  <a
+                    href={product.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex max-w-full items-center gap-1.5 text-sm font-medium text-maroon-vibrant hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2 rounded-sm"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                    <span className="break-all">{productWebsiteLabel(product.website)}</span>
+                  </a>
+                </p>
+              )}
+
               {product.id === "sijagaair" && (
                 <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
                   <Link
@@ -82,7 +107,8 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
                     rel="noopener noreferrer"
                     className={ctaSecondaryClass}
                   >
-                    Lihat demo
+                    Lihat live demo
+                    <ExternalLink className="ml-1.5 h-4 w-4" aria-hidden />
                   </a>
                 )}
               </div>
@@ -193,6 +219,17 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
             >
               Hubungi kami
             </Link>
+            {product.website && (
+              <a
+                href={product.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center rounded-full border border-white/40 px-8 py-2.5 font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2"
+              >
+                Lihat live demo
+                <ExternalLink className="ml-1.5 h-4 w-4" aria-hidden />
+              </a>
+            )}
             <Link
               href="/survey"
               className="inline-flex min-h-11 items-center rounded-full border border-white/40 px-8 py-2.5 font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2"
