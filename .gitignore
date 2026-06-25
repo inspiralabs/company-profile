@@ -39,3 +39,9 @@ google-sheets-api.json
 # markdown files
 google-analytic-tag.md
 inspiralabs-seo-guide.md
+
+# Claude
+.claude/
+
+# Impeccable
+.impeccable/
