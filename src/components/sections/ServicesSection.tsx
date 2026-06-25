@@ -1,177 +1,227 @@
-"use client";
-
-import { useState } from "react";
 import {
   MessagesSquare,
-  ChevronDown,
   Code2,
   Cpu,
   GraduationCap,
   Palette,
+  Check,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionWrapper from "@/components/shared/SectionWrapper";
-import { WORKSHOP_SUBCATEGORIES } from "@/data/copy";
-import { cn } from "@/lib/utils";
-import { SERVICE_CTA_LABEL, SERVICE_PORTFOLIO_LABEL } from "@/data/copy";
-import Link from "next/link";
-import { trackEvent } from "@/lib/site";
+import TrackLink from "@/components/shared/TrackLink";
+import ServicesWorkshopExpand from "@/components/sections/ServicesWorkshopExpand";
+import {
+  SERVICE_CTA_LABEL,
+  SERVICE_PORTFOLIO_LABEL,
+} from "@/data/copy";
 
-const pillars: {
-  id: string;
-  portfolioFilter?: string;
-  icon: LucideIcon;
-  title: string;
-  desc: string;
-  items: string[];
-  featured?: boolean;
-  expandable?: boolean;
-}[] = [
-  {
-    id: "layanan-software",
-    portfolioFilter: "software",
-    icon: Code2,
-    title: "Software Development",
-    desc: "Pembuatan aplikasi berbasis web dan mobile dengan performa tinggi, dari sistem informasi korporat hingga platform kustom.",
-    items: ["Custom Web App", "Mobile App", "Dashboard & Sistem", "AI Chatbot", "Otomatisasi & API", "CRM"],
-  },
-  {
-    id: "layanan-iot",
-    portfolioFilter: "iot",
-    icon: Cpu,
-    title: "Robotic & IoT Solutions",
-    desc: "Menghubungkan dunia digital dan fisik: sensor pintar, EWS, smart office, embedded system.",
-    items: ["Prototipe IoT", "Robotik & Otomasi", "Smart System", "Embedded Custom"],
-  },
-  {
-    id: "layanan-design",
-    portfolioFilter: "design",
-    icon: Palette,
-    title: "Creative & Visual Branding",
-    desc: "UI/UX intuitif, logo, aset sosmed, company profile. Identitas yang memukau.",
-    items: ["Branding & Identity", "UI/UX Design", "Digital Marketing Assets", "Company Profile"],
-  },
-  {
-    id: "layanan-workshop",
-    portfolioFilter: "pelatihan",
-    icon: GraduationCap,
-    title: "Tech Training & Consulting",
-    desc: "Pelatihan hands-on: publik, bootcamp, in-house, coaching personal.",
-    items: ["Workshop Publik", "Bootcamp", "In-house Training", "Coaching Personal"],
-    featured: true,
-    expandable: true,
-  },
-];
+const portfolioLinkClass =
+  "inline-flex min-h-11 items-center text-sm font-medium text-[var(--color-text-secondary)] hover:text-maroon-vibrant hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2 rounded-sm";
 
 export default function ServicesSection() {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <SectionWrapper id="layanan" variant="default">
       <ScrollReveal>
-        <h2 className="font-display text-3xl font-bold text-maroon-vibrant sm:text-4xl">
+        <h2 className="font-display text-display-lg font-bold text-maroon-vibrant">
           Ekosistem Solusi Digital yang Memahami Kebutuhan Anda
         </h2>
         <p className="mt-4 max-w-2xl text-[var(--color-text-secondary)]">
-          Apapun tantangan teknis Anda - otomasi operasional, daya tarik visual,
-          hingga peningkatan keahlian tim - kami merancang solusi yang presisi.
+          Apapun tantangan teknis Anda — otomasi operasional, daya tarik visual,
+          hingga peningkatan keahlian tim — kami merancang solusi yang presisi.
         </p>
       </ScrollReveal>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {pillars.map((p, i) => (
-          <ScrollReveal key={p.id} delay={i * 0.08}>
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="md:col-span-2">
+          <ScrollReveal>
             <Card
-              id={p.id}
-              className={cn(
-                "h-full scroll-mt-28 border-l-0 p-6 transition-all",
-                p.featured && "border-l-4 border-l-gold-antique bg-cream/50"
-              )}
+              id="layanan-software"
+              className="h-full scroll-mt-28 border-0 bg-maroon-deep p-8"
             >
-              <div className="rounded-lg bg-cream p-3 w-fit">
-                <p.icon className="h-8 w-8 text-maroon-vibrant" />
+              <div className="flex items-start justify-between gap-4">
+                <div className="rounded-xl bg-white/10 p-3">
+                  <Code2 className="h-7 w-7 text-white" />
+                </div>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">
+                  Layanan Utama
+                </span>
               </div>
-              <h3 className="mt-4 font-display text-xl font-bold text-maroon-deep">
-                {p.title}
+              <h3 className="mt-5 font-display text-display-md font-bold text-white">
+                Software Development
               </h3>
-              <p className="mt-2 text-sm text-[var(--color-text-secondary)]">{p.desc}</p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {p.items.map((item) => (
+              <p className="mt-2 text-sm leading-relaxed text-white/75">
+                Pembuatan aplikasi berbasis web dan mobile dengan performa tinggi,
+                dari sistem informasi korporat hingga platform kustom.
+              </p>
+              <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2.5">
+                {["Custom Web App", "Mobile App", "Dashboard & Sistem", "AI Chatbot", "Otomatisasi & API", "CRM"].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-white/80">
+                    <Check className="h-3.5 w-3.5 shrink-0 text-gold-bright" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <TrackLink
+                  href="/kontak"
+                  event="cta_whatsapp_click"
+                  eventParams={{ location: "services", pillar: "layanan-software" }}
+                  className="inline-flex min-h-11 items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-maroon-deep transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2"
+                >
+                  {SERVICE_CTA_LABEL}
+                </TrackLink>
+                <a
+                  href="#portofolio"
+                  className="inline-flex min-h-11 items-center rounded-full border border-white/30 px-5 py-2.5 text-sm font-medium text-white/75 transition-colors hover:border-white/60 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-maroon-deep"
+                >
+                  {SERVICE_PORTFOLIO_LABEL}
+                </a>
+              </div>
+            </Card>
+          </ScrollReveal>
+        </div>
+
+        <div>
+          <ScrollReveal delay={0.08}>
+            <Card id="layanan-iot" className="h-full scroll-mt-28 p-6">
+              <div className="w-fit rounded-lg bg-cream p-3">
+                <Cpu className="h-6 w-6 text-maroon-vibrant" />
+              </div>
+              <h3 className="mt-4 font-display text-lg font-bold text-maroon-deep">
+                Robotic & IoT Solutions
+              </h3>
+              <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
+                Menghubungkan dunia digital dan fisik: sensor pintar, EWS, smart
+                office, embedded system.
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-1.5">
+                {["Prototipe IoT", "Robotik & Otomasi", "Smart System", "Embedded Custom"].map((item) => (
                   <li
                     key={item}
-                    className="rounded-full bg-gold-bright/20 px-3 py-1 text-xs font-medium text-maroon-deep"
+                    className="rounded-full bg-gold-bright/20 px-2.5 py-0.5 text-xs font-medium text-maroon-deep"
                   >
                     {item}
                   </li>
                 ))}
               </ul>
-
-              {p.expandable && (
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    onClick={() => setExpanded(!expanded)}
-                    className="flex w-full items-center justify-between rounded-lg border border-gold-antique/40 px-4 py-2 text-sm font-medium text-maroon-deep hover:bg-gold-bright/10"
-                  >
-                    Sub-kategori pelatihan
-                    <ChevronDown
-                      className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")}
-                    />
-                  </button>
-                  {expanded && (
-                    <ul className="mt-3 space-y-2 border-l-2 border-gold-antique pl-4">
-                      {WORKSHOP_SUBCATEGORIES.map((sub) => (
-                        <li key={sub.label} className="text-sm">
-                          <strong className="text-maroon-deep">{sub.label}</strong>
-                          <span className="block text-[var(--color-text-secondary)]">
-                            {sub.detail}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              )}
-
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                <Link
+              <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                <TrackLink
                   href="/kontak"
-                  onClick={() =>
-                    trackEvent("cta_whatsapp_click", {
-                      location: "services",
-                      pillar: p.id,
-                    })
-                  }
-                  className="text-sm font-medium text-maroon-vibrant hover:underline"
+                  event="cta_whatsapp_click"
+                  eventParams={{ location: "services", pillar: "layanan-iot" }}
+                  className="inline-flex min-h-11 items-center text-sm font-medium text-maroon-vibrant hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2 rounded-sm"
                 >
                   {SERVICE_CTA_LABEL} →
-                </Link>
-                {p.portfolioFilter && (
-                  <a
-                    href={`#portofolio`}
-                    className="text-sm font-medium text-[var(--color-text-muted)] hover:text-maroon-vibrant hover:underline"
-                  >
-                    {SERVICE_PORTFOLIO_LABEL}
-                  </a>
-                )}
+                </TrackLink>
+                <a href="#portofolio" className={portfolioLinkClass}>
+                  {SERVICE_PORTFOLIO_LABEL}
+                </a>
               </div>
             </Card>
           </ScrollReveal>
-        ))}
+        </div>
+
+        <div>
+          <ScrollReveal delay={0.12}>
+            <Card id="layanan-design" className="h-full scroll-mt-28 p-6">
+              <div className="w-fit rounded-lg bg-cream p-3">
+                <Palette className="h-6 w-6 text-maroon-vibrant" />
+              </div>
+              <h3 className="mt-4 font-display text-lg font-bold text-maroon-deep">
+                Creative & Visual Branding
+              </h3>
+              <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
+                UI/UX intuitif, logo, aset sosmed, company profile. Identitas
+                yang memukau.
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-1.5">
+                {["Branding & Identity", "UI/UX Design", "Digital Marketing Assets", "Company Profile"].map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full bg-gold-bright/20 px-2.5 py-0.5 text-xs font-medium text-maroon-deep"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                <TrackLink
+                  href="/kontak"
+                  event="cta_whatsapp_click"
+                  eventParams={{ location: "services", pillar: "layanan-design" }}
+                  className="inline-flex min-h-11 items-center text-sm font-medium text-maroon-vibrant hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2 rounded-sm"
+                >
+                  {SERVICE_CTA_LABEL} →
+                </TrackLink>
+                <a href="#portofolio" className={portfolioLinkClass}>
+                  {SERVICE_PORTFOLIO_LABEL}
+                </a>
+              </div>
+            </Card>
+          </ScrollReveal>
+        </div>
+
+        <div className="md:col-span-2">
+          <ScrollReveal delay={0.16}>
+            <Card
+              id="layanan-workshop"
+              className="h-full scroll-mt-28 bg-gold-bright/15 p-8 ring-1 ring-gold-antique/40"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="rounded-xl bg-gold-antique/20 p-3">
+                  <GraduationCap className="h-7 w-7 text-maroon-deep" />
+                </div>
+                <span className="rounded-full bg-maroon-deep/10 px-3 py-1 text-xs font-semibold text-maroon-deep">
+                  Unggulan
+                </span>
+              </div>
+              <h3 className="mt-5 font-display text-display-md font-bold text-maroon-deep">
+                Tech Training & Consulting
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+                Pelatihan hands-on: publik, bootcamp, in-house, coaching personal.
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {["Workshop Publik", "Bootcamp", "In-house Training", "Coaching Personal"].map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full bg-maroon-deep/10 px-3 py-1 text-xs font-medium text-maroon-deep"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <ServicesWorkshopExpand />
+              <div className="mt-6 flex flex-wrap gap-3">
+                <TrackLink
+                  href="/kontak"
+                  event="cta_whatsapp_click"
+                  eventParams={{ location: "services", pillar: "layanan-workshop" }}
+                  className="inline-flex min-h-11 items-center text-sm font-medium text-maroon-vibrant hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2 rounded-sm"
+                >
+                  {SERVICE_CTA_LABEL} →
+                </TrackLink>
+                <a href="#portofolio" className={portfolioLinkClass}>
+                  {SERVICE_PORTFOLIO_LABEL}
+                </a>
+              </div>
+            </Card>
+          </ScrollReveal>
+        </div>
       </div>
 
       <div className="mt-10 text-center">
         <Button asChild>
-          <Link
+          <TrackLink
             href="/kontak"
-            onClick={() => trackEvent("cta_whatsapp_click", { location: "services" })}
+            event="cta_whatsapp_click"
+            eventParams={{ location: "services" }}
           >
             <MessagesSquare className="h-4 w-4" />
             Diskusikan Kebutuhan Anda
-          </Link>
+          </TrackLink>
         </Button>
       </div>
     </SectionWrapper>

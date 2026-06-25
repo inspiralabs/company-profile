@@ -13,10 +13,20 @@
   --color-bg-charcoal: #1a1a1a;
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #6b6b6b;
-  --color-text-muted: #9ca3af;
+  --color-text-muted: #5c5c5c;
   --color-text-inverse: #ffffff;
   --color-border: #e5e0d5;
   --color-whatsapp: #25d366;
+
+  /* Z-index scale */
+  --z-above: 10;
+  --z-sticky: 40;
+  --z-nav: 50;
+  --z-float: 60;
+  --z-modal: 100;
+  --z-lightbox: 110;
+  --z-popover: 200;
+  --z-skiplink: 999;
 }
 
 @layer base {
@@ -26,6 +36,8 @@
 
   body {
     @apply overflow-x-hidden bg-[var(--color-bg-primary)] font-body text-charcoal antialiased;
+    font-kerning: normal;
+    font-optical-sizing: auto;
   }
 
   h1,
@@ -33,14 +45,22 @@
   h3,
   h4 {
     @apply font-display;
+    text-wrap: balance;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-kerning: normal;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
   }
 }
 
 @layer utilities {
-  .text-gradient-gold {
-    @apply bg-gradient-to-r from-gold-antique to-gold-bright bg-clip-text text-transparent;
-  }
-
   .section-padding {
     @apply scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8 lg:py-24;
   }

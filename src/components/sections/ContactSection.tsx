@@ -6,7 +6,7 @@ export default function ContactSection() {
   return (
     <SectionWrapper id="kontak" variant="default" className="scroll-mt-28">
       <ScrollReveal>
-        <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+        <h2 className="font-display text-display-lg font-bold text-maroon-deep">
           Hubungi Kami
         </h2>
         <p className="mt-4 text-[var(--color-text-secondary)]">

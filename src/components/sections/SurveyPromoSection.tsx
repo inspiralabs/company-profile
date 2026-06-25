@@ -29,7 +29,7 @@ export default function SurveyPromoSection() {
                   <Lightbulb className="h-3 w-3" />
                   {SURVEY_PROMO.eyebrow}
                 </span>
-                <h2 className="mt-4 font-display text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+                <h2 className="mt-4 font-display text-display-lg font-bold text-white">
                   {SURVEY_PROMO.headline}
                 </h2>
                 <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">

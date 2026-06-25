@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Code2, Cpu, GraduationCap, Palette } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { cdn } from "@/lib/cdn";
@@ -21,11 +22,13 @@ type HeroVisualProps = {
 
 export default function HeroVisual({ className }: HeroVisualProps) {
   const [useFallback, setUseFallback] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   return (
-    <div
+    <motion.div
       className={cn("relative mx-auto w-full max-w-md", className)}
-      aria-hidden
+      animate={reduceMotion ? {} : { y: [0, -8, 0] }}
+      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", repeatType: "loop" }}
     >
       <div className="rounded-[2rem] bg-black/[0.04] p-2 ring-1 ring-gold-antique/30">
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[calc(2rem-0.5rem)] bg-cream shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)]">
@@ -37,7 +40,6 @@ export default function HeroVisual({ className }: HeroVisualProps) {
               className="object-cover object-center"
               sizes="(max-width: 1024px) 90vw, 420px"
               priority
-              unoptimized
               onError={() => setUseFallback(true)}
             />
           ) : (
@@ -57,6 +59,6 @@ export default function HeroVisual({ className }: HeroVisualProps) {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

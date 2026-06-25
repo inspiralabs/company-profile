@@ -58,7 +58,7 @@ export default function PortfolioDetailModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-end justify-center bg-black/75 p-0 sm:items-center sm:p-4"
+          className="fixed inset-0 z-[var(--z-modal)] flex items-end justify-center bg-black/75 p-0 sm:items-center sm:p-4"
           onClick={onClose}
           role="dialog"
           aria-modal
@@ -127,7 +127,7 @@ export default function PortfolioDetailModal({
                 {getPortfolioDescription(item)}
               </p>
 
-              <blockquote className="mt-6 rounded-xl border-l-4 border-gold-antique bg-cream/80 p-4">
+              <blockquote className="mt-6 rounded-xl bg-gold-bright/15 p-4 ring-1 ring-gold-antique/40">
                 <p className="text-sm italic leading-relaxed text-charcoal">
                   &ldquo;{item.review.text}&rdquo;
                 </p>

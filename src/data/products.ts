@@ -1,5 +1,10 @@
 import { cdn } from "@/lib/cdn";
 
+export type ProductModelSection = {
+  title: string;
+  items: string[];
+};
+
 export type Product = {
   id: string;
   name: string;
@@ -12,8 +17,20 @@ export type Product = {
   image: string;
   link?: string;
   website?: string;
+  /** Sembunyikan section opsi harga (beli putus / SaaS) */
   noPricing?: boolean;
+  /** Model deploy atau format layanan — terpisah dari opsi harga */
+  modelSection?: ProductModelSection;
 };
+
+export const DEFAULT_PRODUCT_MODEL_SECTION: ProductModelSection = {
+  title: "Model implementasi",
+  items: ["Siap pakai — deploy cepat", "Kustomisasi sesuai kebutuhan"],
+};
+
+export function getProductModelSection(product: Product): ProductModelSection {
+  return product.modelSection ?? DEFAULT_PRODUCT_MODEL_SECTION;
+}
 
 export const PRODUCTS: Product[] = [
   {
@@ -44,7 +61,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "desa",
-    name: "Teras Desa: Sistem Informasi Desa Terpadu",
+    name: "Teras Desa: Tempat E-Layanan & Registrasi Administrasi Sipil",
     desc: "Platform tata kelola birokrasi - dari proses administrasi hingga informasi publik.",
     description:
       "Platform digital untuk mengelola administrasi desa secara terpadu: pelayanan surat, data warga, keuangan APBDes, dan transparansi informasi publik - dirancang mudah dipakai perangkat desa.",
@@ -53,6 +70,17 @@ export const PRODUCTS: Product[] = [
     featured: false,
     image: cdn("/images/products/Sistem_Informasi_Desa_Terpadu.jpeg"),
     website: "https://terasdesa.inspiralabs.id",
+  },
+  {
+    id: "pos",
+    name: "Inspira POS: Sistem Kasir Pintar untuk UMKM",
+    desc: "Pencatatan transaksi real-time dengan analitik inventaris untuk UMKM.",
+    description:
+      "Inspira POS adalah sistem kasir pintar untuk UMKM: catat transaksi, pantau stok, dan lihat ringkasan penjualan harian dari satu dashboard yang mudah dipakai.",
+    badge: "Siap Pakai",
+    tags: ["Khusus UMKM", "ROI Cepat"],
+    featured: false,
+    image: cdn("/images/products/smart_POS.jpeg"),
   },
   {
     id: "lms",
@@ -78,19 +106,8 @@ export const PRODUCTS: Product[] = [
     image: cdn("/images/products/Sistem_Manajemen_Ekosistem_Masjid.jpeg"),
   },
   {
-    id: "pos",
-    name: "Smart POS / Sistem Kasir",
-    desc: "Pencatatan transaksi real-time dengan analitik inventaris untuk UMKM.",
-    description:
-      "Sistem kasir pintar untuk UMKM: catat transaksi, pantau stok, dan lihat ringkasan penjualan harian dari satu dashboard yang mudah dipakai.",
-    badge: "Siap Pakai",
-    tags: ["Khusus UMKM", "ROI Cepat"],
-    featured: false,
-    image: cdn("/images/products/smart_POS.jpeg"),
-  },
-  {
     id: "pelatihan",
-    name: "Paket Pelatihan Eksekutif Tech & Design",
+    name: "Paket Pelatihan Tech & Design",
     desc: "Program upgrade skill - coding, Roblox, IoT hands-on.",
     description:
       "Paket pelatihan teknologi dan desain yang dapat disesuaikan: coding, Roblox, IoT hands-on, dan workshop kreatif untuk sekolah, perusahaan, dan komunitas.",
@@ -98,6 +115,10 @@ export const PRODUCTS: Product[] = [
     tags: ["Workshop", "Khusus Pendidikan"],
     featured: false,
     noPricing: true,
+    modelSection: {
+      title: "Model pelatihan",
+      items: ["On Site", "Hybrid", "Online", "Intensive Class", "One-Day Workshop"],
+    },
     image: cdn("/images/products/workshop-hardware-1.jpg"),
   },
 ];

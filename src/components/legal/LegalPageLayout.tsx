@@ -19,7 +19,7 @@ export default function LegalPageLayout({
       <p className="text-sm text-[var(--color-text-muted)]">
         Terakhir diperbarui: {lastUpdated}
       </p>
-      <h1 className="mt-2 font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+      <h1 className="mt-2 font-display text-display-lg font-bold text-maroon-deep">
         {title}
       </h1>
       <p className="mt-4 text-[var(--color-text-secondary)]">{intro}</p>

@@ -12,9 +12,9 @@ const items = portfolioCases.slice(0, PREVIEW_COUNT);
 
 export default function PortfolioPreviewSection() {
   return (
-    <SectionWrapper id="portofolio" variant="cream">
+    <SectionWrapper id="portofolio" variant="default">
       <ScrollReveal>
-        <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+        <h2 className="font-display text-display-lg font-bold text-maroon-deep">
           Karya yang Berbicara
         </h2>
         <p className="mt-3 max-w-xl text-[var(--color-text-secondary)]">
@@ -28,7 +28,7 @@ export default function PortfolioPreviewSection() {
             <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
               <Link
                 href={`/portofolio/${p.id}`}
-                className="group block overflow-hidden rounded-xl border border-[var(--color-border)] bg-surface"
+                className="group block overflow-hidden rounded-xl border border-[var(--color-border)] bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2"
               >
                 <div className="relative h-44 overflow-hidden bg-cream">
                   <Image
@@ -62,7 +62,7 @@ export default function PortfolioPreviewSection() {
       <div className="mt-8 text-center">
         <Link
           href="/portofolio"
-          className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-6 py-2.5 text-sm font-semibold text-maroon-deep transition-all hover:bg-maroon-deep hover:text-white hover:border-maroon-deep"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[var(--color-border)] px-6 py-2.5 text-sm font-semibold text-maroon-deep transition-all hover:border-maroon-deep hover:bg-maroon-deep hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2"
         >
           Lihat Semua Portofolio →
         </Link>

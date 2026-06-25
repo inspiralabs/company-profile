@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const PHRASE = "Mitra Solusi Digital Anda";
-const SPEED = 60; // ms per character
+const SPEED = 60;
 
 export default function TypewriterText() {
   const reduceMotion = useReducedMotion();
@@ -32,7 +32,12 @@ export default function TypewriterText() {
       {!done && (
         <motion.span
           animate={{ opacity: [1, 0] }}
-          transition={{ repeat: Infinity, duration: 0.6, ease: "linear", times: [0, 0.5] }}
+          transition={{
+            repeat: Infinity,
+            duration: 0.6,
+            ease: "linear",
+            times: [0, 0.5],
+          }}
           className="ml-0.5 inline-block h-[1em] w-0.5 align-middle bg-current"
           aria-hidden
         />

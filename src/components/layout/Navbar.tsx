@@ -4,7 +4,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/site";
@@ -44,6 +44,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [layananOpen, setLayananOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const layananRef = useRef<HTMLDivElement>(null);
+  const layananButtonRef = useRef<HTMLButtonElement>(null);
+  const layananMenuItemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const pathname = usePathname();
   const { activeId: scrollSpyId, forceActive } = useScrollSpy(SECTION_IDS);
 
@@ -54,6 +57,95 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!layananOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setLayananOpen(false);
+        layananButtonRef.current?.focus();
+      }
+    };
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (!layananRef.current?.contains(event.target as Node)) {
+        setLayananOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handlePointerDown);
+    };
+  }, [layananOpen]);
+
+  const closeLayananMenu = () => {
+    setLayananOpen(false);
+    layananButtonRef.current?.focus();
+  };
+
+  const openLayananMenu = () => {
+    setLayananOpen(true);
+    requestAnimationFrame(() => {
+      layananMenuItemRefs.current[0]?.focus();
+    });
+  };
+
+  const focusLayananMenuItem = (index: number) => {
+    const items = layananMenuItemRefs.current.filter(
+      (item): item is HTMLAnchorElement => item !== null
+    );
+    if (items.length === 0) return;
+    const nextIndex =
+      ((index % items.length) + items.length) % items.length;
+    items[nextIndex]?.focus();
+  };
+
+  const handleLayananMenuKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    const items = layananMenuItemRefs.current.filter(
+      (item): item is HTMLAnchorElement => item !== null
+    );
+    if (items.length === 0) return;
+
+    const currentIndex = items.findIndex(
+      (item) => item === document.activeElement
+    );
+
+    switch (event.key) {
+      case "ArrowDown":
+        event.preventDefault();
+        focusLayananMenuItem(
+          currentIndex === -1 ? 0 : currentIndex + 1
+        );
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        focusLayananMenuItem(
+          currentIndex === -1 ? items.length - 1 : currentIndex - 1
+        );
+        break;
+      case "Home":
+        event.preventDefault();
+        items[0]?.focus();
+        break;
+      case "End":
+        event.preventDefault();
+        items[items.length - 1]?.focus();
+        break;
+      case "Escape":
+        event.preventDefault();
+        closeLayananMenu();
+        break;
+      default:
+        break;
+    }
+  };
+
+  const mobileNavLinkClass =
+    "flex min-h-11 items-center text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2 rounded-sm";
 
   const handleNavClick = (sectionId?: string) => {
     if (sectionId) forceActive(sectionId);
@@ -68,7 +160,7 @@ export default function Navbar() {
 
   const linkClass = (sectionId?: string, href?: string) =>
     cn(
-      "text-sm font-medium transition-colors",
+      "rounded-sm text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2",
       isLinkActive(sectionId, href)
         ? "text-maroon-vibrant underline decoration-gold-antique decoration-2 underline-offset-8"
         : "text-charcoal/80 hover:text-maroon-vibrant"
@@ -111,16 +203,26 @@ export default function Navbar() {
           ))}
 
           <div
+            ref={layananRef}
             className="relative"
             onMouseEnter={() => setLayananOpen(true)}
-            onMouseLeave={() => {
-              setTimeout(() => setLayananOpen(false), 150);
-            }}
+            onMouseLeave={() => setLayananOpen(false)}
           >
             <button
+              ref={layananButtonRef}
               type="button"
+              aria-expanded={layananOpen}
+              aria-haspopup="true"
+              aria-controls="layanan-menu"
+              onClick={() => (layananOpen ? closeLayananMenu() : openLayananMenu())}
+              onKeyDown={(event) => {
+                if (event.key === "ArrowDown" && !layananOpen) {
+                  event.preventDefault();
+                  openLayananMenu();
+                }
+              }}
               className={cn(
-                "flex items-center gap-1 text-sm font-medium",
+                "flex items-center gap-1 rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2",
                 pathname.startsWith("/layanan")
                   ? "text-maroon-vibrant underline decoration-gold-antique decoration-2 underline-offset-8"
                   : "text-charcoal/80 hover:text-maroon-vibrant"
@@ -131,16 +233,29 @@ export default function Navbar() {
             </button>
             {layananOpen && (
               <div
+                id="layanan-menu"
+                role="menu"
+                onKeyDown={handleLayananMenuKeyDown}
                 className="absolute left-0 top-full z-50 min-w-[280px] rounded-lg border border-[var(--color-border)] bg-surface py-2 shadow-card-hover"
-                onMouseEnter={() => setLayananOpen(true)}
-                onMouseLeave={() => setLayananOpen(false)}
               >
-                <div className="absolute -top-2 left-0 h-2 w-full" />
-                {layananDropdown.map((item) => (
+                {layananDropdown.map((item, index) => (
                   <Link
                     key={item.href}
+                    ref={(element) => {
+                      layananMenuItemRefs.current[index] = element;
+                    }}
                     href={item.href}
-                    className="block px-4 py-2 text-sm text-charcoal hover:bg-cream hover:text-maroon-vibrant"
+                    role="menuitem"
+                    tabIndex={index === 0 ? 0 : -1}
+                    className="flex min-h-11 items-center px-4 text-sm text-charcoal hover:bg-cream hover:text-maroon-vibrant focus-visible:bg-cream focus-visible:text-maroon-vibrant focus-visible:outline-none"
+                    onClick={closeLayananMenu}
+                    onFocus={() => {
+                      layananMenuItemRefs.current.forEach((menuItem, menuIndex) => {
+                        if (menuItem) {
+                          menuItem.tabIndex = menuIndex === index ? 0 : -1;
+                        }
+                      });
+                    }}
                   >
                     {item.label}
                   </Link>
@@ -163,16 +278,17 @@ export default function Navbar() {
 
         <Link
           href="/survey"
-          className="hidden rounded-full bg-maroon-deep px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-maroon-vibrant lg:inline-flex"
+          className="hidden min-h-11 items-center rounded-full bg-maroon-deep px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-maroon-vibrant focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2 lg:inline-flex"
         >
           Mulai Survei
         </Link>
 
         <button
           type="button"
-          className="lg:hidden"
+          className="rounded-md p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2 lg:hidden"
           onClick={() => setOpen(!open)}
-          aria-label="Menu"
+          aria-expanded={open}
+          aria-label={open ? "Tutup menu" : "Buka menu"}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -180,15 +296,21 @@ export default function Navbar() {
 
       {open && (
         <div className="max-h-[80vh] overflow-y-auto border-t border-[var(--color-border)] bg-surface px-4 py-4 lg:hidden">
-          <Link href="/" className="block py-2 text-sm font-medium" onClick={() => { handleNavClick("home"); setOpen(false); }}>
+          <Link
+            href="/"
+            className={mobileNavLinkClass}
+            onClick={() => { handleNavClick("home"); setOpen(false); }}
+          >
             Home
           </Link>
-          <p className="py-2 text-xs font-semibold uppercase text-[var(--color-text-muted)]">Layanan</p>
+          <p className="flex min-h-11 items-center text-xs font-semibold text-[var(--color-text-muted)]">
+            Layanan
+          </p>
           {layananDropdown.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="block py-2 pl-3 text-sm"
+              className={`${mobileNavLinkClass} pl-3`}
               onClick={() => { handleNavClick("layanan"); setOpen(false); }}
             >
               {item.label}
@@ -198,7 +320,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="block py-2 text-sm font-medium"
+              className={mobileNavLinkClass}
               onClick={() => { handleNavClick(link.sectionId); setOpen(false); }}
             >
               {link.label}
@@ -207,7 +329,7 @@ export default function Navbar() {
           <div className="mt-3 border-t border-[var(--color-border)] pt-3">
             <Link
               href="/survey"
-              className="block rounded-full bg-maroon-deep px-4 py-2.5 text-center text-sm font-semibold text-white"
+              className={`${mobileNavLinkClass} justify-center rounded-full bg-maroon-deep px-4 text-center font-semibold text-white hover:bg-maroon-vibrant`}
               onClick={() => setOpen(false)}
             >
               Mulai Survei

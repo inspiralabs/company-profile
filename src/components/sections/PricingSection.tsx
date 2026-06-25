@@ -48,7 +48,7 @@ export default function PricingSection() {
   return (
     <SectionWrapper id="harga" variant="default">
       <ScrollReveal>
-        <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+        <h2 className="font-display text-display-lg font-bold text-maroon-deep">
           Berinvestasi pada Teknologi dengan Rasa Aman
         </h2>
         <p className="mt-4 max-w-2xl text-[var(--color-text-secondary)]">
@@ -75,7 +75,7 @@ export default function PricingSection() {
                   Rekomendasi
                 </Badge>
               )}
-              <h3 className="font-display text-2xl font-bold text-maroon-deep">
+              <h3 className="font-display text-display-md font-bold text-maroon-deep">
                 {plan.name}
               </h3>
               <ul className="mt-6 space-y-4">

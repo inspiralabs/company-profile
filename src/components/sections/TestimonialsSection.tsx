@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionWrapper from "@/components/shared/SectionWrapper";
@@ -43,6 +44,7 @@ export default function TestimonialsSection() {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const reduceMotion = useReducedMotion();
 
   const go = useCallback(
     (dir: 1 | -1) => {
@@ -62,12 +64,9 @@ export default function TestimonialsSection() {
   const t = testimonials[idx];
 
   return (
-    <SectionWrapper id="testimoni" variant="cream">
+    <SectionWrapper id="testimoni" variant="default">
       <ScrollReveal>
-        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">
-          Testimoni Klien
-        </p>
-        <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+        <h2 className="font-display text-display-lg font-bold text-maroon-deep">
           Bukan Janji. Ini Buktinya.
         </h2>
         <p className="mt-4 max-w-2xl text-[var(--color-text-secondary)]">
@@ -80,50 +79,71 @@ export default function TestimonialsSection() {
         className="mt-12 mx-auto max-w-3xl"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
+        onFocusCapture={() => setPaused(true)}
+        onBlurCapture={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+            setPaused(false);
+          }
+        }}
+        aria-live="polite"
+        aria-atomic="true"
       >
         {/* Quote card */}
-        <div className="relative rounded-2xl border border-[var(--color-border)] bg-surface px-8 py-10 shadow-card">
-          {/* Decorative quote mark */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -top-5 left-8 font-display text-[6rem] leading-none text-maroon-vibrant/15"
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={idx}
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: -10 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="relative rounded-2xl border border-[var(--color-border)] bg-surface px-8 py-10 shadow-card"
           >
-            &ldquo;
-          </span>
+            {/* Decorative quote mark */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -top-5 left-8 font-display text-[6rem] leading-none text-maroon-vibrant/15"
+            >
+              &ldquo;
+            </span>
 
-          <span className="mb-4 inline-block rounded-full bg-maroon-deep/8 px-3 py-1 text-xs font-semibold text-maroon-deep">
-            {CATEGORY_LABELS[t.category] ?? t.category} · {t.project}
-          </span>
+            <span className="mb-4 inline-block rounded-full bg-maroon-deep/10 px-3 py-1 text-xs font-semibold text-maroon-deep">
+              {CATEGORY_LABELS[t.category] ?? t.category} · {t.project}
+            </span>
 
-          <blockquote className="text-lg leading-relaxed text-[var(--color-text-secondary)] sm:text-xl">
-            &ldquo;{t.text}&rdquo;
-          </blockquote>
+            <blockquote className="text-lg leading-relaxed text-[var(--color-text-secondary)] sm:text-xl">
+              &ldquo;{t.text}&rdquo;
+            </blockquote>
 
-          <div className="mt-6 flex items-center gap-3">
-            <Initials name={t.author} />
-            <div>
-              <p className="font-semibold text-maroon-deep">{t.author}</p>
-              {t.role && (
-                <p className="text-sm text-[var(--color-text-muted)]">{t.role}</p>
-              )}
+            <div className="mt-6 flex items-center gap-3">
+              <Initials name={t.author} />
+              <div>
+                <p className="font-semibold text-maroon-deep">{t.author}</p>
+                {t.role && (
+                  <p className="text-sm text-[var(--color-text-secondary)]">{t.role}</p>
+                )}
+              </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </AnimatePresence>
 
         {/* Controls */}
         <div className="mt-6 flex items-center justify-between">
           {/* Dots */}
-          <div className="flex gap-1.5">
+          <div className="flex items-center">
             {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIdx(i)}
                 aria-label={`Testimoni ${i + 1}`}
-                className={cn(
-                  "h-2 rounded-full transition-all",
-                  i === idx ? "w-6 bg-maroon-deep" : "w-2 bg-[var(--color-border)]"
-                )}
-              />
+                className="flex min-h-[44px] items-center justify-center rounded px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-1"
+              >
+                <span
+                  className={cn(
+                    "block h-2 rounded-full transition-all",
+                    i === idx ? "w-6 bg-maroon-deep" : "w-2 bg-[var(--color-border)]"
+                  )}
+                />
+              </button>
             ))}
           </div>
 
@@ -132,14 +152,14 @@ export default function TestimonialsSection() {
             <button
               onClick={() => go(-1)}
               aria-label="Sebelumnya"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] transition-colors hover:border-maroon-deep hover:text-maroon-deep"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] transition-colors hover:border-maroon-deep hover:text-maroon-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
             <button
               onClick={() => go(1)}
               aria-label="Berikutnya"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] transition-colors hover:border-maroon-deep hover:text-maroon-deep"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] transition-colors hover:border-maroon-deep hover:text-maroon-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2"
             >
               <ChevronRight className="h-4 w-4" />
             </button>

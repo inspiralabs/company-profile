@@ -39,7 +39,7 @@ export default function ValuePropSection() {
   return (
     <SectionWrapper id="nilai" variant="cream">
       <ScrollReveal>
-        <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+        <h2 className="font-display text-display-lg font-bold text-maroon-deep">
           Mengapa Anda Membutuhkan InspiraLabs?
         </h2>
         <p className="mt-4 max-w-2xl text-[var(--color-text-secondary)]">
@@ -51,9 +51,9 @@ export default function ValuePropSection() {
 
       <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <ScrollReveal className="md:col-span-2 lg:col-span-2 lg:row-span-1">
-          <Card className="h-full border-t-4 border-t-maroon-vibrant bg-cream p-6 lg:p-8">
+          <Card className="h-full bg-cream ring-1 ring-maroon-vibrant/40 p-6 lg:p-8">
             <featured.icon className="h-10 w-10 text-maroon-vibrant" />
-            <h3 className="mt-4 font-display text-2xl font-bold text-maroon-deep">
+            <h3 className="mt-4 font-display text-display-md font-bold text-maroon-deep">
               {featured.title}
             </h3>
             <p className="mt-3 text-[var(--color-text-secondary)]">{featured.desc}</p>
@@ -82,9 +82,7 @@ function ValueCard({
   return (
     <ScrollReveal delay={delay}>
       <Card
-        className={cn(
-          "group h-full p-5 transition-all hover:border-t-4 hover:border-t-gold-antique hover:shadow-card-hover"
-        )}
+        className="group h-full p-5 transition-all hover:-translate-y-1 hover:ring-1 hover:ring-gold-antique/50 hover:shadow-card-hover"
       >
         <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-maroon-deep/5 group-hover:bg-gold-bright/20">
           <v.icon className="h-5 w-5 text-maroon-vibrant" />

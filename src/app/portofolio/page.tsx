@@ -17,10 +17,7 @@ export default function PortofolioPage() {
 
         {/* Header */}
         <div className="mb-16 max-w-3xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">
-            Portofolio
-          </p>
-          <h1 className="font-display text-4xl font-bold text-maroon-deep sm:text-5xl">
+          <h1 className="font-display text-display-xl font-bold text-maroon-deep">
             Karya yang Berbicara<br />untuk Diri Sendiri
           </h1>
           <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
@@ -33,7 +30,7 @@ export default function PortofolioPage() {
 
         {/* CTA */}
         <section className="mt-20 rounded-2xl bg-maroon-deep px-8 py-12 text-center text-white">
-          <h2 className="font-display text-3xl font-bold">Ada Proyek Serupa?</h2>
+          <h2 className="font-display text-display-md font-bold">Ada Proyek Serupa?</h2>
           <p className="mt-3 text-white/80">
             Ceritakan kebutuhan Anda - kami rekomendasikan solusi terbaik.
           </p>

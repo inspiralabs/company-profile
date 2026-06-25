@@ -10,7 +10,7 @@ export default function ContactTeaserSection() {
     <SectionWrapper id="kontak" className="scroll-mt-28" variant="cream">
       <ScrollReveal>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+          <h2 className="font-display text-display-lg font-bold text-maroon-deep">
             {CONTACT_TEASER.headline}
           </h2>
           <p className="mt-4 text-[var(--color-text-secondary)]">{CONTACT_TEASER.body}</p>

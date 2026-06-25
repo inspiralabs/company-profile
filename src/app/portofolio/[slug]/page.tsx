@@ -62,7 +62,7 @@ export default async function PortofolioDetailPage({ params }: { params: Promise
                 </span>
               ))}
             </div>
-            <h1 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">{item.name}</h1>
+            <h1 className="font-display text-display-lg font-bold text-maroon-deep">{item.name}</h1>
             {item.subtitle && (
               <p className="mt-2 text-lg text-[var(--color-text-muted)]">{item.subtitle}</p>
             )}
@@ -145,7 +145,7 @@ export default async function PortofolioDetailPage({ params }: { params: Promise
             {item.review && (
               <aside>
                 <div className="rounded-2xl bg-maroon-deep p-6 text-white sticky top-28">
-                  <p className="text-4xl mb-4">"</p>
+                  <p className="text-4xl mb-4">&ldquo;</p>
                   <p className="text-sm leading-relaxed text-white/90 italic">{item.review.text}</p>
                   <div className="mt-4 border-t border-white/20 pt-4">
                     <p className="font-semibold text-sm">{item.review.author}</p>

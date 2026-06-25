@@ -14,7 +14,7 @@ export default function FAQSection() {
       <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
         <ScrollReveal>
           <div className="lg:sticky lg:top-28">
-            <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+            <h2 className="font-display text-display-lg font-bold text-maroon-deep">
               Pertanyaan yang Sering Diajukan
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">

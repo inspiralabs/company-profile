@@ -105,7 +105,7 @@ export default function LayananPage() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">
               Layanan
             </p>
-            <h1 className="font-display text-4xl font-bold text-maroon-deep sm:text-5xl">
+            <h1 className="font-display text-display-xl font-bold text-maroon-deep">
               Satu Atap untuk Semua<br />Kebutuhan Digital Anda
             </h1>
             <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
@@ -183,7 +183,7 @@ export default function LayananPage() {
 
           {/* CTA */}
           <section className="rounded-2xl bg-cream px-8 py-12 text-center">
-            <h2 className="font-display text-2xl font-bold text-maroon-deep">
+            <h2 className="font-display text-display-md font-bold text-maroon-deep">
               Tidak yakin layanan mana yang tepat?
             </h2>
             <p className="mt-3 text-[var(--color-text-secondary)]">

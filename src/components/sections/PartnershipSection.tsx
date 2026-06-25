@@ -1,22 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import { Quote } from "lucide-react";
-import { useState } from "react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionWrapper from "@/components/shared/SectionWrapper";
-import { usePortfolioHighlight } from "@/context/PortfolioHighlightContext";
-import { cn } from "@/lib/utils";
-
-const trustPartners = [
-  { id: "desa-bojongkulur", name: "Desa Bojongkulur", caseId: "sijagaair" },
-  { id: "labschool-cibubur", name: "Labschool Cibubur", caseId: "kelas-seni" },
-  { id: "sdit-depok", name: "SDIT Depok", caseId: "workshop-iot" },
-] as const;
-
 import { cdn } from "@/lib/cdn";
 
-/** Rasio asli `public/images/portfolio/sijagaair-1.png` (1627×778 px) */
 const SIJAGAAIR_HIGHLIGHT_IMAGE = {
   src: cdn("/images/portfolio/sijagaair-1.png"),
   width: 1627,
@@ -24,18 +11,10 @@ const SIJAGAAIR_HIGHLIGHT_IMAGE = {
 } as const;
 
 export default function PartnershipSection() {
-  const { highlightCaseId, scrollToPortfolio } = usePortfolioHighlight();
-  const [activePartnerId, setActivePartnerId] = useState<string>("desa-bojongkulur");
-
-  const handlePartnerClick = (partnerId: string, caseId: string) => {
-    setActivePartnerId(partnerId);
-    scrollToPortfolio(caseId);
-  };
-
   return (
     <SectionWrapper id="kemitraan" variant="default">
       <ScrollReveal>
-        <h2 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+        <h2 className="font-display text-display-lg font-bold text-maroon-deep">
           Dipercaya Membangun Ekosistem Digital dari Komunitas Lokal hingga Enterprise
         </h2>
         <p className="mt-4 max-w-3xl text-[var(--color-text-secondary)]">
@@ -45,7 +24,7 @@ export default function PartnershipSection() {
         </p>
       </ScrollReveal>
 
-      <ScrollReveal delay={0.15}>
+      <ScrollReveal delay={0.12}>
         <div className="relative mt-12 grid overflow-hidden rounded-2xl border border-[var(--color-border)] bg-cream lg:grid-cols-5 lg:items-stretch">
           <div className="relative aspect-[1627/778] w-full max-h-[min(52vw,260px)] bg-charcoal/[0.03] sm:max-h-[280px] lg:col-span-3 lg:aspect-auto lg:h-full lg:max-h-none lg:min-h-0">
             <Image
@@ -63,17 +42,15 @@ export default function PartnershipSection() {
             >
               &ldquo;
             </span>
-            <span className="mb-2 text-xs font-semibold uppercase tracking-wider text-gold-antique">
-              Sorotan Kemitraan
-            </span>
-            <h3 className="font-display text-2xl font-bold text-maroon-deep">
-              Pemerintah Desa Bojongkulur - SiJagaAir
+            <h3 className="font-display text-display-md font-bold text-maroon-deep">
+              Pemerintah Desa Bojongkulur — SiJagaAir
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
               Menjembatani inovasi teknologi ke sektor publik melalui pengembangan
-              Early Warning System (EWS) Banjir - sistem SiJagaAir.
+              Early Warning System (EWS) banjir — sistem SiJagaAir yang memantau
+              ketinggian muka air dan mengirim peringatan dini ke warga.
             </p>
-            <blockquote className="relative mt-6 border-l-4 border-gold-antique pl-4">
+            <blockquote className="relative mt-6 border-l border-gold-antique/60 pl-4">
               <Quote className="mb-2 h-5 w-5 text-gold-antique" />
               <p className="text-sm italic text-charcoal">
                 Notifikasi WA langsung masuk ke WhatsApp Channel desa Bojong Kulur

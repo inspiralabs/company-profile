@@ -87,7 +87,7 @@ export default function PortfolioGrid() {
               {p.review && (
                 <div className="mt-4 rounded-lg bg-cream p-3">
                   <p className="text-xs italic text-[var(--color-text-secondary)] line-clamp-2">
-                    "{p.review.text}"
+                    &ldquo;{p.review.text}&rdquo;
                   </p>
                   <p className="mt-1 text-xs font-medium text-maroon-deep">- {p.review.author}</p>
                 </div>

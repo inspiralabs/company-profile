@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { Cloud, KeyRound, Play, Settings2 } from "lucide-react";
+import ProductFeaturedCard from "@/components/produk/ProductFeaturedCard";
+import ProductListItem from "@/components/produk/ProductListItem";
 import { buildPageMetadata } from "@/lib/metadata";
 import { PRODUCTS } from "@/data/products";
 
@@ -11,6 +13,13 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/produk",
 });
 
+const models = [
+  { icon: KeyRound, label: "Beli lisensi", desc: "Kepemilikan penuh, sekali bayar" },
+  { icon: Settings2, label: "Kustomisasi", desc: "Disesuaikan proses Anda" },
+  { icon: Cloud, label: "Berlangganan SaaS", desc: "Mulai cepat, bayar bulanan" },
+  { icon: Play, label: "Demo gratis", desc: "Coba sebelum beli" },
+];
+
 export default function ProdukPage() {
   const featured = PRODUCTS.filter((p) => p.featured);
   const rest = PRODUCTS.filter((p) => !p.featured);
@@ -18,114 +27,101 @@ export default function ProdukPage() {
   return (
     <div className="px-4 pb-24 pt-28 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-content">
+        <header className="mb-16 lg:mb-20">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
+            <div className="lg:col-span-7">
+              <h1 className="font-display text-display-xl font-bold text-maroon-deep">
+                Solusi digital siap pakai
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--color-text-secondary)] sm:text-lg">
+                Produk kami sudah terbukti dipakai di lapangan — bisa langsung diimplementasikan
+                atau dikustomisasi sesuai kebutuhan spesifik Anda.
+              </p>
+            </div>
 
-        {/* Header */}
-        <div className="mb-16 max-w-3xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">
-            Produk
-          </p>
-          <h1 className="font-display text-4xl font-bold text-maroon-deep sm:text-5xl">
-            Solusi Digital<br />Siap Pakai
-          </h1>
-          <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
-            Tidak perlu mulai dari nol. Produk-produk kami sudah terbukti dipakai di lapangan -
-            bisa langsung diimplementasikan atau dikustomisasi sesuai kebutuhan spesifik Anda.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {["Beli Lisensi", "Kustomisasi", "Berlangganan SaaS", "Free Demo"].map((b) => (
-              <span key={b} className="rounded-full bg-cream px-4 py-2 text-sm font-medium text-maroon-deep">{b}</span>
-            ))}
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl border border-[var(--color-border)] bg-cream/60 p-6 sm:p-8">
+                <p className="font-display text-sm font-semibold text-maroon-deep">
+                  Cara kerja sama
+                </p>
+                <ul className="mt-4 space-y-4">
+                  {models.map(({ icon: Icon, label, desc }) => (
+                    <li key={label} className="flex gap-3">
+                      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-maroon-deep/[0.06]">
+                        <Icon className="size-4 text-maroon-vibrant" strokeWidth={1.75} aria-hidden />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-maroon-deep">{label}</p>
+                        <p className="text-xs text-[var(--color-text-secondary)]">{desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
+        </header>
 
-        {/* Featured Products */}
         {featured.length > 0 && (
-          <section className="mb-8">
-            <h2 className="font-display text-xl font-bold text-maroon-deep mb-6">Produk Unggulan</h2>
-            <div className="grid gap-6 lg:grid-cols-2">
-              {featured.map((p) => (
-                <Link
-                  key={p.id}
-                  href={`/produk/${p.id}`}
-                  className="group flex flex-col rounded-2xl border border-maroon-vibrant/20 bg-maroon-deep overflow-hidden hover:shadow-card-hover transition-all"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <Image src={p.image} alt={p.name} fill className="object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-maroon-deep/80 to-transparent" />
-                    <div className="absolute top-3 left-3 flex gap-2">
-                      <span className="rounded-full bg-gold-antique px-3 py-1 text-xs font-bold text-maroon-deep">{p.badge}</span>
-                      {p.extraBadge && (
-                        <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">{p.extraBadge}</span>
-                      )}
-                    </div>
-                  </div>
-                  <div className="flex flex-col flex-1 p-6 text-white">
-                    <h3 className="font-display font-bold text-lg group-hover:text-gold-antique transition-colors">{p.name}</h3>
-                    <p className="mt-2 text-sm text-white/70 leading-relaxed flex-1">{p.desc}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {p.tags.map((t) => (
-                        <span key={t} className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">{t}</span>
-                      ))}
-                    </div>
-                    <p className="mt-4 text-sm font-medium text-gold-antique group-hover:underline">Lihat Detail →</p>
-                  </div>
-                </Link>
+          <section className="mb-16 border-t border-[var(--color-border)] pt-14 lg:mb-20 lg:pt-16">
+            <div className="mb-8 max-w-2xl">
+              <h2 className="font-display text-display-md font-bold text-maroon-deep">
+                Produk unggulan
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+                Solusi yang paling sering diimplementasikan — dari pemerintahan desa hingga institusi pendidikan.
+              </p>
+            </div>
+            <div className="space-y-6">
+              {featured.map((product) => (
+                <ProductFeaturedCard key={product.id} product={product} />
               ))}
             </div>
           </section>
         )}
 
-        {/* Other Products */}
         {rest.length > 0 && (
-          <section className="mb-20">
-            <h2 className="font-display text-xl font-bold text-maroon-deep mb-6">Produk Lainnya</h2>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {rest.map((p) => (
-                <Link
-                  key={p.id}
-                  href={`/produk/${p.id}`}
-                  className="group flex flex-col rounded-2xl border border-[var(--color-border)] bg-surface overflow-hidden hover:shadow-card-hover hover:-translate-y-1 transition-all"
-                >
-                  <div className="relative h-40 overflow-hidden bg-cream">
-                    <Image src={p.image} alt={p.name} fill className="object-cover group-hover:scale-105 transition-transform" />
-                    <div className="absolute top-3 left-3">
-                      <span className="rounded-full bg-maroon-deep px-3 py-1 text-xs font-bold text-white">{p.badge}</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col flex-1 p-5">
-                    <h3 className="font-display font-bold text-maroon-deep group-hover:text-maroon-vibrant transition-colors leading-tight">{p.name}</h3>
-                    <p className="mt-2 text-sm text-[var(--color-text-secondary)] flex-1">{p.desc}</p>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {p.tags.map((t) => (
-                        <span key={t} className="rounded-full bg-cream px-2.5 py-0.5 text-xs text-maroon-deep">{t}</span>
-                      ))}
-                    </div>
-                    <p className="mt-3 text-sm font-medium text-maroon-vibrant group-hover:underline">Lihat Detail →</p>
-                  </div>
-                </Link>
-              ))}
+          <section className="border-t border-[var(--color-border)] pt-14 lg:pt-16">
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+              <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
+                <h2 className="font-display text-display-md font-bold text-maroon-deep">
+                  Katalog lengkap
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+                  {rest.length} produk lain untuk UMKM, pendidikan, dan komunitas.
+                </p>
+              </div>
+              <div className="space-y-4 lg:col-span-8">
+                {rest.map((product) => (
+                  <ProductListItem key={product.id} product={product} />
+                ))}
+              </div>
             </div>
           </section>
         )}
 
-        {/* CTA */}
-        <section className="rounded-2xl bg-cream px-8 py-12 text-center">
-          <h2 className="font-display text-2xl font-bold text-maroon-deep">
+        <section className="mt-16 rounded-2xl bg-cream px-6 py-10 text-center sm:px-8 sm:py-12 lg:mt-20">
+          <h2 className="font-display text-display-md font-bold text-maroon-deep">
             Tidak ada yang cocok? Kami bangun yang baru.
           </h2>
-          <p className="mt-3 text-[var(--color-text-secondary)]">
-            Semua produk kami bisa dikustomisasi, atau kami kembangkan sistem baru dari awal sesuai kebutuhan Anda.
+          <p className="mx-auto mt-3 max-w-xl text-[var(--color-text-secondary)]">
+            Semua produk bisa dikustomisasi, atau kami kembangkan sistem baru dari awal sesuai kebutuhan Anda.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <Link href="/kontak" className="rounded-full bg-maroon-deep px-8 py-3 font-semibold text-white hover:scale-105 transition-transform">
-              Konsultasi Gratis
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+            <Link
+              href="/kontak"
+              className="inline-flex min-h-11 items-center rounded-full bg-maroon-deep px-8 py-2.5 font-semibold text-white transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2"
+            >
+              Konsultasi gratis
             </Link>
-            <Link href="/survey" className="rounded-full border border-[var(--color-border)] px-8 py-3 font-semibold text-maroon-deep hover:bg-maroon-deep hover:text-white transition-colors">
-              Isi Survey Kebutuhan
+            <Link
+              href="/survey"
+              className="inline-flex min-h-11 items-center rounded-full border border-[var(--color-border)] px-8 py-2.5 font-semibold text-maroon-deep transition-colors hover:bg-maroon-deep hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-antique focus-visible:ring-offset-2"
+            >
+              Isi survey kebutuhan
             </Link>
           </div>
         </section>
-
       </div>
     </div>
   );

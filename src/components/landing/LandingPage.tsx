@@ -1,6 +1,3 @@
-"use client";
-
-import { PortfolioHighlightProvider } from "@/context/PortfolioHighlightContext";
 import CTASection from "@/components/sections/CTASection";
 import HeroSection from "@/components/sections/HeroSection";
 import PartnershipSection from "@/components/sections/PartnershipSection";
@@ -12,7 +9,7 @@ import FAQSection from "@/components/sections/FAQSection";
 
 export default function LandingPage() {
   return (
-    <PortfolioHighlightProvider>
+    <>
       <HeroSection />
       <ServicesSection />
       <PartnershipSection />
@@ -21,6 +18,6 @@ export default function LandingPage() {
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
-    </PortfolioHighlightProvider>
+    </>
   );
 }

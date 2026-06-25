@@ -133,7 +133,7 @@ export default function ImageGallery({ images, name }: { images: string[]; name:
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+            className="fixed inset-0 z-[var(--z-modal)] flex items-center justify-center bg-black/90 p-4"
             onClick={close}
           >
             <button

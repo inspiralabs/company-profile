@@ -1,11 +1,9 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionWrapper from "@/components/shared/SectionWrapper";
+import TrackLink from "@/components/shared/TrackLink";
 import Link from "next/link";
-import { trackEvent } from "@/lib/site";
 
 export default function CTASection() {
   return (
@@ -23,7 +21,7 @@ export default function CTASection() {
             />
 
             <div className="relative">
-              <h2 className="font-display text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+              <h2 className="font-display text-display-lg font-bold text-white">
                 Setiap Ide Besar Dimulai dari Langkah Kecil.{" "}
                 <span className="text-gold-bright">Mulai Milik Anda Bersama Kami Hari Ini.</span>
               </h2>
@@ -39,15 +37,16 @@ export default function CTASection() {
                   size="lg"
                   className="group w-full bg-gold-bright text-maroon-deep hover:bg-gold-bright/90 sm:w-auto"
                 >
-                  <Link
+                  <TrackLink
                     href="/kontak"
-                    onClick={() => trackEvent("cta_whatsapp_click", { location: "final_cta" })}
+                    event="cta_whatsapp_click"
+                    eventParams={{ location: "final_cta" }}
                   >
                     Hubungi Kami
                     <span className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-maroon-deep/10 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5">
                       <ArrowRight className="h-4 w-4" />
                     </span>
-                  </Link>
+                  </TrackLink>
                 </Button>
                 <Button
                   asChild

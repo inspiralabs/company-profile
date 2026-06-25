@@ -206,7 +206,7 @@ export default function SurveyWizard() {
         className="space-y-6"
       >
         <div>
-          <h2 className="font-display text-2xl font-bold text-maroon-deep sm:text-3xl">
+          <h2 className="font-display text-display-md font-bold text-maroon-deep">
             Data Diri
           </h2>
           <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
@@ -377,7 +377,7 @@ export default function SurveyWizard() {
         </h1>
 
         {customNotes.length > 0 && (
-          <div className="rounded-xl border-l-4 border-gold-antique bg-cream p-5">
+          <div className="rounded-xl bg-gold-bright/15 ring-1 ring-gold-antique/40 p-5">
             <h2 className="font-display text-lg font-semibold text-maroon-deep">
               Catatan dari Anda
             </h2>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import HeroVisual from "@/components/shared/HeroVisual";
 import { Button } from "@/components/ui/button";
 import SectionWrapper from "@/components/shared/SectionWrapper";
@@ -20,7 +20,7 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 80% 20%, rgba(185,42,28,0.08) 0%, transparent 60%)",
+            "radial-gradient(ellipse at 80% 20%, color-mix(in srgb, var(--color-maroon-vibrant) 8%, transparent) 0%, transparent 60%)",
         }}
       />
       <div className="relative grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
@@ -38,7 +38,7 @@ export default function HeroSection() {
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.1 }}
-            className="font-display text-3xl font-bold leading-tight text-maroon-deep sm:text-4xl lg:text-5xl xl:text-[3.5rem]"
+            className="font-display text-display-xl font-bold text-maroon-deep"
           >
             <TypewriterText />
           </motion.h1>
@@ -49,11 +49,10 @@ export default function HeroSection() {
             transition={{ delay: reduceMotion ? 0 : 0.2 }}
             className="mt-5 max-w-xl text-base leading-relaxed text-[var(--color-text-secondary)] sm:mt-6 sm:text-lg"
           >
-            Kami merancang, membangun, dan mendampingi solusi digital mulai dari aplikasi dan sistem IoT 
-            hingga desain brand dan pelatihan serta konsultasi teknologi, 
-            untuk mempercepat pertumbuhan bisnis Anda dan memastikan setiap investasi memberikan 
-            dampak nyata jangka panjang. Selama ini, kami telah dipercaya oleh UMKM, institusi pendidikan, 
-            pemerintah desa, dan perusahaan untuk mewujudkan transformasi digital yang berkelanjutan.
+            Kami merancang, membangun, dan mendampingi solusi digital — dari aplikasi dan IoT
+            hingga branding dan pelatihan — agar investasi teknologi Anda memberi dampak nyata.
+            Dipercaya UMKM, institusi pendidikan, pemerintah desa, hingga perusahaan di Bogor
+            dan sekitarnya.
           </motion.p>
 
           <motion.div
@@ -69,7 +68,7 @@ export default function HeroSection() {
             >
               <a href="/layanan">
                 Jelajahi Solusi Kami
-                <ArrowDown className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" />
               </a>
             </Button>
           </motion.div>

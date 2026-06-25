@@ -48,7 +48,7 @@ export default function FloatingSurveyPrompt() {
       aria-labelledby="floating-survey-title"
       aria-describedby="floating-survey-desc"
       className={cn(
-        "fixed bottom-24 right-4 z-[60] w-[min(calc(100vw-2rem),22rem)]",
+        "fixed bottom-24 right-4 z-[var(--z-float)] w-[min(calc(100vw-2rem),22rem)]",
         "motion-safe:animate-[fadeUp_0.35s_ease-out]"
       )}
     >

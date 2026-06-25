@@ -25,7 +25,7 @@ export default function Lightbox({
   startIndex,
   onClose,
   onIndexChange,
-  zIndexClass = "z-[110]",
+  zIndexClass = "z-[var(--z-lightbox)]",
 }: LightboxProps) {
   const [idx, setIdx] = useState(startIndex);
 

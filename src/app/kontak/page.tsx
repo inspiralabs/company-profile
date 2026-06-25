@@ -13,7 +13,7 @@ export default function KontakPage() {
   return (
     <div className="px-4 pb-20 pt-28 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-content">
-        <h1 className="font-display text-3xl font-bold text-maroon-deep sm:text-4xl">
+        <h1 className="font-display text-display-lg font-bold text-maroon-deep">
           Hubungi Kami
         </h1>
         <p className="mt-4 max-w-3xl text-[var(--color-text-secondary)]">

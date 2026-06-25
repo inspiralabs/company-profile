@@ -86,7 +86,7 @@ export default function MotionSelect({
       </motion.div>
 
       <Select.Portal>
-        <Select.Positioner className="z-[200] outline-none" sideOffset={6}>
+        <Select.Positioner className="z-[var(--z-popover)] outline-none" sideOffset={6}>
           <Select.Popup className={popupClass}>
             <motion.div
               initial={{ opacity: 0, y: -6, scale: 0.98 }}
