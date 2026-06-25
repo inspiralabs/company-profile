@@ -13,7 +13,7 @@ export default function HeroSection() {
   return (
     <SectionWrapper
       id="home"
-      className="relative min-h-0 overflow-hidden !pb-12 !pt-[6.75rem] sm:!pb-16 sm:!pt-32 sm:min-h-[80vh] lg:!pt-36"
+      className="relative min-h-0 overflow-hidden !pb-8 !pt-[6.75rem] sm:!pb-10 sm:!pt-32 lg:!pt-36"
       variant="default"
     >
       <div

@@ -22,7 +22,7 @@ const portfolioLinkClass =
 
 export default function ServicesSection() {
   return (
-    <SectionWrapper id="layanan" variant="default">
+    <SectionWrapper id="layanan" variant="default" className="!py-10 sm:!py-12 lg:!py-14">
       <ScrollReveal>
         <h2 className="font-display text-display-lg font-bold text-maroon-vibrant">
           Ekosistem Solusi Digital yang Memahami Kebutuhan Anda

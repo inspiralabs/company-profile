@@ -12,7 +12,7 @@ const SIJAGAAIR_HIGHLIGHT_IMAGE = {
 
 export default function PartnershipSection() {
   return (
-    <SectionWrapper id="kemitraan" variant="default">
+    <SectionWrapper id="kemitraan" variant="default" className="!pt-10 sm:!pt-12 lg:!pt-14">
       <ScrollReveal>
         <h2 className="font-display text-display-lg font-bold text-maroon-deep">
           Dipercaya Membangun Ekosistem Digital dari Komunitas Lokal hingga Enterprise
