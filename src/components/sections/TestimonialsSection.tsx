@@ -11,7 +11,7 @@ const testimonials = portfolioCases.map((p) => ({
   text: p.review.text,
   author: p.review.author,
   role: p.review.role ?? "",
-  project: p.name.split("—")[0].split("–")[0].trim(),
+  project: p.name.split("—")[0].split("–")[0].split(":")[0].trim(),
   category: p.category,
 }));
 
@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
           Bukan Janji. Ini Buktinya.
         </h2>
         <p className="mt-4 max-w-2xl text-[var(--color-text-secondary)]">
-          Dari pemerintahan desa, sekolah, hingga komunitas perumahan — kepercayaan
+          Dari pemerintahan desa, sekolah, hingga komunitas perumahan - kepercayaan
           mereka adalah alasan kami terus bergerak.
         </p>
       </ScrollReveal>

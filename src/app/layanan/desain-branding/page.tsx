@@ -4,7 +4,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { SITE, WA_SERVICE_PILLARS } from "@/lib/site";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Desain & Branding — UI/UX, Logo, Identitas Visual",
+  title: "Desain & Branding: UI/UX, Logo, Identitas Visual",
   description:
     "Jasa desain UI/UX, logo, brand guidelines, dan aset visual media sosial. InspiraLabs membantu UMKM dan startup membangun identitas brand yang profesional dan berkesan.",
   path: "/layanan/desain-branding",
@@ -51,7 +51,7 @@ export default function DesainBrandingPage() {
             <p className="mt-2 text-lg font-medium text-[var(--color-text-muted)]">UI/UX · Logo · Identitas Visual</p>
             <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
               Identitas visual yang kuat adalah investasi bisnis paling efisien.
-              Kami desain dari logo hingga keseluruhan bahasa visual brand Anda —
+              Kami desain dari logo hingga keseluruhan bahasa visual brand Anda -
               supaya audiens ingat Anda bahkan setelah scrolling.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">

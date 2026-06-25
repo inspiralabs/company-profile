@@ -4,7 +4,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { SITE, WA_SERVICE_PILLARS } from "@/lib/site";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Software Development — Website & Aplikasi Mobile",
+  title: "Software Development: Website & Aplikasi Mobile",
   description:
     "Jasa pembuatan website profesional, web application, dan aplikasi mobile Android/iOS. InspiraLabs mengerjakan dari desain, development, hingga deployment. Mulai di bawah Rp 10 juta.",
   path: "/layanan/software-development",
@@ -23,11 +23,11 @@ const jsonLd = {
 };
 
 const deliverables = [
-  { label: "Website Company Profile & Landing Page", desc: "Desain elegan, mobile-responsive, SEO-ready — mulai dari UMKM hingga korporat." },
+  { label: "Website Company Profile & Landing Page", desc: "Desain elegan, mobile-responsive, SEO-ready - mulai dari UMKM hingga korporat." },
   { label: "Web Application", desc: "SaaS, sistem informasi, CRM, dan dashboard operasional berbasis browser." },
-  { label: "Aplikasi Mobile Android & iOS", desc: "React Native — satu codebase, dua platform, siap deploy ke Play Store & App Store." },
+  { label: "Aplikasi Mobile Android & iOS", desc: "React Native - satu codebase, dua platform, siap deploy ke Play Store & App Store." },
   { label: "AI Chatbot & Integrasi API", desc: "Chatbot berbasis LLM, integrasi WhatsApp Business, payment gateway, dan API pihak ketiga." },
-  { label: "Sistem Informasi Custom", desc: "ERP sederhana, sistem absensi, manajemen inventaris — disesuaikan proses bisnis Anda." },
+  { label: "Sistem Informasi Custom", desc: "ERP sederhana, sistem absensi, manajemen inventaris - disesuaikan proses bisnis Anda." },
 ];
 
 export default function SoftwareDevelopmentPage() {
@@ -50,7 +50,7 @@ export default function SoftwareDevelopmentPage() {
             </h1>
             <p className="mt-2 text-lg font-medium text-[var(--color-text-muted)]">Website · Web App · Mobile App</p>
             <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
-              Dari landing page UMKM hingga sistem enterprise — kami kerjakan dari desain UI/UX,
+              Dari landing page UMKM hingga sistem enterprise - kami kerjakan dari desain UI/UX,
               development, testing, hingga deployment. Harga transparan, update rutin tiap pekan.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">

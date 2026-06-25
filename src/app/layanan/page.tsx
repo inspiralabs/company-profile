@@ -109,7 +109,7 @@ export default function LayananPage() {
               Satu Atap untuk Semua<br />Kebutuhan Digital Anda
             </h1>
             <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
-              Software, IoT, desain, dan pelatihan — semua tersedia di InspiraLabs.
+              Software, IoT, desain, dan pelatihan - semua tersedia di InspiraLabs.
               Tidak perlu koordinasi ke vendor berbeda. Kami handle dari konsep hingga production.
             </p>
           </div>
@@ -187,7 +187,7 @@ export default function LayananPage() {
               Tidak yakin layanan mana yang tepat?
             </h2>
             <p className="mt-3 text-[var(--color-text-secondary)]">
-              Isi survey 2 menit — tim kami akan analisis kebutuhan Anda dan rekomendasikan solusi terbaik.
+              Isi survey 2 menit - tim kami akan analisis kebutuhan Anda dan rekomendasikan solusi terbaik.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <Link

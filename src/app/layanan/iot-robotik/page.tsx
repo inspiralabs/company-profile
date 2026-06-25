@@ -4,7 +4,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { SITE, WA_SERVICE_PILLARS } from "@/lib/site";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "IoT & Robotik — Smart System & Early Warning System",
+  title: "IoT & Robotik: Smart System & Early Warning System",
   description:
     "Jasa IoT Indonesia: monitoring real-time, early warning system banjir, smart system, dan otomasi berbasis sensor. Notifikasi otomatis ke WhatsApp. InspiraLabs Bogor.",
   path: "/layanan/iot-robotik",
@@ -24,8 +24,8 @@ const jsonLd = {
 
 const deliverables = [
   { label: "Early Warning System (EWS) Banjir", desc: "Sensor ketinggian air + dashboard real-time + notifikasi WhatsApp otomatis saat melewati batas aman." },
-  { label: "Monitoring Lingkungan", desc: "Sensor suhu, kelembaban, kualitas udara, debit air — semua terhubung ke dashboard web." },
-  { label: "Smart Office & Smart Home", desc: "Otomasi lampu, AC, pintu — kontrol jarak jauh via aplikasi atau jadwal otomatis." },
+  { label: "Monitoring Lingkungan", desc: "Sensor suhu, kelembaban, kualitas udara, debit air - semua terhubung ke dashboard web." },
+  { label: "Smart Office & Smart Home", desc: "Otomasi lampu, AC, pintu - kontrol jarak jauh via aplikasi atau jadwal otomatis." },
   { label: "Monitoring Energi", desc: "Pantau konsumsi listrik real-time, identifikasi pemborosan, dan hemat biaya operasional." },
   { label: "Sistem Irigasi Cerdas", desc: "Otomasi penyiraman berbasis sensor kelembaban tanah untuk pertanian dan taman." },
   { label: "Prototipe & Riset", desc: "Pengembangan prototipe IoT untuk riset akademik, startup, dan proof-of-concept." },
@@ -52,13 +52,13 @@ export default function IotRobotikPage() {
             <p className="mt-2 text-lg font-medium text-[var(--color-text-muted)]">Smart System · Monitoring · Early Warning System</p>
             <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
               Sensor pintar yang terhubung ke dashboard web dan notifikasi WhatsApp.
-              Dari EWS banjir desa hingga monitoring energi pabrik — kami bangun sistem yang
+              Dari EWS banjir desa hingga monitoring energi pabrik - kami bangun sistem yang
               benar-benar berfungsi di lapangan, bukan hanya di lab.
             </p>
             <div className="mt-6 rounded-xl border border-maroon-vibrant/20 bg-cream p-4 text-sm">
               <strong className="text-maroon-deep">Studi kasus nyata:</strong>
               <span className="ml-2 text-[var(--color-text-secondary)]">
-                SiJagaAir — EWS banjir Desa Bojong Kulur, Bogor. Warga terima notifikasi WA otomatis sebelum banjir tiba.
+                SiJagaAir: EWS banjir Desa Bojong Kulur, Bogor. Warga terima notifikasi WA otomatis sebelum banjir tiba.
               </span>
               <Link href="/portofolio/sijagaair" className="ml-2 font-medium text-maroon-vibrant hover:underline">Lihat →</Link>
             </div>

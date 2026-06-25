@@ -4,9 +4,9 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { SITE, WA_SERVICE_PILLARS } from "@/lib/site";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Pelatihan Teknologi — Workshop Coding, IoT, AI & Roblox",
+  title: "Pelatihan Teknologi: Workshop Coding, IoT, AI & Roblox",
   description:
-    "In-house training dan workshop teknologi untuk sekolah, perusahaan, dan komunitas. Coding, IoT, Roblox, dan AI — datang ke lokasi Anda di seluruh Indonesia.",
+    "In-house training dan workshop teknologi untuk sekolah, perusahaan, dan komunitas. Coding, IoT, Roblox, dan AI - datang ke lokasi Anda di seluruh Indonesia.",
   path: "/layanan/pelatihan-teknologi",
 });
 
@@ -27,7 +27,7 @@ const programs = [
   { icon: "🎮", title: "Roblox Game Development", audience: "Siswa SD–SMA, Guru Informatika", desc: "Belajar logika pemrograman lewat game development di Roblox Studio. Seru dan mudah dipahami anak-anak." },
   { icon: "🧠", title: "AI untuk Bisnis & Sekolah", audience: "Profesional, Guru, Manajer", desc: "Cara praktis memanfaatkan AI (ChatGPT, Gemini, Copilot) untuk produktivitas kerja dan pembelajaran." },
   { icon: "🎨", title: "Workshop Desain Grafis", audience: "Guru Seni, Tim Marketing, UMKM", desc: "Figma dan Canva untuk membuat konten visual profesional. Dari poster hingga UI sederhana." },
-  { icon: "📊", title: "Konsultasi Transformasi Digital", audience: "Manajemen, Kepala Sekolah, Kepala Desa", desc: "Roadmap digitalisasi yang realistis dan sesuai anggaran — bukan hype, tapi langkah konkret." },
+  { icon: "📊", title: "Konsultasi Transformasi Digital", audience: "Manajemen, Kepala Sekolah, Kepala Desa", desc: "Roadmap digitalisasi yang realistis dan sesuai anggaran - bukan hype, tapi langkah konkret." },
 ];
 
 export default function PelatihanTeknologiPage() {

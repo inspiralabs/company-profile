@@ -18,7 +18,7 @@ export default function PortfolioPreviewSection() {
           Karya yang Berbicara
         </h2>
         <p className="mt-3 max-w-xl text-[var(--color-text-secondary)]">
-          Dari EWS banjir desa hingga platform manajemen sekolah — ini rekam jejak dampak nyata kami.
+          Dari EWS banjir desa hingga platform manajemen sekolah - ini rekam jejak dampak nyata kami.
         </p>
       </ScrollReveal>
 

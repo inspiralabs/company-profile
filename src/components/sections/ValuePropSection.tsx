@@ -19,7 +19,7 @@ const values: { icon: LucideIcon; title: string; desc: string; featured?: boolea
   {
     icon: Eye,
     title: "Transparansi Progres 100%",
-    desc: "Pantau milestone proyek secara real-time — tidak ada proses yang disembunyikan.",
+    desc: "Pantau milestone proyek secara real-time - tidak ada proses yang disembunyikan.",
     featured: true,
   },
   { icon: GitBranch, title: "Metodologi Adaptif", desc: "Kolaboratif dengan umpan balik berkelanjutan di setiap fase proyek." },

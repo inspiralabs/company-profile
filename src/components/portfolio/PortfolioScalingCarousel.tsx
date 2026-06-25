@@ -59,7 +59,7 @@ export default function PortfolioScalingCarousel({
           >
             <Image
               src={images[activeIndex]}
-              alt={`${alt} — ${activeIndex + 1}`}
+              alt={`${alt} - ${activeIndex + 1}`}
               fill
               className="object-contain"
               sizes="(max-width: 640px) 90vw, 448px"

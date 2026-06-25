@@ -390,14 +390,14 @@ export const solutionCatalog: Record<SolutionId, RecommendedSolution> = {
     id: "chatbot",
     name: "AI Chatbot (WA / Website)",
     description:
-      "Membalas pertanyaan berulang secara otomatis — menghemat waktu tim dan meningkatkan respons.",
+      "Membalas pertanyaan berulang secara otomatis - menghemat waktu tim dan meningkatkan respons.",
     tag: "Powered by AI",
   },
   dashboard: {
     id: "dashboard",
     name: "Dashboard & Sistem Manajemen",
     description:
-      "Sistem terpusat untuk data, laporan, dan aktivitas harian — menggantikan Excel dan WA yang berantakan.",
+      "Sistem terpusat untuk data, laporan, dan aktivitas harian - menggantikan Excel dan WA yang berantakan.",
     tag: "ROI cepat",
   },
   mobile: {
@@ -425,7 +425,7 @@ export const solutionCatalog: Record<SolutionId, RecommendedSolution> = {
     id: "elearning",
     name: "Platform E-Learning & Akademik",
     description:
-      "LMS untuk sekolah, bimbel, dan lembaga pelatihan — materi, tugas, dan penilaian digital.",
+      "LMS untuk sekolah, bimbel, dan lembaga pelatihan - materi, tugas, dan penilaian digital.",
     tag: "Khusus Pendidikan",
   },
   "ai-analytics": {
@@ -471,7 +471,7 @@ export const solutionCatalog: Record<SolutionId, RecommendedSolution> = {
   "workshop-robotik": {
     id: "workshop-robotik",
     name: "Workshop Robotik",
-    description: "Dari dasar hingga lanjutan — cocok untuk sekolah dan komunitas.",
+    description: "Dari dasar hingga lanjutan - cocok untuk sekolah dan komunitas.",
     tag: "Workshop",
   },
   pelatihan: {

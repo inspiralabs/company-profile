@@ -52,7 +52,7 @@ export default function PricingSection() {
           Berinvestasi pada Teknologi dengan Rasa Aman
         </h2>
         <p className="mt-4 max-w-2xl text-[var(--color-text-secondary)]">
-          Fleksibilitas pembiayaan yang transparan, tanpa biaya tersembunyi — karena
+          Fleksibilitas pembiayaan yang transparan, tanpa biaya tersembunyi - karena
           menunda inovasi berarti menunda pertumbuhan Anda.
         </p>
       </ScrollReveal>

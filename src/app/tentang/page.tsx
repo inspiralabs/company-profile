@@ -18,7 +18,7 @@ const COMPANY_PROFILE_URL = cdn("/documents/Company%20Profile%20-%20NID.pdf");
 export const metadata: Metadata = buildPageMetadata({
   title: "Tentang Kami",
   description:
-    "InspiraLabs (PT Nawa Inspira Digital) — software house lokal Bogor yang membangun solusi digital berkualitas global untuk UMKM, sekolah, desa, dan enterprise.",
+    "InspiraLabs (PT Nawa Inspira Digital) - software house lokal Bogor yang membangun solusi digital berkualitas global untuk UMKM, sekolah, desa, dan enterprise.",
   path: "/tentang",
 });
 
@@ -37,28 +37,28 @@ const founders = [
     name: "Unggul Sulaiman",
     role: "CEO & Founder",
     subtitle: "Project Management & Business Strategy",
-    bio: "Memimpin arah bisnis dan strategi — perencanaan proyek, hubungan klien, dan pengembangan perusahaan jangka panjang.",
+    bio: "Memimpin arah bisnis dan strategi - perencanaan proyek, hubungan klien, dan pengembangan perusahaan jangka panjang.",
     image: cdn("/images/founders/unggul.webp"),
   },
   {
     name: "Alif Ayatulloh Ar-Rizqy",
     role: "CTO & Founder",
     subtitle: "Software Engineer & IoT Specialist",
-    bio: "Memimpin keputusan teknis dan arsitektur sistem — web, mobile, dan IoT yang menjadi produk utama InspiraLabs.",
+    bio: "Memimpin keputusan teknis dan arsitektur sistem - web, mobile, dan IoT yang menjadi produk utama InspiraLabs.",
     image: cdn("/images/founders/alif.webp"),
   },
   {
     name: "M. H. Haikal",
     role: "COO",
     subtitle: "Operations & Administration",
-    bio: "Menjaga roda operasional tetap berputar — dari koordinasi tim hingga memastikan setiap proyek selesai tepat waktu.",
+    bio: "Menjaga roda operasional tetap berputar - dari koordinasi tim hingga memastikan setiap proyek selesai tepat waktu.",
     image: cdn("/images/founders/haikal.webp"),
   },
   {
     name: "Fahri Priandana",
     role: "CDO",
     subtitle: "Visual Design & Branding",
-    bio: "Memimpin arah visual — logo, UI, dan konten kreatif yang membuat brand klien tampil percaya diri di era digital.",
+    bio: "Memimpin arah visual - logo, UI, dan konten kreatif yang membuat brand klien tampil percaya diri di era digital.",
     image: cdn("/images/founders/fahri.webp"),
   },
 ];
@@ -190,7 +190,7 @@ export default async function TentangPage() {
               9 Keunggulan InspiraLabs
             </h2>
             <p className="mb-10 text-[var(--color-text-secondary)]">
-              Bukan sekadar klaim — ini standar kerja yang kami jaga di setiap proyek.
+              Bukan sekadar klaim - ini standar kerja yang kami jaga di setiap proyek.
             </p>
 
             <div className="mb-5 rounded-2xl border-t-4 border-t-maroon-vibrant bg-cream p-7">
@@ -226,7 +226,7 @@ export default async function TentangPage() {
               Cara Kami Bekerja
             </h2>
             <p className="mb-10 text-[var(--color-text-secondary)]">
-              Proses yang jelas di setiap tahap — tidak ada kejutan di tengah jalan.
+              Proses yang jelas di setiap tahap - tidak ada kejutan di tengah jalan.
             </p>
 
             {/* Mobile/tablet: vertical timeline */}
@@ -306,7 +306,7 @@ export default async function TentangPage() {
                 </h2>
                 <p className="mb-10 max-w-2xl text-[var(--color-text-secondary)]">
                   Di InspiraLabs, kami percaya lingkungan kerja yang baik adalah bahan bakar kreativitas.
-                  Dari workshop lapangan, sesi diskusi, hingga kolaborasi malam hari —
+                  Dari workshop lapangan, sesi diskusi, hingga kolaborasi malam hari -
                   setiap momen membentuk tim yang kami banggakan.
                 </p>
                 <ActivityTicker images={images} />
@@ -329,7 +329,7 @@ export default async function TentangPage() {
                     Company Profile InspiraLabs
                   </h2>
                   <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
-                    Dapatkan gambaran lengkap layanan, portofolio, dan tim kami dalam satu dokumen —
+                    Dapatkan gambaran lengkap layanan, portofolio, dan tim kami dalam satu dokumen -
                     siap dibagikan ke tim atau pemangku kepentingan Anda.
                   </p>
                 </div>

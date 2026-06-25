@@ -14,7 +14,7 @@ export default function ProductsSection() {
             Inovasi Siap Pakai yang Telah Teruji
           </h2>
           <p className="mt-4 max-w-2xl text-[var(--color-text-secondary)]">
-            Beberapa produk unggulan kami yang siap diimplementasikan — tanpa menunggu
+            Beberapa produk unggulan kami yang siap diimplementasikan - tanpa menunggu
             development dari nol.
           </p>
         </div>

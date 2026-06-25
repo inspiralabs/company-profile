@@ -116,7 +116,7 @@ export default function Lightbox({
               >
                 <Image
                   src={images[idx]}
-                  alt={`${alt} — gambar ${idx + 1}`}
+                  alt={`${alt} - gambar ${idx + 1}`}
                   fill
                   className="object-contain"
                   sizes="(max-width: 896px) 90vw, 896px"

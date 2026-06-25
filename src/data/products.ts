@@ -12,12 +12,13 @@ export type Product = {
   image: string;
   link?: string;
   website?: string;
+  noPricing?: boolean;
 };
 
 export const PRODUCTS: Product[] = [
   {
     id: "sijagaair",
-    name: "SiJagaAir — EWS Banjir Terintegrasi IoT",
+    name: "SiJagaAir: EWS Banjir Terintegrasi IoT",
     desc: "Monitor tinggi muka air real-time, notifikasi otomatis ke WhatsApp saat melewati batas aman.",
     description:
       "SiJagaAir adalah Early Warning System berbasis IoT untuk pemerintah desa dan komunitas rawan banjir. Sensor memantau ketinggian air secara real-time dan mengirim notifikasi otomatis ke WhatsApp Channel saat melewati batas aman, sehingga warga punya waktu lebih untuk bersiap.",
@@ -31,7 +32,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "erp",
-    name: "Amanah — Platform Manajemen Guru Digital",
+    name: "Amanah: Platform Manajemen Guru Digital",
     desc: "Platform manajemen guru dan sekolah terpadu untuk institusi pendidikan modern dan berasrama.",
     description:
       "AMANAH (Aplikasi Manajemen Anak & Sekolah) adalah platform ekosistem digital sekolah terpadu yang hadir sebagai solusi total untuk menjembatani komunikasi, transparansi, dan pemantauan perkembangan anak secara real-time. Dirancang khusus untuk institusi pendidikan modern dan berasrama.",
@@ -43,10 +44,10 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "desa",
-    name: "Teras Desa — Sistem Informasi Desa Terpadu",
-    desc: "Platform tata kelola birokrasi — dari proses administrasi hingga informasi publik.",
+    name: "Teras Desa: Sistem Informasi Desa Terpadu",
+    desc: "Platform tata kelola birokrasi - dari proses administrasi hingga informasi publik.",
     description:
-      "Platform digital untuk mengelola administrasi desa secara terpadu: pelayanan surat, data warga, keuangan APBDes, dan transparansi informasi publik — dirancang mudah dipakai perangkat desa.",
+      "Platform digital untuk mengelola administrasi desa secara terpadu: pelayanan surat, data warga, keuangan APBDes, dan transparansi informasi publik - dirancang mudah dipakai perangkat desa.",
     badge: "Siap Pakai",
     tags: ["Khusus Pemerintahan", "ROI Cepat"],
     featured: false,
@@ -58,7 +59,7 @@ export const PRODUCTS: Product[] = [
     name: "LMS (Learning Management System)",
     desc: "Platform e-learning untuk sekolah, bimbel, dan lembaga pelatihan.",
     description:
-      "Learning Management System untuk mengelola materi, tugas, penilaian, dan portofolio siswa secara digital — cocok untuk sekolah, bimbel, dan lembaga kursus yang ingin naik kelas secara digital.",
+      "Learning Management System untuk mengelola materi, tugas, penilaian, dan portofolio siswa secara digital - cocok untuk sekolah, bimbel, dan lembaga kursus yang ingin naik kelas secara digital.",
     badge: "Siap Pakai",
     tags: ["Khusus Pendidikan"],
     featured: false,
@@ -90,12 +91,13 @@ export const PRODUCTS: Product[] = [
   {
     id: "pelatihan",
     name: "Paket Pelatihan Eksekutif Tech & Design",
-    desc: "Program upgrade skill — coding, Roblox, IoT hands-on.",
+    desc: "Program upgrade skill - coding, Roblox, IoT hands-on.",
     description:
       "Paket pelatihan teknologi dan desain yang dapat disesuaikan: coding, Roblox, IoT hands-on, dan workshop kreatif untuk sekolah, perusahaan, dan komunitas.",
     badge: "Siap Pakai",
     tags: ["Workshop", "Khusus Pendidikan"],
     featured: false,
+    noPricing: true,
     image: cdn("/images/products/workshop-hardware-1.jpg"),
   },
 ];

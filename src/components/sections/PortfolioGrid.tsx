@@ -89,7 +89,7 @@ export default function PortfolioGrid() {
                   <p className="text-xs italic text-[var(--color-text-secondary)] line-clamp-2">
                     "{p.review.text}"
                   </p>
-                  <p className="mt-1 text-xs font-medium text-maroon-deep">— {p.review.author}</p>
+                  <p className="mt-1 text-xs font-medium text-maroon-deep">- {p.review.author}</p>
                 </div>
               )}
               <p className="mt-4 text-sm font-medium text-maroon-vibrant group-hover:underline">

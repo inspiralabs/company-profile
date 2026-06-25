@@ -83,7 +83,7 @@ export default async function ProdukDetailPage({ params }: { params: Promise<{ s
                   href="/kontak"
                   className="rounded-full bg-maroon-deep px-8 py-3 font-semibold text-white hover:scale-105 transition-transform"
                 >
-                  Saya Tertarik — Hubungi Kami
+                  Saya Tertarik - Hubungi Kami
                 </Link>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default async function ProdukDetailPage({ params }: { params: Promise<{ s
           </div>
 
           {/* Pricing model */}
-          <section className="mb-16 grid gap-4 sm:grid-cols-2">
+          {!item.noPricing && <section className="mb-16 grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-[var(--color-border)] bg-surface p-6">
               <h2 className="font-display font-bold text-maroon-deep mb-2">Beli Putus</h2>
               <p className="text-sm text-[var(--color-text-secondary)]">
@@ -108,7 +108,7 @@ export default async function ProdukDetailPage({ params }: { params: Promise<{ s
                 Termasuk update, support, dan hosting. Cocok untuk yang ingin mulai cepat.
               </p>
             </div>
-          </section>
+          </section>}
 
           {/* CTA */}
           <section className="rounded-2xl bg-maroon-deep px-8 py-12 text-center text-white">

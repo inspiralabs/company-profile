@@ -92,14 +92,14 @@ export { PRODUCTS } from "@/data/products";
 export const SURVEY_PROMO = {
   eyebrow: "Belum yakin kebutuhan Anda?",
   headline: "Bingung harus mulai dari software, IoT, desain, atau pelatihan?",
-  body: "Jawab 8 pertanyaan singkat (~1 menit). Kami bantu arahkan pilar layanan yang paling cocok — tanpa komitmen, tanpa biaya.",
+  body: "Jawab 8 pertanyaan singkat (~1 menit). Kami bantu arahkan pilar layanan yang paling cocok - tanpa komitmen, tanpa biaya.",
   cta: "Mulai Survey Kebutuhan",
   trust: "Mudah · Mengatasi Kebutuhan Anda · Hasil bisa dibagikan ke tim Anda",
 };
 
 export const CONTACT_TEASER = {
   headline: "Siap diskusi proyek Anda?",
-  body: "Ceritakan kebutuhan lewat formulir singkat. Tim kami merespons dalam 1×24 jam kerja — atau chat langsung via WhatsApp.",
+  body: "Ceritakan kebutuhan lewat formulir singkat. Tim kami merespons dalam 1×24 jam kerja - atau chat langsung via WhatsApp.",
   ctaForm: "Isi Formulir Kontak",
   ctaWa: "Chat via WhatsApp",
 };

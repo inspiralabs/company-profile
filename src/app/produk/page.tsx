@@ -28,7 +28,7 @@ export default function ProdukPage() {
             Solusi Digital<br />Siap Pakai
           </h1>
           <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
-            Tidak perlu mulai dari nol. Produk-produk kami sudah terbukti dipakai di lapangan —
+            Tidak perlu mulai dari nol. Produk-produk kami sudah terbukti dipakai di lapangan -
             bisa langsung diimplementasikan atau dikustomisasi sesuai kebutuhan spesifik Anda.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">

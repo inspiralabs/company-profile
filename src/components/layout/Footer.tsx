@@ -39,7 +39,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
-              Kolaborasi anak muda yang mendedikasikan teknologi, desain, dan edukasi bagi kemajuan masyarakat — dari komunitas lokal hingga enterprise.
+              Kolaborasi anak muda yang mendedikasikan teknologi, desain, dan edukasi bagi kemajuan masyarakat - dari komunitas lokal hingga enterprise.
             </p>
             <a
               href="https://www.instagram.com/inspiralabs.id/"

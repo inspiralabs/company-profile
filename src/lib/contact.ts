@@ -281,7 +281,7 @@ export function buildContactEmailDraft(payload: ContactPayload): EmailDraft {
   return {
     to: SITE.email,
     from: payload.email?.trim() ?? "",
-    subject: `Kontak InspiraLabs — ${payload.nama.trim()}`,
+    subject: `Kontak InspiraLabs - ${payload.nama.trim()}`,
     body: buildContactWAMessage(payload),
   };
 }
@@ -347,7 +347,7 @@ export function buildSurveyEmailDraft(
   return {
     to: SITE.email,
     from: client.email?.trim() ?? "",
-    subject: `Survey Kebutuhan — ${client.nama.trim()}`,
+    subject: `Survey Kebutuhan - ${client.nama.trim()}`,
     body: buildSurveyWAMessage(client, responses, recommendations),
   };
 }

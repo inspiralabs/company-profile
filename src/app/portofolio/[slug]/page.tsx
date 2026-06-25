@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description:
       item.problem
         ? `Studi kasus: ${item.problem} Solusi: ${item.solution ?? ""}`
-        : `Portofolio InspiraLabs — ${item.name}. ${item.subtitle ?? ""}`,
+        : `Portofolio InspiraLabs - ${item.name}. ${item.subtitle ?? ""}`,
     path: `/portofolio/${slug}`,
   });
 }

@@ -67,11 +67,11 @@ export default function PartnershipSection() {
               Sorotan Kemitraan
             </span>
             <h3 className="font-display text-2xl font-bold text-maroon-deep">
-              Pemerintah Desa Bojongkulur — SiJagaAir
+              Pemerintah Desa Bojongkulur - SiJagaAir
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
               Menjembatani inovasi teknologi ke sektor publik melalui pengembangan
-              Early Warning System (EWS) Banjir — sistem SiJagaAir.
+              Early Warning System (EWS) Banjir - sistem SiJagaAir.
             </p>
             <blockquote className="relative mt-6 border-l-4 border-gold-antique pl-4">
               <Quote className="mb-2 h-5 w-5 text-gold-antique" />

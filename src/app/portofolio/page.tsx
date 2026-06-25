@@ -6,7 +6,7 @@ import PortfolioGrid from "@/components/sections/PortfolioGrid";
 export const metadata: Metadata = buildPageMetadata({
   title: "Portofolio",
   description:
-    "Lihat hasil kerja InspiraLabs — website, aplikasi mobile, sistem IoT, dan produk digital yang telah dibangun untuk klien di seluruh Indonesia. Dari UMKM hingga pemerintahan desa.",
+    "Lihat hasil kerja InspiraLabs - website, aplikasi mobile, sistem IoT, dan produk digital yang telah dibangun untuk klien di seluruh Indonesia. Dari UMKM hingga pemerintahan desa.",
   path: "/portofolio",
 });
 
@@ -24,7 +24,7 @@ export default function PortofolioPage() {
             Karya yang Berbicara<br />untuk Diri Sendiri
           </h1>
           <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
-            Dari EWS banjir desa hingga platform manajemen sekolah — setiap proyek adalah
+            Dari EWS banjir desa hingga platform manajemen sekolah - setiap proyek adalah
             solusi nyata untuk masalah nyata.
           </p>
         </div>
@@ -35,7 +35,7 @@ export default function PortofolioPage() {
         <section className="mt-20 rounded-2xl bg-maroon-deep px-8 py-12 text-center text-white">
           <h2 className="font-display text-3xl font-bold">Ada Proyek Serupa?</h2>
           <p className="mt-3 text-white/80">
-            Ceritakan kebutuhan Anda — kami rekomendasikan solusi terbaik.
+            Ceritakan kebutuhan Anda - kami rekomendasikan solusi terbaik.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link

@@ -56,7 +56,7 @@ const img = (file: string) => cdn(`/images/portfolio/${file}`);
 export const portfolioCases: PortfolioCase[] = [
   {
     id: "sijagaair",
-    name: "SiJagaAir — EWS Banjir Terintegrasi IoT",
+    name: "SiJagaAir: EWS Banjir Terintegrasi IoT",
     subtitle: "Desa Bojongkulur, Bogor",
     icon: Droplets,
     images: [
@@ -88,7 +88,7 @@ export const portfolioCases: PortfolioCase[] = [
   },
   {
     id: "amanah",
-    name: "Amanah — Platform Manajemen Guru Digital",
+    name: "Amanah: Platform Manajemen Guru Digital",
     subtitle: "Sekolah Quran Asy Syahid, Ciangsana, Bogor",
     icon: Droplets,
     images: [
@@ -142,7 +142,7 @@ export const portfolioCases: PortfolioCase[] = [
   },
   {
     id: "kaswarga",
-    name: "Kas Warga — Aplikasi Kas Warga",
+    name: "Kas Warga: Aplikasi Kas Warga",
     subtitle: "Perumahan Pesona Kahuripan 6",
     icon: Home,
     images: [
@@ -156,7 +156,7 @@ export const portfolioCases: PortfolioCase[] = [
     contentType: "case-study",
     tags: ["Software", "Komunitas", "Studi Kasus"],
     problem:
-      "Setiap bulan warga membayar IPL (iuran pengelolaan lingkungan) lalu mengirim bukti transfer ke grup WhatsApp. Humas Gang harus merekap manual siapa yang sudah bayar, melaporkan ke Ketua RT, sekaligus mencatat uang masuk dan keluar kas gang—prosesnya lambat, rawan terlewat, dan tidak transparan bagi warga.",
+      "Setiap bulan warga membayar IPL (iuran pengelolaan lingkungan) lalu mengirim bukti transfer ke grup WhatsApp. Humas Gang harus merekap manual siapa yang sudah bayar, melaporkan ke Ketua RT, sekaligus mencatat uang masuk dan keluar kas gang - prosesnya lambat, rawan terlewat, dan tidak transparan bagi warga.",
     solution:
       "Aplikasi Kas Warga: warga lapor pembayaran IPL dari HP, Humas Gang sebagai admin merekap status bayar dan arus kas dalam satu dashboard, sementara seluruh warga bisa melihat saldo kas gang secara real-time.",
     results: [
@@ -165,7 +165,7 @@ export const portfolioCases: PortfolioCase[] = [
       "Uang masuk, keluar, dan saldo kas gang transparan untuk warga",
     ],
     review: {
-      text: "Dulu saya rekap IPL dari screenshot WA satu per satu. Sekarang cukup buka aplikasi—siapa sudah bayar langsung kelihatan, Ketua RT juga dapat laporannya lebih cepat.",
+      text: "Dulu saya rekap IPL dari screenshot WA satu per satu. Sekarang cukup buka aplikasi - siapa sudah bayar langsung kelihatan, Ketua RT juga dapat laporannya lebih cepat.",
       author: "Humas Gang 6",
       role: "Perumahan PK6",
     },
@@ -180,7 +180,7 @@ export const portfolioCases: PortfolioCase[] = [
     contentType: "case-study",
     tags: ["Software", "Pendidikan", "Studi Kasus"],
     problem:
-      "Penilaian karya seni siswa masih dilakukan secara manual — guru kewalahan rekap.",
+      "Penilaian karya seni siswa masih dilakukan secara manual - guru kewalahan rekap.",
     solution:
       "Platform E-Portfolio Seni untuk mengelola tugas, karya, dan penilaian seni digital.",
     results: [

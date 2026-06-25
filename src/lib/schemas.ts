@@ -91,7 +91,7 @@ export function productSchemas() {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "SiJagaAir — EWS Banjir Terintegrasi IoT",
+      name: "SiJagaAir: EWS Banjir Terintegrasi IoT",
       description:
         "Solusi prediksi dan peringatan dini banjir berbasis sensor dengan notifikasi WhatsApp.",
       brand: { "@type": "Brand", name: SITE.name },
