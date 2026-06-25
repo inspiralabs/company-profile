@@ -24,6 +24,20 @@ const config: Config = {
         display: ["var(--font-display)", "Georgia", "serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
+      fontSize: {
+        "display-xl": [
+          "clamp(1.875rem, 2.5vw + 1rem, 3.5rem)",
+          { lineHeight: "1.1", letterSpacing: "-0.02em" },
+        ],
+        "display-lg": [
+          "clamp(1.5rem, 1.5vw + 0.75rem, 2.25rem)",
+          { lineHeight: "1.15", letterSpacing: "-0.015em" },
+        ],
+        "display-md": [
+          "clamp(1.25rem, 1vw + 0.625rem, 1.75rem)",
+          { lineHeight: "1.2", letterSpacing: "-0.01em" },
+        ],
+      },
       backgroundImage: {
         "gradient-hero": "linear-gradient(135deg, #6e150f 0%, #b92a1c 100%)",
         "gradient-gold": "linear-gradient(90deg, #d0a139 0%, #fad64a 100%)",
