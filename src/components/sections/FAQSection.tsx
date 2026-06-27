@@ -10,7 +10,7 @@ import { FAQ_ITEMS } from "@/data/copy";
 
 export default function FAQSection() {
   return (
-    <SectionWrapper id="faq" variant="cream">
+    <SectionWrapper id="faq" variant="cream" className="!py-10 sm:!py-12 lg:!py-14">
       <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
         <ScrollReveal>
           <div className="lg:sticky lg:top-28">

@@ -15,7 +15,7 @@ import { SITE, WA_SERVICE_PILLARS } from "@/lib/site";
 export const metadata: Metadata = buildPageMetadata({
   title: "Pelatihan Teknologi: Workshop Coding, IoT, AI & Roblox",
   description:
-    "In-house training dan workshop teknologi untuk sekolah, perusahaan, dan komunitas. Coding, IoT, Roblox, dan AI — datang ke lokasi Anda di seluruh Indonesia.",
+    "In-house training dan workshop teknologi untuk sekolah, perusahaan, dan komunitas. Coding, IoT, Roblox, dan AI. Datang ke lokasi Anda di seluruh Indonesia.",
   path: "/layanan/pelatihan-teknologi",
 });
 
@@ -65,7 +65,7 @@ const programs = [
     icon: LineChart,
     label: "Konsultasi Transformasi Digital",
     meta: "Manajemen, Kepala Sekolah, Kepala Desa",
-    desc: "Roadmap digitalisasi yang realistis dan sesuai anggaran — bukan hype, tapi langkah konkret.",
+    desc: "Roadmap digitalisasi yang realistis dan sesuai anggaran: bukan hype, tapi langkah konkret.",
   },
 ];
 

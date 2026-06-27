@@ -98,7 +98,7 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link href="/kontak" className={ctaPrimaryClass}>
-                  Saya tertarik — hubungi kami
+                  Saya tertarik, hubungi kami
                 </Link>
                 {product.website && (
                   <a
@@ -152,7 +152,7 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
               Opsi harga
             </h2>
             <p className="mt-2 max-w-2xl text-sm text-[var(--color-text-secondary)]">
-              Cara kepemilikan lisensi — terpisah dari cara deploy dan kustomisasi di atas.
+              Cara kepemilikan lisensi (terpisah dari cara deploy dan kustomisasi di atas).
             </p>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <article className="rounded-2xl border border-[var(--color-border)] bg-surface p-5 sm:p-6">
@@ -170,7 +170,7 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
                   Investasi awal rendah, bayar bulanan atau tahunan. Termasuk update, support,
-                  dan hosting — cocok untuk mulai cepat.
+                  dan hosting, cocok untuk mulai cepat.
                 </p>
               </article>
             </div>

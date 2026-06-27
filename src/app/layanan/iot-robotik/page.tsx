@@ -32,11 +32,11 @@ const deliverables = [
   },
   {
     label: "Monitoring Lingkungan",
-    desc: "Sensor suhu, kelembaban, kualitas udara, debit air — semua terhubung ke dashboard web.",
+    desc: "Sensor suhu, kelembaban, kualitas udara, debit air; semua terhubung ke dashboard web.",
   },
   {
     label: "Smart Office & Smart Home",
-    desc: "Otomasi lampu, AC, pintu — kontrol jarak jauh via aplikasi atau jadwal otomatis.",
+    desc: "Otomasi lampu, AC, pintu: kontrol jarak jauh via aplikasi atau jadwal otomatis.",
   },
   {
     label: "Monitoring Energi",
@@ -56,7 +56,7 @@ const caseStudyHighlight = (
   <div className="rounded-xl border border-maroon-vibrant/20 bg-cream p-4 text-sm leading-relaxed">
     <strong className="text-maroon-deep">Studi kasus nyata:</strong>{" "}
     <span className="text-[var(--color-text-secondary)]">
-      SiJagaAir — EWS banjir Desa Bojong Kulur, Bogor. Warga terima notifikasi WA otomatis sebelum banjir tiba.
+      SiJagaAir: EWS banjir Desa Bojong Kulur, Bogor. Warga terima notifikasi WA otomatis sebelum banjir tiba.
     </span>{" "}
     <Link
       href="/portofolio/sijagaair"
@@ -76,12 +76,12 @@ export default function IotRobotikPage() {
         icon={Cpu}
         title="IoT & Robotik"
         subtitle="Smart System · Monitoring · Early Warning System"
-        description="Sensor pintar yang terhubung ke dashboard web dan notifikasi WhatsApp. Dari EWS banjir desa hingga monitoring energi pabrik — kami bangun sistem yang benar-benar berfungsi di lapangan, bukan hanya di lab."
+        description="Sensor pintar yang terhubung ke dashboard web dan notifikasi WhatsApp. Dari EWS banjir desa hingga monitoring energi pabrik: kami bangun sistem yang benar-benar berfungsi di lapangan, bukan hanya di lab."
         highlight={caseStudyHighlight}
         primaryCta={{ href: WA_SERVICE_PILLARS.iot, label: "Konsultasi Gratis", external: true }}
         secondaryCta={{ href: "/portofolio/sijagaair", label: "Lihat Studi Kasus" }}
         deliverablesTitle="Yang Kami Bangun"
-        deliverablesIntro="Hardware, firmware, dan dashboard — satu tim, satu tanggung jawab."
+        deliverablesIntro="Hardware, firmware, dan dashboard: satu tim, satu tanggung jawab."
         deliverables={deliverables}
       />
     </>

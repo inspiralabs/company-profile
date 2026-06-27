@@ -12,7 +12,7 @@ const items = portfolioCases.slice(0, PREVIEW_COUNT);
 
 export default function PortfolioPreviewSection() {
   return (
-    <SectionWrapper id="portofolio" variant="default">
+    <SectionWrapper id="portofolio" variant="default" className="!py-10 sm:!py-12 lg:!py-14">
       <ScrollReveal>
         <h2 className="font-display text-display-lg font-bold text-maroon-deep">
           Karya yang Berbicara

@@ -43,11 +43,11 @@ export default function PartnershipSection() {
               &ldquo;
             </span>
             <h3 className="font-display text-display-md font-bold text-maroon-deep">
-              Pemerintah Desa Bojongkulur — SiJagaAir
+              Pemerintah Desa Bojongkulur: SiJagaAir
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
               Menjembatani inovasi teknologi ke sektor publik melalui pengembangan
-              Early Warning System (EWS) banjir — sistem SiJagaAir yang memantau
+              Early Warning System (EWS) banjir, sistem SiJagaAir yang memantau
               ketinggian muka air dan mengirim peringatan dini ke warga.
             </p>
             <blockquote className="relative mt-6 border-l border-gold-antique/60 pl-4">

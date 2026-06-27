@@ -64,7 +64,7 @@ export default function TestimonialsSection() {
   const t = testimonials[idx];
 
   return (
-    <SectionWrapper id="testimoni" variant="default">
+    <SectionWrapper id="testimoni" variant="default" className="!py-10 sm:!py-12 lg:!py-14">
       <ScrollReveal>
         <h2 className="font-display text-display-lg font-bold text-maroon-deep">
           Bukan Janji. Ini Buktinya.

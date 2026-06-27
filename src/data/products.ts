@@ -25,7 +25,7 @@ export type Product = {
 
 export const DEFAULT_PRODUCT_MODEL_SECTION: ProductModelSection = {
   title: "Model implementasi",
-  items: ["Siap pakai — deploy cepat", "Kustomisasi sesuai kebutuhan"],
+  items: ["Siap pakai, deploy cepat", "Kustomisasi sesuai kebutuhan"],
 };
 
 export function getProductModelSection(product: Product): ProductModelSection {

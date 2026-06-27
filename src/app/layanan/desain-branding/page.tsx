@@ -55,11 +55,11 @@ export default function DesainBrandingPage() {
         icon={Palette}
         title="Desain & Branding"
         subtitle="UI/UX · Logo · Identitas Visual"
-        description="Identitas visual yang kuat adalah investasi bisnis paling efisien. Kami desain dari logo hingga keseluruhan bahasa visual brand Anda — supaya audiens ingat Anda bahkan setelah scrolling."
+        description="Identitas visual yang kuat adalah investasi bisnis paling efisien. Kami desain dari logo hingga keseluruhan bahasa visual brand Anda, supaya audiens ingat Anda bahkan setelah scrolling."
         primaryCta={{ href: WA_SERVICE_PILLARS.design, label: "Konsultasi Gratis", external: true }}
         secondaryCta={{ href: "/portofolio", label: "Lihat Portofolio" }}
         deliverablesTitle="Yang Kami Desain"
-        deliverablesIntro="Visual yang konsisten di semua titik kontak — dari aplikasi hingga feed Instagram."
+        deliverablesIntro="Visual yang konsisten di semua titik kontak: dari aplikasi hingga feed Instagram."
         deliverables={deliverables}
       />
     </>

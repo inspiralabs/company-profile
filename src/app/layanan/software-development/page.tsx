@@ -31,7 +31,7 @@ const deliverables = [
   },
   {
     label: "Website Company Profile & Landing Page",
-    desc: "Desain elegan, mobile-responsive, SEO-ready — mulai dari UMKM hingga korporat.",
+    desc: "Desain elegan, mobile-responsive, SEO-ready, mulai dari UMKM hingga korporat.",
   },
   {
     label: "Sistem Kasir & POS",
@@ -43,7 +43,7 @@ const deliverables = [
   },
   {
     label: "Sistem Informasi Custom",
-    desc: "ERP sederhana, sistem absensi, manajemen inventaris — disesuaikan proses bisnis Anda.",
+    desc: "ERP sederhana, sistem absensi, manajemen inventaris: disesuaikan proses bisnis Anda.",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function SoftwareDevelopmentPage() {
         icon={Code2}
         title="Software Development"
         subtitle="Website · Web App · Mobile App"
-        description="Dari landing page UMKM hingga sistem enterprise — kami kerjakan dari desain UI/UX, development, testing, hingga deployment. Harga transparan, update rutin tiap pekan."
+        description="Dari landing page UMKM hingga sistem enterprise: kami kerjakan dari desain UI/UX, development, testing, hingga deployment. Harga transparan, update rutin tiap pekan."
         primaryCta={{ href: WA_SERVICE_PILLARS.software, label: "Konsultasi Gratis", external: true }}
         secondaryCta={{ href: "/portofolio", label: "Lihat Portofolio" }}
         deliverablesTitle="Yang Kami Kerjakan"

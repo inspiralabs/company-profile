@@ -36,7 +36,7 @@ function CopyFieldRow({
   onCopy: (field: CopyField, text: string) => void;
   multiline?: boolean;
 }) {
-  const displayValue = value || "— belum diisi —";
+  const displayValue = value || "(belum diisi)";
 
   return (
     <div className="space-y-1.5">

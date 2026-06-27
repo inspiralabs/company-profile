@@ -143,9 +143,9 @@ export default function ClientInfoFields({
                         v === DETAIL_LAINNYA ? value.detailTipeLainnya : "",
                     })
                   }
-                  placeholder="— Pilih Opsi —"
+                  placeholder="Pilih Opsi"
                   options={[
-                    { value: "", label: "— Pilih Opsi —" },
+                    { value: "", label: "Pilih Opsi" },
                     ...detailOptions.map((o) => ({
                       value: o.value,
                       label: o.label,
@@ -185,7 +185,7 @@ export default function ClientInfoFields({
 
       <FormSection
         title="Organisasi"
-        hint="Opsional — boleh dikosongkan"
+        hint="Opsional, boleh dikosongkan"
       >
         <div>
           <label htmlFor={`${prefix}instansi`} className="text-sm font-medium">
@@ -194,7 +194,7 @@ export default function ClientInfoFields({
           <input
             id={`${prefix}instansi`}
             className={contactInputClass}
-            placeholder="— jika ada —"
+            placeholder="(jika ada)"
             value={value.namaInstansi ?? ""}
             onChange={(e) => set("namaInstansi", e.target.value)}
           />

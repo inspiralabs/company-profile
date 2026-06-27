@@ -49,8 +49,8 @@ export default function HeroSection() {
             transition={{ delay: reduceMotion ? 0 : 0.2 }}
             className="mt-5 max-w-xl text-base leading-relaxed text-[var(--color-text-secondary)] sm:mt-6 sm:text-lg"
           >
-            Kami merancang, membangun, dan mendampingi solusi digital — dari aplikasi dan IoT
-            hingga branding dan pelatihan — agar investasi teknologi Anda memberi dampak nyata.
+            Kami merancang, membangun, dan mendampingi solusi digital dari aplikasi dan IoT
+            hingga branding dan pelatihan agar investasi teknologi Anda memberi dampak nyata.
             Dipercaya UMKM, institusi pendidikan, pemerintah desa, hingga perusahaan.
           </motion.p>
 

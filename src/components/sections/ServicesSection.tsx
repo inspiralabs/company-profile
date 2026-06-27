@@ -28,8 +28,8 @@ export default function ServicesSection() {
           Ekosistem Solusi Digital yang Memahami Kebutuhan Anda
         </h2>
         <p className="mt-4 max-w-2xl text-[var(--color-text-secondary)]">
-          Apapun tantangan teknis Anda — otomasi operasional, daya tarik visual,
-          hingga peningkatan keahlian tim — kami merancang solusi yang presisi.
+          Apapun tantangan teknis Anda (otomasi operasional, daya tarik visual,
+          hingga peningkatan keahlian tim), kami merancang solusi yang presisi.
         </p>
       </ScrollReveal>
 

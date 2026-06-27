@@ -25,53 +25,48 @@ export default function ProdukPage() {
   const rest = PRODUCTS.filter((p) => !p.featured);
 
   return (
-    <div className="px-4 pb-24 pt-28 sm:px-6 lg:px-8">
+    <div className="px-4 pb-16 pt-28 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-content">
-        <header className="mb-10 lg:mb-14">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
-            <div className="lg:col-span-7">
-              <h1 className="font-display text-display-xl font-bold text-maroon-deep">
-                Solusi digital siap pakai
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--color-text-secondary)] sm:text-lg">
-                Produk kami sudah terbukti dipakai di lapangan — bisa langsung diimplementasikan
-                atau dikustomisasi sesuai kebutuhan spesifik Anda.
-              </p>
-            </div>
-
-            <div className="lg:col-span-5">
-              <p className="mb-4 font-display text-sm font-semibold text-maroon-deep">
-                Cara kerja sama
-              </p>
-              <div className="grid grid-cols-2 gap-3">
-                {models.map(({ icon: Icon, label, desc }) => (
-                  <div
-                    key={label}
-                    className="rounded-xl border border-[var(--color-border)] bg-surface p-4 transition-shadow hover:shadow-card"
-                  >
-                    <div className="mb-3 flex size-9 items-center justify-center rounded-lg bg-maroon-deep text-white">
-                      <Icon className="size-4" strokeWidth={1.75} aria-hidden />
-                    </div>
-                    <p className="text-sm font-semibold text-maroon-deep">{label}</p>
-                    <p className="mt-0.5 text-xs text-[var(--color-text-secondary)]">{desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        {/* Hero */}
+        <header className="mb-8">
+          <h1 className="font-display text-display-xl font-bold text-maroon-deep">
+            Solusi digital siap pakai
+          </h1>
+          <p className="mt-4 max-w-6xl text-base leading-relaxed text-[var(--color-text-secondary)] sm:text-lg">
+            Produk kami sudah terbukti dipakai di lapangan jadi bisa langsung diimplementasikan
+            atau dikustomisasi sesuai kebutuhan spesifik Anda.
+          </p>
         </header>
 
+        {/* Cara kerja sama — full width, key section */}
+        <section className="mb-8 rounded-2xl bg-cream px-6 py-7 sm:px-8">
+          <h2 className="mb-5 text-sm font-semibold uppercase tracking-widest text-maroon-vibrant">
+            Cara kerja sama
+          </h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {models.map(({ icon: Icon, label, desc }) => (
+              <div key={label} className="rounded-xl bg-surface p-5 shadow-card">
+                <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-maroon-deep/[0.07]">
+                  <Icon className="size-5 text-maroon-vibrant" strokeWidth={1.75} aria-hidden />
+                </div>
+                <p className="font-bold text-maroon-deep">{label}</p>
+                <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {featured.length > 0 && (
-          <section className="mb-10 border-t border-[var(--color-border)] pt-8 lg:mb-14 lg:pt-10">
-            <div className="mb-6 max-w-2xl">
+          <section className="mb-8 border-t border-[var(--color-border)] pt-7">
+            <div className="mb-5 max-w-2xl">
               <h2 className="font-display text-display-md font-bold text-maroon-deep">
                 Produk unggulan
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
-                Solusi yang paling sering diimplementasikan — dari pemerintahan desa hingga institusi pendidikan.
+                Solusi yang paling sering diimplementasikan dari pemerintahan desa hingga institusi pendidikan.
               </p>
             </div>
-            <div className="space-y-5">
+            <div className="space-y-4">
               {featured.map((product) => (
                 <ProductFeaturedCard key={product.id} product={product} />
               ))}
@@ -80,26 +75,24 @@ export default function ProdukPage() {
         )}
 
         {rest.length > 0 && (
-          <section className="border-t border-[var(--color-border)] pt-8 lg:pt-10">
-            <div className="grid gap-8 lg:grid-cols-12 lg:gap-14">
-              <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
-                <h2 className="font-display text-display-md font-bold text-maroon-deep">
-                  Katalog lengkap
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
-                  {rest.length} produk lain untuk UMKM, pendidikan, dan komunitas.
-                </p>
-              </div>
-              <div className="space-y-3 lg:col-span-8">
-                {rest.map((product) => (
-                  <ProductListItem key={product.id} product={product} />
-                ))}
-              </div>
+          <section className="border-t border-[var(--color-border)] pt-7">
+            <div className="mb-5">
+              <h2 className="font-display text-display-md font-bold text-maroon-deep">
+                Katalog lengkap
+              </h2>
+              <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
+                {rest.length} produk untuk UMKM, pendidikan, dan komunitas.
+              </p>
+            </div>
+            <div className="grid gap-4 lg:grid-cols-2">
+              {rest.map((product) => (
+                <ProductListItem key={product.id} product={product} />
+              ))}
             </div>
           </section>
         )}
 
-        <section className="mt-10 rounded-2xl bg-cream px-6 py-10 text-center sm:px-8 sm:py-12 lg:mt-14">
+        <section className="mt-8 rounded-2xl bg-cream px-6 py-10 text-center sm:px-8 sm:py-12">
           <h2 className="font-display text-display-md font-bold text-maroon-deep">
             Tidak ada yang cocok? Kami bangun yang baru.
           </h2>
