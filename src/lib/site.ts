@@ -30,7 +30,7 @@ export const SITE = {
   region: "ID",
   // Deskripsi - dipakai di semua metadata
   description:
-    "InspiraLabs (Nawa Inspira Digital) adalah software house profesional yang menyediakan solusi website, aplikasi mobile, IoT, dan sistem informasi untuk bisnis dari skala kecil hingga enterprise.",
+    "InspiraLabs (Nawa Inspira Digital) adalah software house di Bogor yang menyediakan jasa pembuatan website, aplikasi mobile, IoT, dan sistem informasi untuk bisnis dari skala kecil hingga enterprise.",
 
   // Deskripsi pendek untuk og:description
   shortDescription:
@@ -40,6 +40,16 @@ export const SITE = {
   keywords: [
     "InspiraLabs",
     "inspira labs",
+    "inspira lab",
+    "nawa inspira digital",
+    "nawa inspira",
+    "mitra digital bogor",
+    "mitra solusi digital",
+    "mitra solusi digital anda",
+    "software house bogor",
+    "software house di bogor",
+    "jasa pembuatan website bogor",
+    "jasa pembuatan aplikasi bogor",
     "jasa pembuatan website",
     "jasa pembuatan aplikasi",
     "pengembangan software Indonesia",

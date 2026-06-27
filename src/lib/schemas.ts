@@ -5,8 +5,10 @@ import { SITE } from "@/lib/site";
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "LocalBusiness"],
+    "@id": `${SITE.url}/#organization`,
     name: SITE.name,
+    alternateName: ["Inspira Labs", "Inspira Lab", "Nawa Inspira Digital"],
     legalName: SITE.legalName,
     url: SITE.url,
     logo: `${SITE.url}/logo.svg`,
@@ -14,12 +16,24 @@ export function organizationSchema() {
     telephone: `+${SITE.whatsapp}`,
     address: {
       "@type": "PostalAddress",
-      addressCountry: "ID",
+      addressLocality: "Bogor",
       addressRegion: "Jawa Barat",
+      addressCountry: "ID",
+      postalCode: SITE.location.postalCode,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: SITE.location.lat,
+      longitude: SITE.location.lng,
+    },
+    areaServed: [
+      { "@type": "City", name: "Bogor" },
+      { "@type": "State", name: "Jawa Barat" },
+      { "@type": "Country", name: "Indonesia" },
+    ],
     sameAs: SITE.socialUrls,
     description:
-      "Mitra digitalisasi untuk UMKM, sekolah, pemerintah desa dan perusahaan. Software, IoT, desain visual dan workshop teknologi.",
+      "Software house di Bogor - mitra digitalisasi untuk UMKM, sekolah, pemerintah desa dan perusahaan. Jasa pembuatan website, aplikasi, IoT, desain visual dan workshop teknologi.",
   };
 }
 

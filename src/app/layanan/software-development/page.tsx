@@ -7,7 +7,7 @@ import { SITE, WA_SERVICE_PILLARS } from "@/lib/site";
 export const metadata: Metadata = buildPageMetadata({
   title: "Software Development: Website & Aplikasi Mobile",
   description:
-    "Jasa pembuatan website profesional, web application, dan aplikasi mobile Android/iOS. InspiraLabs mengerjakan dari desain, development, hingga deployment. Mulai di bawah Rp 10 juta.",
+    "Jasa pembuatan website dan aplikasi mobile di Bogor. InspiraLabs mengerjakan website profesional, web application, dan aplikasi Android/iOS dari desain, development, hingga deployment. Mulai di bawah Rp 10 juta.",
   path: "/layanan/software-development",
 });
 
