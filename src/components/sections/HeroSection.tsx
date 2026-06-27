@@ -51,8 +51,7 @@ export default function HeroSection() {
           >
             Kami merancang, membangun, dan mendampingi solusi digital — dari aplikasi dan IoT
             hingga branding dan pelatihan — agar investasi teknologi Anda memberi dampak nyata.
-            Dipercaya UMKM, institusi pendidikan, pemerintah desa, hingga perusahaan di Bogor
-            dan sekitarnya.
+            Dipercaya UMKM, institusi pendidikan, pemerintah desa, hingga perusahaan.
           </motion.p>
 
           <motion.div
