@@ -107,78 +107,112 @@ export default async function TentangPage() {
 
       <div className="px-4 pb-16 pt-28 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-content">
-          {/* Hero + Visi — memakai lebar penuh, visi di kanan */}
-          <header className="grid gap-6 lg:grid-cols-2 lg:items-start lg:gap-10">
-            <div>
-              <h1 className="mt-2 font-display text-display-xl font-bold text-maroon-deep text-balance">
-                Mewujudkan Visi Anda Melalui Kolaborasi Pemuda yang Inovatif
-              </h1>
-              <p className="mt-4 text-base leading-relaxed text-[var(--color-text-secondary)] sm:text-lg">
-                InspiraLabs adalah kolaborasi anak muda yang mendedikasikan teknologi, desain grafis, dan edukasi bagi kemajuan masyarakat, dari skala komunitas hingga enterprise.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[var(--color-border)] bg-cream/60 p-5 sm:p-6">
-              <h2 className="font-display text-base font-bold text-maroon-deep">Visi</h2>
-              <blockquote className="mt-2 text-sm italic leading-relaxed text-[var(--color-text-secondary)]">
-                &ldquo;{VISION}&rdquo;
-              </blockquote>
-            </div>
+          {/* Hero — headline selebar halaman */}
+          <header>
+            <h1 className="font-display text-display-xl font-bold text-maroon-deep text-balance">
+              Mewujudkan Visi Anda Melalui Kolaborasi Pemuda yang Inovatif
+            </h1>
           </header>
 
-          {/* Kisah + Misi — dua kolom seimbang */}
+          {/* Tagline — lebar penuh di bawah headline */}
+          <div className="mt-6">
+            <p className="text-base leading-relaxed text-[var(--color-text-secondary)] sm:text-lg">
+              InspiraLabs adalah kolaborasi anak muda yang mendedikasikan teknologi, desain grafis, dan edukasi bagi kemajuan masyarakat, dari skala komunitas hingga enterprise.
+            </p>
+          </div>
+
+          {/* Kisah Kami — dua kolom, full width */}
           <section className={sectionClass}>
-            <h2 className="font-display text-display-md font-bold text-maroon-deep">
-              Kisah Kami
-            </h2>
-            <div className="mt-5 grid gap-8 lg:grid-cols-2 lg:gap-10">
-              <div className="space-y-4 text-sm leading-relaxed text-[var(--color-text-secondary)] sm:text-base">
-                <p>
-                  Berawal dari persahabatan di bangku SMK tahun 2014, kami tumbuh bersama
-                  dan menyatukan keahlian: bisnis, teknologi, operasional, dan desain.
-                  Nawa Inspira Digital resmi berdiri{" "}
-                  <strong className="text-maroon-deep">9 Mei 2026</strong> sebagai komitmen
-                  lebih besar: membawa transformasi digital ke semua kalangan, tanpa memandang skala.
-                </p>
-                <p>
-                  Kami menyadari bahwa digitalisasi sering dianggap kemewahan eksklusif untuk korporat besar. 
-                  InspiraLabs lahir untuk mematahkan stigma tersebut, dimulai dari masalah dasar masyarakat: digitalisasi administrasi desa dan sistem peringatan dini bencana. Kami percaya solusi paling berdampak adalah yang paling mudah diakses bagi kemaslahatan publik.
-                </p>
-                <p>
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+              <div>
+                <h2 className="font-display text-display-md font-bold text-maroon-deep">
+                  Kisah Kami
+                </h2>
+                <div className="mt-5 space-y-4 text-base leading-relaxed text-[var(--color-text-secondary)]">
+                  <p>
+                    Berawal dari persahabatan di bangku SMK tahun 2014, kami tumbuh bersama
+                    dan menyatukan keahlian: bisnis, teknologi, operasional, dan desain.
+                    Nawa Inspira Digital resmi berdiri{" "}
+                    <strong className="text-maroon-deep">9 Mei 2026</strong> sebagai komitmen
+                    lebih besar: membawa transformasi digital ke semua kalangan, tanpa memandang skala.
+                  </p>
+                  <p>
+                    Kami menyadari bahwa digitalisasi sering dianggap kemewahan eksklusif untuk korporat besar.
+                    InspiraLabs lahir untuk mematahkan stigma tersebut, dimulai dari masalah dasar masyarakat: digitalisasi administrasi desa dan sistem peringatan dini bencana.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col justify-center gap-5">
+                <p className="text-base leading-relaxed text-[var(--color-text-secondary)]">
                   DNA InspiraLabs sangat kental dengan dunia pendidikan. Tim kami tidak hanya bekerja di balik layar kode dan desain, melainkan juga berperan aktif sebagai fasilitator, akademisi, dan pengajar publik.
                 </p>
-              </div>
-
-              <div>
-                <h3 className="font-display text-base font-bold text-maroon-deep">Misi</h3>
-                <ol className="mt-3 grid gap-2 sm:grid-cols-2">
-                  {MISSIONS.map((m, i) => (
-                    <li key={i} className="flex gap-2.5 text-sm text-[var(--color-text-secondary)]">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-maroon-deep text-[10px] font-bold text-white">
-                        {i + 1}
-                      </span>
-                      <span className="leading-snug">{m}</span>
-                    </li>
-                  ))}
-                </ol>
+                <blockquote className="rounded-xl bg-maroon-deep/[0.05] px-5 py-4 text-base font-semibold italic text-maroon-deep">
+                  &ldquo;Kami percaya solusi paling berdampak adalah yang paling mudah diakses bagi kemaslahatan publik.&rdquo;
+                </blockquote>
               </div>
             </div>
           </section>
 
-          {/* Siapa di Balik InspiraLabs? — layout horizontal tetap */}
+          {/* Visi & Misi — full bleed section dengan background image */}
+          <section className={`${sectionClass} relative overflow-hidden rounded-2xl`}>
+            <Image
+              src={cdn("/images/about/tentang-visi-misi.jpg")}
+              alt="Visi dan Misi InspiraLabs"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1152px) 100vw, 1152px"
+            />
+            <div className="absolute inset-0 bg-black/80" />
+            <div className="absolute inset-0 bg-maroon-deep/60" />
+
+            <div className="relative px-6 py-14 sm:px-10 sm:py-16 lg:py-20">
+              {/* Visi — centered */}
+              <div className="mb-14 text-center">
+                <span className="mb-3 block text-lg font-bold uppercase tracking-widest text-gold-antique">
+                  Visi
+                </span>
+                <blockquote className="mx-auto max-w-3xl font-display text-display-md font-bold leading-snug text-white sm:text-display-lg">
+                  &ldquo;{VISION}&rdquo;
+                </blockquote>
+              </div>
+
+              {/* Misi — kotak per misi */}
+              <div>
+                <span className="mb-6 block text-center text-lg font-bold uppercase tracking-widest text-gold-antique">
+                  Misi
+                </span>
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {MISSIONS.map((m, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl border border-white/20 bg-white/[0.07] p-5"
+                    >
+                      <span className="mb-2 block text-[11px] font-bold text-gold-antique">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-sm leading-relaxed text-white">{m}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Siapa di Balik InspiraLabs? */}
           <section className={sectionClass}>
             <h2 className="font-display text-display-md font-bold text-maroon-deep mb-2">
               Siapa di Balik InspiraLabs?
             </h2>
-            <p className="mb-6 max-w-3xl text-[var(--color-text-secondary)]">
+            <p className="mb-7 leading-relaxed  text-[var(--color-text-secondary)]">
               Berawal sebagai kelompok kecil yang bersemangat, dan kini berkembang pesat sebagai wirausahawan visioner yang berkomitmen untuk memberikan dampak positif bagi dunia usaha melalui penyediaan solusi digital yang inovatif dan berkelanjutan.
             </p>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {founders.map((f) => (
                 <div
                   key={f.name}
-                  className="group overflow-hidden rounded-2xl border border-[var(--color-border)] bg-surface transition-all hover:-translate-y-1 hover:shadow-card-hover"
+                  className="group overflow-hidden rounded-2xl bg-surface shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover"
                 >
+                  {/* Foto dengan nama overlay */}
                   <div className="relative h-64 w-full overflow-hidden bg-cream">
                     <Image
                       src={f.image}
@@ -186,20 +220,21 @@ export default async function TentangPage() {
                       fill
                       className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-maroon-deep/80 via-maroon-deep/20 to-transparent" />
-                    <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-maroon-deep backdrop-blur-sm">
-                      {f.role}
-                    </span>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="font-display text-base font-bold leading-tight text-white">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="font-display text-md font-bold leading-tight text-white">
                         {f.name}
                       </h3>
                     </div>
                   </div>
 
-                  <div className="p-5">
-                    <p className="text-xs font-semibold text-maroon-vibrant">{f.subtitle}</p>
-                    <p className="mt-3 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                  {/* Info */}
+                  <div className="p-4">
+                    <span className="inline-block rounded-full bg-maroon-deep px-3 py-0.5 text-[11px] font-semibold text-white">
+                      {f.role}
+                    </span>
+                    <p className="mt-2 text-[14px] font-medium text-maroon-vibrant">{f.subtitle}</p>
+                    <p className="mt-2.5 text-xs leading-relaxed text-[var(--color-text-secondary)]">
                       {f.bio}
                     </p>
                   </div>
@@ -294,39 +329,14 @@ export default async function TentangPage() {
             <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {STRENGTHS.map((s, i) => {
                 const Icon = STRENGTH_ICONS[i] ?? CheckCircle2;
-                const featured = i === 0;
                 return (
-                  <article
-                    key={s.title}
-                    className={
-                      featured
-                        ? "flex gap-3 rounded-xl bg-maroon-deep p-4 text-white sm:col-span-2 lg:col-span-1"
-                        : "flex gap-3 rounded-xl border border-[var(--color-border)] bg-surface p-4"
-                    }
-                  >
-                    <div
-                      className={
-                        featured
-                          ? "flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/10"
-                          : "flex size-9 shrink-0 items-center justify-center rounded-lg bg-maroon-deep/[0.06]"
-                      }
-                    >
-                      <Icon
-                        className={`size-4 ${featured ? "text-gold-bright" : "text-maroon-vibrant"}`}
-                        strokeWidth={1.75}
-                      />
+                  <article key={s.title} className="flex gap-3 rounded-xl border border-[var(--color-border)] bg-surface p-4">
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-maroon-deep/[0.06]">
+                      <Icon className="size-4 text-maroon-vibrant" strokeWidth={1.75} />
                     </div>
                     <div className="min-w-0">
-                      <h3
-                        className={`font-display text-sm font-semibold ${featured ? "text-white" : "text-maroon-deep"}`}
-                      >
-                        {s.title}
-                      </h3>
-                      <p
-                        className={`mt-1 text-xs leading-relaxed ${featured ? "text-white/80" : "text-[var(--color-text-secondary)]"}`}
-                      >
-                        {s.desc}
-                      </p>
+                      <h3 className="font-display text-sm font-semibold text-maroon-deep">{s.title}</h3>
+                      <p className="mt-1 text-xs leading-relaxed text-[var(--color-text-secondary)]">{s.desc}</p>
                     </div>
                   </article>
                 );

@@ -185,7 +185,7 @@ export default function Navbar() {
             className="h-10 w-10"
             priority
           />
-          <span className="font-display text-lg font-semibold text-maroon-deep">
+          <span className="font-body text-xl font-black text-maroon-deep">
             {SITE.name}
           </span>
         </Link>

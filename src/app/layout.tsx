@@ -5,7 +5,7 @@ import FloatingMenu from "@/components/ui/FloatingMenu";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import StructuredData from "@/components/shared/StructuredData";
-import { sourceSerif4, rethinkSans } from "@/lib/fonts";
+import { dmSans } from "@/lib/fonts";
 import { rootMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${sourceSerif4.variable} ${rethinkSans.variable}`}>
+    <html lang="id" className={dmSans.variable}>
       <head>
         <script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
