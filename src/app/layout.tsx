@@ -1,4 +1,5 @@
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import MetaPixel from "@/components/analytics/MetaPixel";
 import FloatingSurveyPrompt from "@/components/layout/FloatingSurveyPrompt";
 import FloatingMenu from "@/components/ui/FloatingMenu";
@@ -32,6 +33,7 @@ export default function RootLayout({
         >
           Lewati ke konten utama
         </a>
+        <GoogleTagManager />
         <StructuredData />
         <GoogleAnalytics />
         <MetaPixel />
