@@ -181,15 +181,12 @@ export default async function TentangPage() {
                 <span className="mb-6 block text-center text-lg font-bold uppercase tracking-widest text-gold-antique">
                   Misi
                 </span>
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
                   {MISSIONS.map((m, i) => (
                     <div
                       key={i}
-                      className="rounded-xl border border-white/20 bg-white/[0.07] p-5"
+                      className="rounded-xl border border-white/20 bg-white/[0.07] p-4"
                     >
-                      <span className="mb-2 block text-[11px] font-bold text-gold-antique">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
                       <p className="text-sm leading-relaxed text-white">{m}</p>
                     </div>
                   ))}
@@ -206,14 +203,14 @@ export default async function TentangPage() {
             <p className="mb-7 leading-relaxed  text-[var(--color-text-secondary)]">
               Berawal sebagai kelompok kecil yang bersemangat, dan kini berkembang pesat sebagai wirausahawan visioner yang berkomitmen untuk memberikan dampak positif bagi dunia usaha melalui penyediaan solusi digital yang inovatif dan berkelanjutan.
             </p>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
               {founders.map((f) => (
                 <div
                   key={f.name}
                   className="group overflow-hidden rounded-2xl bg-surface shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover"
                 >
                   {/* Foto dengan nama overlay */}
-                  <div className="relative h-64 w-full overflow-hidden bg-cream">
+                  <div className="relative h-40 w-full overflow-hidden bg-cream sm:h-52 lg:h-64">
                     <Image
                       src={f.image}
                       alt={f.name}

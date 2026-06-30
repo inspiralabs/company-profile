@@ -43,9 +43,9 @@ export default function ProdukPage() {
           <h2 className="mb-5 text-sm font-semibold uppercase tracking-widest text-maroon-vibrant">
             Cara kerja sama
           </h2>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
             {models.map(({ icon: Icon, label, desc }) => (
-              <div key={label} className="rounded-xl bg-surface p-5 shadow-card">
+              <div key={label} className="rounded-xl bg-surface p-3 shadow-card sm:p-5">
                 <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-maroon-deep/[0.07]">
                   <Icon className="size-5 text-maroon-vibrant" strokeWidth={1.75} aria-hidden />
                 </div>
@@ -66,7 +66,18 @@ export default function ProdukPage() {
                 Solusi yang paling sering diimplementasikan dari pemerintahan desa hingga institusi pendidikan.
               </p>
             </div>
-            <div className="space-y-4">
+            {/* Mobile/tablet: horizontal scroll */}
+            <div className="lg:hidden -mx-4 overflow-x-auto sm:-mx-6">
+              <div className="flex w-max gap-4 px-4 pb-3 sm:px-6">
+                {featured.map((product) => (
+                  <div key={product.id} className="w-[85vw] shrink-0 sm:w-[70vw]">
+                    <ProductFeaturedCard product={product} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Desktop: stacked */}
+            <div className="hidden lg:block space-y-4">
               {featured.map((product) => (
                 <ProductFeaturedCard key={product.id} product={product} />
               ))}

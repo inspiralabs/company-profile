@@ -43,12 +43,12 @@ export const PRODUCTS: Product[] = [
     extraBadge: "Studi Kasus Tersedia",
     tags: ["Hardware & IoT", "Khusus Pemerintahan"],
     featured: true,
-    image: cdn("/images/products/sijagaair.jpeg"),
+    image: cdn("/images/products/sijagaair.webp"),
     link: "#portofolio",
     website: "https://sijagaair.inspiralabs.id/public",
   },
   {
-    id: "erp",
+    id: "erp-sekolah",
     name: "Amanah: Platform Manajemen Guru Digital",
     desc: "Platform manajemen guru dan sekolah terpadu untuk institusi pendidikan modern dan berasrama.",
     description:
@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Khusus Pendidikan"],
     featured: true,
-    image: cdn("/images/products/amanah.jpeg"),
+    image: cdn("/images/products/amanah.webp"),
     website: "https://amanah.inspiralabs.id",
   },
   {
@@ -68,7 +68,7 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Khusus Pemerintahan", "ROI Cepat"],
     featured: false,
-    image: cdn("/images/products/Sistem_Informasi_Desa_Terpadu.jpeg"),
+    image: cdn("/images/products/teras-desa.webp"),
     website: "https://terasdesa.inspiralabs.id",
   },
   {
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Khusus UMKM", "ROI Cepat"],
     featured: false,
-    image: cdn("/images/products/smart_POS.jpeg"),
+    image: cdn("/images/products/inspira-pos.webp"),
     website: "https://inspirapos.biz.id",
   },
   {
@@ -92,19 +92,19 @@ export const PRODUCTS: Product[] = [
     badge: "Siap Pakai",
     tags: ["Khusus Pendidikan"],
     featured: false,
-    image: cdn("/images/products/LMS.jpeg"),
+    image: cdn("/images/products/lms.webp"),
     website: "https://allboom.inspiralabs.id",
   },
   {
-    id: "masjid",
-    name: "Sistem Manajemen Ekosistem Masjid",
+    id: "erp-masjid",
+    name: "IMAM: Informasi & Manajemen Aktivitas Masjid",
     desc: "Digitalisasi jamaah, keuangan, dan transparansi program ziswaf.",
     description:
-      "Solusi manajemen masjid terintegrasi: pencatatan jamaah, keuangan, program ziswaf, dan laporan transparansi untuk pengurus dan jamaah.",
+      "IMAM dirancang untuk menjawab kebutuhan nyata DKM (Dewan Kemakmuran Masjid) di Indonesia yang selama ini mengelola masjid secara manual — pencatatan keuangan di buku tulis, pengumuman lewat pengeras suara, pendaftaran jamaah via grup WhatsApp.",
     badge: "Siap Pakai",
     tags: ["Khusus Komunitas"],
     featured: false,
-    image: cdn("/images/products/Sistem_Manajemen_Ekosistem_Masjid.jpeg"),
+    image: cdn("/images/products/imam-platform.webp"),
   },
   {
     id: "pelatihan",
@@ -120,6 +120,6 @@ export const PRODUCTS: Product[] = [
       title: "Model pelatihan",
       items: ["On Site", "Hybrid", "Online", "Intensive Class", "One-Day Workshop"],
     },
-    image: cdn("/images/products/workshop-hardware-1.jpg"),
+    image: cdn("/images/products/pelatihan-hardware.webp"),
   },
 ];

@@ -33,8 +33,8 @@ export default function ServicesSection() {
         </p>
       </ScrollReveal>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div className="md:col-span-2">
+      <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+        <div className="sm:col-span-2 md:col-span-2">
           <ScrollReveal>
             <Card
               id="layanan-software"
@@ -85,7 +85,7 @@ export default function ServicesSection() {
 
         <div>
           <ScrollReveal delay={0.08}>
-            <Card id="layanan-iot" className="h-full scroll-mt-28 p-6">
+            <Card id="layanan-iot" className="h-full scroll-mt-28 p-4 md:p-6">
               <div className="w-fit rounded-lg bg-cream p-3">
                 <Cpu className="h-6 w-6 text-maroon-vibrant" />
               </div>
@@ -125,7 +125,7 @@ export default function ServicesSection() {
 
         <div>
           <ScrollReveal delay={0.12}>
-            <Card id="layanan-design" className="h-full scroll-mt-28 p-6">
+            <Card id="layanan-design" className="h-full scroll-mt-28 p-4 md:p-6">
               <div className="w-fit rounded-lg bg-cream p-3">
                 <Palette className="h-6 w-6 text-maroon-vibrant" />
               </div>
@@ -163,7 +163,7 @@ export default function ServicesSection() {
           </ScrollReveal>
         </div>
 
-        <div className="md:col-span-2">
+        <div className="sm:col-span-2 md:col-span-2">
           <ScrollReveal delay={0.16}>
             <Card
               id="layanan-workshop"
